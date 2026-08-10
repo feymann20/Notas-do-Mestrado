@@ -1,0 +1,319 @@
+% =====================================================================
+%  O GRUPO DE ROTACOES SO(3) E SUA ALGEBRA DE LIE
+%  Nivel: inicio de mestrado em Fisica Teorica
+%  Fonte: Computer Modern (padrao do pdfLaTeX, via codificacao T1/EC)
+%
+%  --------  COMO ALTERAR A FORMATACAO  --------------------------------
+%  Toda a configuracao visual esta CONCENTRADA neste preambulo e
+%  COMENTADA linha a linha. Para mudar margens, espacamento, recuo ou
+%  tamanho de fonte, edite apenas os blocos indicados abaixo.
+%
+%  --------  MARCACOES EM VERMELHO  ------------------------------------
+%  Tudo que foi ADICIONADO ou CORRIGIDO em relacao as notas originais
+%  aparece em vermelho, iniciado pelo adereco  >  (ver comando \nota).
+%  Para REMOVER todas as marcas de uma vez (deixar o texto uniforme),
+%  troque a definicao de \nota por:   \renewcommand{\nota}[1]{#1}
+% =====================================================================
+
+\documentclass[12pt,a4paper]{article}   % 12pt: corpo do texto (ABNT)
+
+% ---- Codificacao e idioma -------------------------------------------
+\usepackage[T1]{fontenc}     % ativa a Computer Modern em codificacao T1
+\usepackage[utf8]{inputenc}  % permite acentos digitados diretamente
+\usepackage[brazil]{babel}   % hifenizacao e termos em portugues (ABNT)
+
+% ---- Matematica ------------------------------------------------------
+\usepackage{amsmath,amssymb}
+\usepackage{bm}              % negrito matematico para vetores
+
+% ---- Layout ABNT -----------------------------------------------------
+% Margens ABNT: esquerda/superior 3 cm, direita/inferior 2 cm.
+\usepackage[left=3cm,top=3cm,right=2cm,bottom=2cm]{geometry}
+
+% Espacamento entre linhas 1,5 (ABNT para o corpo do texto).
+\usepackage{setspace}
+\onehalfspacing
+
+% Recuo da primeira linha do paragrafo = 1,25 cm (ABNT).
+\setlength{\parindent}{1.25cm}
+
+% Recua tambem o primeiro paragrafo apos cada titulo de secao.
+\usepackage{indentfirst}
+
+% ---- Cores e titulos -------------------------------------------------
+\usepackage{xcolor}
+\usepackage[small,bf]{titlesec}  % titulos discretos; remova p/ o padrao
+
+% =====================================================================
+%  COMANDO DE MARCACAO EM VERMELHO
+%  \nota{...} -> coloca o adereco vermelho ">" e escreve o trecho em
+%  vermelho ate o fim. Funciona em texto e dentro de equacoes.
+% =====================================================================
+\definecolor{vermelho}{rgb}{0.80,0.00,0.00}
+\newcommand{\nota}[1]{{\color{vermelho}%
+  \ifmmode\blacktriangleright\,#1\else$\blacktriangleright$\,#1\fi}}
+
+% ---- Abreviacoes uteis ----------------------------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\so}{\mathfrak{so}}
+\newcommand{\nvec}{\hat{\bm{n}}}          % versor do eixo
+\newcommand{\Jvec}{\bm{J}}                % vetor de geradores
+\newcommand{\ip}[2]{\langle #1,#2\rangle} % produto interno
+
+% =====================================================================
+\title{\textbf{O grupo de rota\c{c}\~oes $SO(3)$}\\[4pt]
+       \large Eixo de rota\c{c}\~ao, geradores infinitesimais e o mapa exponencial}
+\author{}          % preencha o autor, se desejar
+\date{}            % preencha a data, se desejar
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+\fbox{\parbox{0.92\linewidth}{\small
+\nota{Conven\c{c}\~ao: todo trecho em \textbf{vermelho}, iniciado pelo
+adereco ``$\blacktriangleright$'', foi adicionado ou corrigido na
+transcri\c{c}\~ao das notas manuscritas (passagens intermedi\'arias
+explicitadas, um sinal corrigido e as rela\c{c}\~oes de comuta\c{c}\~ao
+inclu\'idas). Para ocultar essas marcas, veja a instru\c{c}\~ao no topo
+do arquivo-fonte.}}}
+\end{center}
+
+% =====================================================================
+\section{O grupo $SO(n)$ e o eixo de rota\c{c}\~ao}
+% =====================================================================
+
+Definimos o \emph{grupo especial ortogonal} como o conjunto das
+matrizes reais que preservam o produto interno e t\^em determinante
+unit\'ario:
+\begin{equation}
+SO(n) := \bigl\{\, R\in M_n(\R) \;;\; \ip{Rx}{Ry}=\ip{x}{y}\ \
+\forall\,x,y\in\R^{n},\ \ \det R = 1 \,\bigr\}.
+\label{eq:defSO}
+\end{equation}
+A condi\c{c}\~ao $\ip{Rx}{Ry}=\ip{x}{y}$ equivale a $R^{\mathsf T}R=I$.
+Se $R,S\in SO(n)$ ent\~ao $RS\in SO(n)$, e $SO(n)$ \'e um \emph{grupo de
+Lie}.
+
+\medskip
+Mostremos que, para $n$ \'impar, toda rota\c{c}\~ao possui um
+\textbf{eixo fixo}. Como $RR^{\mathsf T}=I$,
+\begin{equation}
+\det(R-I)=\det\!\bigl(R(I-R^{\mathsf T})\bigr)
+        =\det R\;\det(I-R^{\mathsf T}).
+\end{equation}
+\nota{Usando $I-R^{\mathsf T}=-(R-I)^{\mathsf T}$ e
+$\det A^{\mathsf T}=\det A$,}
+\begin{equation}
+\det(I-R^{\mathsf T})=(-1)^{n}\det(R-I).
+\end{equation}
+Com $\det R = 1$ e $n=2k+1$ \'impar, $(-1)^{n}=-1$, de modo que
+\begin{equation}
+\det(R-I) = -\det(R-I)\quad\Longrightarrow\quad \det(R-I)=0.
+\end{equation}
+Logo existe $v\neq 0$ com $Rv=v$; equivalentemente,
+\begin{equation}
+1\in\sigma(R)\qquad\forall\,R\in SO(n),\ n\ \text{\'impar}.
+\end{equation}
+\nota{Esse autovetor de autovalor $1$ \'e justamente a dire\c{c}\~ao
+que a rota\c{c}\~ao deixa invariante --- o eixo.}
+
+% =====================================================================
+\section{Subespa\c{c}os invariantes}
+% =====================================================================
+
+Seja $W_R:=\ker(R-I)$ o subespa\c{c}o dos vetores fixos. Afirmamos que o
+seu complemento ortogonal $W_R^{\perp}$ tamb\'em \'e invariante por $R$.
+De fato, tomando $x\in W_R$ (logo $Rx=x$, e portanto $R^{\mathsf T}x=x$)
+e $y\in W_R^{\perp}$,
+\begin{equation}
+\ip{x}{Ry}=\ip{R^{\mathsf T}x}{y}=\ip{x}{y}=0,
+\end{equation}
+o que mostra $Ry\in W_R^{\perp}$. Consequentemente o espa\c{c}o se
+decomp\~oe como soma direta ortogonal,
+\begin{equation}
+V = W_R \oplus W_R^{\perp},
+\label{eq:decomp}
+\end{equation}
+com $W_R$ n\~ao trivial quando $n$ \'e \'impar (supondo $R\neq I$).
+
+% =====================================================================
+\section{A dimens\~ao do eixo em $SO(3)$}
+% =====================================================================
+
+Especializando \eqref{eq:decomp} para $n=3$ e $R\neq I$, analisamos
+$\dim W_R$:
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item Se $\dim W_R = 3$, ent\~ao $W_R=V$, todo vetor \'e fixo e $R=I$
+      --- exclu\'ido por hip\'otese.
+\item Se $\dim W_R = 2$, ent\~ao $\dim W_R^{\perp}=1$; tome
+      $0\neq y\in W_R^{\perp}$ com $Ry=\lambda y$. A preserva\c{c}\~ao
+      da norma exige
+      \begin{equation}
+      \ip{Ry}{Ry}=\lambda^{2}\lVert y\rVert^{2}=\lVert y\rVert^{2}
+      \;\Longrightarrow\; \lambda^{2}-1=0,\quad \lambda=\pm1.
+      \end{equation}
+      O valor $\lambda=+1$ recairia em $\dim W_R=3$; resta $\lambda=-1$,
+      mas ent\~ao $\det R = (+1)(+1)(-1) = -1$, \nota{contrariando
+      $\det R=1$. Logo $\dim W_R=2$ \'e imposs\'ivel.}
+\end{itemize}
+Portanto $\dim W_R = 1$: \nota{em $SO(3)$ toda rota\c{c}\~ao (n\~ao
+trivial) fixa \emph{exatamente} uma reta --- o eixo de rota\c{c}\~ao.}
+
+% =====================================================================
+\section{Rota\c{c}\~oes elementares e forma em blocos}
+% =====================================================================
+
+Em duas dimens\~oes, $SO(2)$ \'e o grupo das rota\c{c}\~oes do plano,
+\begin{equation}
+SO(2)=\left\{
+\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
+\end{pmatrix};\ \theta\in[0,2\pi)\right\}.
+\end{equation}
+Escolhendo uma base ortonormal cujo primeiro vetor aponte ao longo do
+eixo fixo, uma rota\c{c}\~ao de $SO(3)$ assume a forma em blocos
+\begin{equation}
+R=\begin{pmatrix} 1 & \bm{0}^{\mathsf T}\\[2pt] \bm{0} & \tilde R
+\end{pmatrix},\qquad \tilde R\in SO(2),
+\end{equation}
+que age trivialmente sobre o eixo e como rota\c{c}\~ao plana no
+complemento. As tr\^es rota\c{c}\~oes elementares em torno dos eixos
+coordenados s\~ao
+\begin{align}
+R_1(\varphi)&=\begin{pmatrix}
+1 & 0 & 0\\ 0 & \cos\varphi & -\sin\varphi\\ 0 & \sin\varphi & \cos\varphi
+\end{pmatrix},
+&
+R_2(\varphi)&=\begin{pmatrix}
+\cos\varphi & 0 & \nota{+\sin\varphi}\\ 0 & 1 & 0\\ -\sin\varphi & 0 & \cos\varphi
+\end{pmatrix},
+\\[4pt]
+R_3(\varphi)&=\begin{pmatrix}
+\cos\varphi & -\sin\varphi & 0\\ \sin\varphi & \cos\varphi & 0\\ 0 & 0 & 1
+\end{pmatrix}.
+\end{align}
+\nota{Corre\c{c}\~ao: nas notas, o elemento superior direito de
+$R_2$ aparecia como $-\sin\varphi$; o sinal correto \'e $+\sin\varphi$,
+como se v\^e ao derivar $R_2$ e comparar com o gerador $J_2$ obtido
+adiante.}
+
+% =====================================================================
+\section{Geradores infinitesimais e a \'algebra $\so(3)$}
+% =====================================================================
+
+Derivando cada rota\c{c}\~ao elementar na origem obtemos os
+\emph{geradores infinitesimais} $J_a := \dfrac{dR_a}{d\varphi}\Big|_{\varphi=0}$:
+\begin{equation}
+J_1=\begin{pmatrix}0&0&0\\0&0&-1\\0&1&0\end{pmatrix},\quad
+J_2=\begin{pmatrix}0&0&1\\0&0&0\\-1&0&0\end{pmatrix},\quad
+J_3=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&0\end{pmatrix}.
+\end{equation}
+Em componentes, $(J_a)_{ij}=-\varepsilon_{aij}$; s\~ao uma base do
+espa\c{c}o das matrizes antissim\'etricas $3\times3$. Assim
+\begin{equation}
+\so(3)=\mathrm{span}\{J_1,J_2,J_3\},
+\end{equation}
+que, munido do comutador $[\,\cdot\,,\cdot\,]$, \'e a \emph{\'algebra de
+Lie} do grupo. \nota{Sua estrutura \'e fixada pelas rela\c{c}\~oes de
+comuta\c{c}\~ao}
+\begin{equation}
+\nota{[J_a,J_b]=\varepsilon_{abc}\,J_c,}
+\label{eq:comm}
+\end{equation}
+\nota{que reproduzem, a menos de fatores, a \'algebra do momento angular.}
+Cada rota\c{c}\~ao elementar \'e recuperada pela exponencial,
+$R_a(\varphi)=\exp(\varphi J_a)$.
+
+% =====================================================================
+\section{O mapa exponencial e a pertin\^encia a $SO(3)$}
+% =====================================================================
+
+\noindent\textbf{Proposi\c{c}\~ao.} \emph{Seja $\theta\in[0,\pi]$ e
+$\nvec\in\R^{3}$ com $\lVert\nvec\rVert=1$. A rota\c{c}\~ao de \^angulo
+$\theta$ em torno de $\nvec$ \'e}
+\begin{equation}
+R(\theta,\nvec)=\exp\!\bigl(\theta\,\nvec\cdot\Jvec\bigr),
+\qquad
+\nvec\cdot\Jvec=\sum_i n_i J_i
+=\begin{pmatrix}0&-n_3&n_2\\ n_3&0&-n_1\\ -n_2&n_1&0\end{pmatrix}.
+\label{eq:nJ}
+\end{equation}
+\nota{Note que $(\nvec\cdot\Jvec)\,u=\nvec\times u$: a matriz
+\eqref{eq:nJ} \'e a do produto vetorial por $\nvec$.}
+
+\medskip
+A matriz $\nvec\cdot\Jvec$ \'e antissim\'etrica,
+$(\nvec\cdot\Jvec)^{\mathsf T}=-\,\nvec\cdot\Jvec$. Logo
+\begin{equation}
+\bigl[\exp(\theta\,\nvec\cdot\Jvec)\bigr]^{\mathsf T}
+=\exp\!\bigl(\theta\,(\nvec\cdot\Jvec)^{\mathsf T}\bigr)
+=\exp(-\theta\,\nvec\cdot\Jvec)
+=\bigl[\exp(\theta\,\nvec\cdot\Jvec)\bigr]^{-1},
+\end{equation}
+isto \'e, $\exp(\theta\,\nvec\cdot\Jvec)\in O(3)$. \nota{Al\'em disso,
+como o tra\c{c}o de uma matriz antissim\'etrica \'e nulo,}
+\begin{equation}
+\det\exp(\theta\,\nvec\cdot\Jvec)
+=\exp\!\bigl(\theta\,\mathrm{Tr}(\nvec\cdot\Jvec)\bigr)=e^{0}=1,
+\end{equation}
+e portanto $R(\theta,\nvec)\in SO(3)$.
+
+% =====================================================================
+\section{F\'ormula de Rodrigues e parametriza\c{c}\~ao de $SO(3)$}
+% =====================================================================
+
+A a\c{c}\~ao de $R(\theta,\nvec)$ sobre um vetor arbitr\'ario \'e dada
+pela \emph{f\'ormula de Rodrigues}
+\begin{equation}
+e^{\theta\,\nvec\cdot\Jvec}\,u
+= u + (1-\cos\theta)\,\nvec\times(\nvec\times u) + \sin\theta\,(\nvec\times u).
+\label{eq:rodrigues}
+\end{equation}
+Aplicada ao pr\'oprio eixo, com $\nvec\times\nvec=\bm 0$,
+\begin{equation}
+e^{\theta\,\nvec\cdot\Jvec}\,\nvec = \nvec,
+\end{equation}
+confirmando que $\nvec$ permanece fixo. Para $u\perp\nvec$, usamos
+\nota{a identidade $\nvec\times(\nvec\times u)=\nvec(\nvec\cdot u)-(\nvec\cdot\nvec)\,u$} em \eqref{eq:rodrigues}:
+\begin{align}
+e^{\theta\,\nvec\cdot\Jvec}\,u
+&= u + (1-\cos\theta)\bigl[\nvec(\nvec\cdot u)-u\bigr]+\sin\theta\,(\nvec\times u)
+\nonumber\\
+&= u\cos\theta + \sin\theta\,(\nvec\times u),
+\end{align}
+pois $\nvec\cdot u=0$ e $\lVert\nvec\rVert=1$. Analogamente,
+\begin{equation}
+e^{\theta\,\nvec\cdot\Jvec}\,(\nvec\times u)
+= -\sin\theta\,u + \cos\theta\,(\nvec\times u).
+\end{equation}
+\nota{Ou seja, no plano ortogonal a $\nvec$ o operador age exatamente
+como uma rota\c{c}\~ao de \^angulo $\theta$}, o que justifica a
+interpreta\c{c}\~ao geom\'etrica. Conclu\'imos que
+\begin{equation}
+\boxed{\;SO(3)=\bigl\{\exp(\theta\,\nvec\cdot\Jvec)\;;\;
+\theta\in[0,\pi],\ \nvec\in\R^{3},\ \lVert\nvec\rVert=1\bigr\}.\;}
+\end{equation}
+\nota{A exponencial \'e sobrejetiva sobre $SO(3)$ porque o grupo \'e
+conexo e compacto; o intervalo $[0,\pi]$ (e n\~ao $[0,2\pi]$) basta
+porque $R(\theta,\nvec)=R(2\pi-\theta,-\nvec)$.}
+
+% =====================================================================
+\section*{Refer\^encias}   % ABNT NBR 6023 (secao nao numerada)
+% =====================================================================
+\begin{flushleft}
+\setlength{\parindent}{0pt}
+
+\nota{HALL, B. C. \textbf{Lie Groups, Lie Algebras, and
+Representations}. 2. ed. New York: Springer, 2015.}
+
+\vspace{4pt}
+\nota{GILMORE, R. \textbf{Lie Groups, Physics, and Geometry}.
+Cambridge: Cambridge University Press, 2008.}
+
+\vspace{4pt}
+\nota{TUNG, W.-K. \textbf{Group Theory in Physics}. Singapore: World
+Scientific, 1985.}
+\end{flushleft}
+
+\end{document}

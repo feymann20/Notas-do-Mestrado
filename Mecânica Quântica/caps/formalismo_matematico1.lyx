@@ -1,0 +1,306 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options false
+\begin_modules
+enumitem
+theorems-ams
+eqs-within-sections
+\end_modules
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 2
+\use_package esint 2
+\use_package mathdots 2
+\use_package mathtools 2
+\use_package mhchem 2
+\use_package stackrel 2
+\use_package stmaryrd 2
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+O arcabouço físico-matemático da mecânica quântica se resume no estudo de Operadores lineares autoadjuntos definidos em Espaços vetoriais ditos Espaços de Hilbert.
+ Essas notas presumem conhecimento elementar em espaços métricos e álgebra linear ( e póssivelmente elementos de ánalise funcional).
+\end_layout
+
+\begin_layout Definition
+Considere o par 
+\begin_inset Formula $\left({\cal H},\langle,\rangle\right)$
+\end_inset
+
+.
+ Sendo 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ um espaço vetorial e 
+\begin_inset Formula $\langle,\rangle$
+\end_inset
+
+ uma forma bilinear sesquilinear.
+ Dizemos que o par é um espaço de Hilbert se 
+\begin_inset Formula $\left({\cal H},d\right)$
+\end_inset
+
+ for completo,
+ em que 
+\begin_inset Formula $d$
+\end_inset
+
+ é a métrica induzida pela forma sesquilinear.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A completeza de um espaço métrico é definida da seguinte maneira:
+ Seja 
+\begin_inset Formula $\left(x_{n}\right)_{\mathbb{N}}$
+\end_inset
+
+ uma sequência de cauchy,
+ se toda sequência de cauchy for convergente 
+\begin_inset Formula $\left(x_{n}\to x\in{\cal H}\right)$
+\end_inset
+
+ no espaço 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ então é dito que 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ é completo.
+ 
+\end_layout
+
+\begin_layout Standard
+Espaços vetoriais que possuem uma topologia são ditos espaços vetoriais topológicos.
+ ( Farei um apendice deles).
+ Todo espaço vetorial métrico ( Banach e Hilbert ) são espaços vetoriais topólogicos.
+\end_layout
+
+\begin_layout Standard
+Considere um conjunto de pontos enumeráveis.
+ Podemos representar uma função com sua função característica.
+ Ela será uma base.
+ Assim podemos representar como
+\begin_inset Formula 
+\[
+\left|f\right\rangle =\sum_{i\in I}f(x_{i})\left|x_{i}\right\rangle \ ,em\ que\ I\subset\mathbb{N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos definir o produto escalar entre duas funções 
+\begin_inset Formula $\left|f\right\rangle ,\left|g\right\rangle $
+\end_inset
+
+ da seguinte maneira:
+\begin_inset Formula 
+\[
+\left\langle f,g\right\rangle =\sum_{i}f^{*}(x_{i})g(x_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos definir um espaço mensurável 
+\begin_inset Formula $L_{2}(X,\Sigma,\mu)$
+\end_inset
+
+ nesse espaço podemos introduzir o produto interno da seguinte forma:
+\begin_inset Formula 
+\[
+\left\langle f,g\right\rangle :=\int_{X}d\mu(x)f^{*}g=\int_{A}f^{*}(x)g(x)w(x)dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com 
+\begin_inset Formula 
+\[
+\mu(A)=\int_{X}w(x)dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Complementar com o livro do botelho.)
+\end_layout
+
+\begin_layout Standard
+As distribuições são elementos importantes da teoria quântica.
+ Considere um espaço dito espaço das funções testes sendo dado por:
+\begin_inset Formula 
+\[
+D=\left\{ \phi:\mathbb{R}^{n}\to\mathbb{C};\phi\in{\cal C}^{\infty}\left(\mathbb{R}^{n}\right),\overline{supp(\phi)}\ é\ compacto\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Olhando para o conjunto das funções localmente integráveis 
+\begin_inset Formula $f\in L_{loc}^{1}(A)$
+\end_inset
+
+ podemos associa-la a um funcional linear contínuo 
+\begin_inset Formula $\tilde{f}$
+\end_inset
+
+ que age via ( teorema de representação de Riesz):
+\begin_inset Formula 
+\[
+\left\langle \tilde{f}|\phi\right\rangle =\int_{X}f^{*}(x)\phi(x)dx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O dual topológico do espaço das funções testes é o espaço das distribuições.
+ 
+\end_layout
+
+\begin_layout Standard
+Considere uma sequência de uma distribuição 
+\begin_inset Formula $\left\{ T_{n}\right\} _{\mathbb{N}}$
+\end_inset
+
+ se diz que essa sequência converge fracamente a 
+\begin_inset Formula $T$
+\end_inset
+
+ se,
+ e somente se para todo 
+\begin_inset Formula $\phi$
+\end_inset
+
+ a sequência 
+\begin_inset Formula $\left\langle T_{n},\phi\right\rangle \to\left\langle T,\phi\right\rangle $
+\end_inset
+
+ no sentido da norma do espaço 
+\begin_inset Formula $D$
+\end_inset
+
+.
+ Também podemos realizar uma multiplição de uma função por uma distribuição tal lei é imediata.
+ Podemos definir a derivada de uma distribuição como sendo:
+\begin_inset Formula 
+\[
+\left\langle \partial_{j}T,\phi\right\rangle \equiv-\left\langle T,\partial_{j}\phi\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uma distribuição é dita regular se existe uma função de teste que o seu dual corresponda a ela.
+ Caso contrário é dita singular.
+\end_layout
+
+\end_body
+\end_document

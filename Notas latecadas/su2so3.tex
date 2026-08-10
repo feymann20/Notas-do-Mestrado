@@ -1,0 +1,447 @@
+% =====================================================================
+%  SU(2) e SO(3) — o homomorfismo de recobrimento duplo
+%  Notas de aula (nível: início de mestrado em Física Teórica)
+%  Transcrição e edição de notas manuscritas.
+%
+%  CONVENÇÃO DE EDIÇÃO
+%  -------------------
+%  Texto em PRETO  ........ transcrição fiel das notas originais.
+%  Texto em VERMELHO (com o adereço ▸) ... acréscimos, correções e
+%                          passagens de rigor introduzidas nesta edição.
+%  Para "aceitar" todas as mudanças de uma só vez, basta trocar a cor
+%  de destaque para preto no painel abaixo (corDestaque -> {0,0,0}).
+% =====================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% ---------- codificação e idioma ----------
+\usepackage[T1]{fontenc}      % fontes EC = Computer Modern na codificação T1
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+
+% ---------- Computer Modern ----------
+% A fonte-padrão do LaTeX JÁ É a Computer Modern.
+% (NÃO carregar 'lmodern' nem 'times'/'newtx' para preservá-la.)
+
+% ---------- matemática ----------
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+
+% ---------- cor, layout, links ----------
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+% =====================================================================
+%  ██  PAINEL DE FORMATAÇÃO — edite livremente aqui  ██
+% =====================================================================
+
+% (1) Margens ABNT: esquerda/superior 3 cm, direita/inferior 2 cm.
+\geometry{left=3cm, top=3cm, right=2cm, bottom=2cm}
+
+% (2) Espaçamento entre linhas (ABNT = 1,5).
+%     Troque por \singlespacing ou \doublespacing se quiser.
+\onehalfspacing
+
+% (3) Recuo de primeira linha do parágrafo (ABNT ~ 1,25 cm).
+\setlength{\parindent}{1.25cm}
+
+% (4) Cor dos acréscimos/correções desta edição.
+%     >>> Mude para {0,0,0} (preto) para incorporar tudo ao texto. <<<
+\definecolor{corDestaque}{RGB}{190,25,25}
+
+% (5) Adereço (marcador) que abre cada trecho editado.
+\newcommand{\marcador}{\ensuremath{\color{corDestaque}\blacktriangleright}\,}
+
+% =====================================================================
+%  Comandos de destaque das edições
+% =====================================================================
+% \add{...}      -> trecho curto, em linha, em vermelho, iniciado por ▸
+% ambiente 'nota'-> bloco inteiro em vermelho, iniciado por ▸
+\newcommand{\add}[1]{{\marcador\color{corDestaque}#1}}
+\newenvironment{nota}{\par\color{corDestaque}\noindent\marcador\ignorespaces}{\par}
+
+% =====================================================================
+%  Abreviações matemáticas (edite/expanda conforme preferir)
+% =====================================================================
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\id}{\mathbb{1}}                 % matriz identidade
+\newcommand{\dg}{\dagger}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\su}{\mathfrak{su}}
+\newcommand{\so}{\mathfrak{so}}
+\newcommand{\vsig}{\vec{\sigma}}
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vn}{\hat{n}}
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\acomm}[2]{\left\{#1,#2\right\}}
+
+% ---------- ambientes de enunciado (estilo enxuto) ----------
+\theoremstyle{definition}
+\newtheorem{definicao}{Definição}
+\theoremstyle{plain}
+\newtheorem{proposicao}{Proposição}
+\theoremstyle{remark}
+\newtheorem*{observacao}{Observação}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% =====================================================================
+\title{\textbf{$SU(2)$ e $SO(3)$:\\[2pt] o homomorfismo de recobrimento duplo}}
+\author{Notas de aula\thanks{Transcrição editada de notas manuscritas. Nível: início de mestrado em Física Teórica.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{nota}
+\emph{Sobre esta edição.} O texto em preto reproduz as notas originais; o
+texto em vermelho, aberto pelo adereço \marcador, assinala acréscimos,
+correções e passagens de rigor introduzidas para tornar a leitura
+autossuficiente. Para incorporar todas as alterações ao corpo principal,
+basta trocar \texttt{corDestaque} para preto no painel de formatação.
+\end{nota}
+
+% =====================================================================
+\section{Introdução}
+% =====================================================================
+\begin{nota}
+Os grupos $SU(2)$ e $SO(3)$ têm a \emph{mesma} álgebra de Lie e, portanto,
+descrevem localmente as mesmas rotações; ainda assim, não são isomorfos. O
+objetivo destas notas é construir explicitamente um homomorfismo
+sobrejetor $R:SU(2)\to SO(3)$, determinar seu núcleo e concluir o
+isomorfismo
+\[
+  SO(3)\;\cong\;SU(2)/\Z_2 .
+\]
+Essa relação de recobrimento duplo (\emph{double cover}) é a origem
+algébrica do \emph{spin} semi-inteiro e do fato de que um elétron precisa
+girar $4\pi$ — e não $2\pi$ — para retornar ao estado inicial.
+\end{nota}
+
+% =====================================================================
+\section{O grupo $SU(2)$}
+% =====================================================================
+
+\begin{definicao}
+O grupo unitário especial de grau $2$ é
+\[
+  SU(2):=\bigl\{\,U\in M_2(\C)\ :\ U^{\dg}U=\id,\ \det U=1\,\bigr\}.
+\]
+\end{definicao}
+
+Impondo $U^{\dg}U=\id$ a uma matriz genérica, sua inversa é a adjunta.
+Comparando
+\[
+  U^{-1}=\begin{pmatrix} d & -b\\ -c & a\end{pmatrix}
+  =\begin{pmatrix} \bar a & \bar c\\ \bar b & \bar d\end{pmatrix}
+  \;\Longrightarrow\;
+  U=\begin{pmatrix} a & b\\ -\bar b & \bar a\end{pmatrix},
+\]
+de modo que todo elemento se escreve como
+\begin{equation}\label{eq:formaU}
+  SU(2)=\left\{
+    \begin{pmatrix} a & b\\ -\bar b & \bar a\end{pmatrix}
+    \ :\ a,b\in\C,\ |a|^2+|b|^2=1
+  \right\},
+\end{equation}
+pois $\det U=|a|^2+|b|^2=1$.
+
+Separando parte real e imaginária, $a=a_1+ia_2$ e $b=b_1+ib_2$, obtemos
+\begin{equation}\label{eq:Upauli}
+  U=\begin{pmatrix} a_1+ia_2 & b_1+ib_2\\ -b_1+ib_2 & a_1-ia_2\end{pmatrix}
+   = a_1\,\id + i\,\vec b\cdot\vsig ,
+\end{equation}
+onde $\vec b=(b_2,b_1,a_2)$ e $\vsig=(\sigma_1,\sigma_2,\sigma_3)$ são as
+matrizes de Pauli
+\[
+  \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+  \sigma_2=\begin{pmatrix}0&-i\\ i&0\end{pmatrix},\quad
+  \sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+
+\begin{observacao}
+A condição $a_1^2+a_2^2+b_1^2+b_2^2=1$ identifica $SU(2)$, como variedade,
+com a esfera $S^3\subset\R^4$. \add{Em particular, $SU(2)$ é conexo e
+simplesmente conexo — fato que usaremos adiante.}
+\end{observacao}
+
+As matrizes de Pauli satisfazem a relação fundamental
+\begin{equation}\label{eq:pauliprod}
+  \sigma_i\sigma_j=\delta_{ij}\,\id+i\,\varepsilon_{ijk}\,\sigma_k,
+\end{equation}
+da qual seguem, tomando parte antissimétrica e simétrica,
+\begin{align}
+  \comm{\sigma_i}{\sigma_j}&=2i\,\varepsilon_{ijk}\,\sigma_k,\label{eq:commpauli}\\
+  \acomm{\sigma_i}{\sigma_j}&=2\,\delta_{ij}\,\id.\label{eq:acommpauli}
+\end{align}
+\add{Delas decorrem ainda $\Tr\sigma_i=0$ e a relação de ortogonalidade}
+\begin{equation}\label{eq:traco}
+  \add{\Tr(\sigma_i\sigma_j)=2\,\delta_{ij},}
+\end{equation}
+\add{que será a ferramenta para extrair componentes de uma matriz.}
+
+% =====================================================================
+\section{A correspondência vetor--matriz}
+% =====================================================================
+
+A cada vetor $\vx=(x_1,x_2,x_3)\in\R^3$ associamos a matriz
+\begin{equation}\label{eq:X}
+  X:=\vx\cdot\vsig=
+  \begin{pmatrix} x_3 & x_1-ix_2\\ x_1+ix_2 & -x_3\end{pmatrix}.
+\end{equation}
+Ela é \emph{hermitiana} ($X^{\dg}=X$) e tem \emph{traço nulo}
+($\Tr X=0$). Além disso,
+\begin{equation}\label{eq:detX}
+  \det X=-x_3^2-(x_1^2+x_2^2)=-\,|\vx|^2 .
+\end{equation}
+
+\begin{nota}
+A correspondência $\vx\mapsto X$ é um isomorfismo linear entre $\R^3$ e o
+espaço vetorial real das matrizes $2\times2$ hermitianas de traço nulo, que
+tem dimensão $3$ e admite $\{\sigma_1,\sigma_2,\sigma_3\}$ como base. A
+inversa é dada explicitamente por
+\[
+  x_i=\tfrac12\,\Tr(\sigma_i X),
+\]
+como se verifica usando \eqref{eq:traco}. Esse ponto — omitido nas notas —
+é o que garante que qualquer matriz hermitiana de traço nulo possa ser
+reescrita na forma $\vx\cdot\vsig$.
+\end{nota}
+
+% =====================================================================
+\section{A ação de $SU(2)$ e a rotação induzida}
+% =====================================================================
+
+Dado $U\in SU(2)$, definimos a ação por conjugação
+\begin{equation}\label{eq:acao}
+  X\;\longmapsto\;X'=U\,X\,U^{\dg}.
+\end{equation}
+
+\begin{proposicao}\label{prop:invariantes}
+Se $X$ é hermitiana de traço nulo, então $X'=UXU^{\dg}$ também o é, e
+$\det X'=\det X$.
+\end{proposicao}
+\begin{proof}
+Hermiticidade e traço:
+\begin{gather*}
+  (X')^{\dg}=(UXU^{\dg})^{\dg}=U X^{\dg} U^{\dg}=UXU^{\dg}=X',\\[2pt]
+  \Tr X'=\Tr(UXU^{\dg})=\Tr(X\,U^{\dg}U)=\Tr X=0 .
+\end{gather*}
+Determinante, usando $\det U=1$:
+\[
+  \det X'=\det U\,\det X\,\det U^{\dg}=\det X. \qedhere
+\]
+\end{proof}
+
+Pela Proposição~\ref{prop:invariantes}, $X'$ é novamente da forma
+$X'=\vx'\cdot\vsig$ para algum $\vx'\in\R^3$, e de \eqref{eq:detX} com
+$\det X'=\det X$ segue
+\begin{equation}\label{eq:norma}
+  |\vx'|^2=|\vx|^2 .
+\end{equation}
+
+\begin{nota}
+A aplicação $\vx\mapsto\vx'$ é \emph{linear}: a ação \eqref{eq:acao} é linear
+em $X$ e as passagens $\vx\leftrightarrow X$ o são. Uma transformação linear
+de $\R^3$ que preserva a norma \eqref{eq:norma} é ortogonal; logo existe
+$R(U)\in O(3)$ com
+\[
+  \vx'=R(U)\,\vx .
+\]
+Ainda falta mostrar que $\det R(U)=+1$, i.e.\ que $R(U)\in SO(3)$
+(Seção~\ref{sec:hom}).
+\end{nota}
+
+Combinando $x'_i=\tfrac12\Tr(\sigma_i X')$ com $X'=U(x_j\sigma_j)U^{\dg}$,
+obtemos a forma explícita das componentes de $R(U)$:
+\begin{equation}\label{eq:Rij}
+  \boxed{\,R_{ij}(U)=\tfrac12\,\Tr\!\bigl(\sigma_i\,U\,\sigma_j\,U^{\dg}\bigr).\,}
+\end{equation}
+
+% =====================================================================
+\section{$R$ é homomorfismo e $\det R=1$}\label{sec:hom}
+% =====================================================================
+
+\begin{proposicao}
+A aplicação $R:SU(2)\to O(3)$ definida por \eqref{eq:Rij} é um
+homomorfismo de grupos.
+\end{proposicao}
+\begin{proof}
+Para $U_1,U_2\in SU(2)$,
+\[
+  (U_1U_2)\,X\,(U_1U_2)^{\dg}=U_1\bigl(U_2 X U_2^{\dg}\bigr)U_1^{\dg},
+\]
+isto é, conjugar por $U_1U_2$ equivale a conjugar por $U_2$ e depois por
+$U_1$. Traduzindo para $\R^3$, $R(U_1U_2)=R(U_1)R(U_2)$.
+\end{proof}
+
+\begin{proposicao}
+$\det R(U)=1$ para todo $U\in SU(2)$; portanto $R(U)\in SO(3)$.
+\end{proposicao}
+\begin{proof}
+\add{A aplicação $U\mapsto\det R(U)$ é contínua e toma valores no conjunto
+discreto $\{+1,-1\}$ (pois $R(U)\in O(3)$). Como $SU(2)$ é conexo, sua
+imagem por uma função contínua é conexa; logo $\det R(U)$ é constante. Em
+$U=\id$ temos $R(\id)=\id$ e $\det R(\id)=1$, donde $\det R(U)=1$ para
+todo $U$.}
+\end{proof}
+
+% =====================================================================
+\section{Núcleo, sobrejetividade e o isomorfismo}
+% =====================================================================
+
+\subsection*{Núcleo}
+Por definição,
+\[
+  \ker R=\{\,U\in SU(2)\ :\ R(U)=\id\,\}
+        =\{\,U\ :\ UXU^{\dg}=X\ \ \forall\,X\,\},
+\]
+ou seja, $U$ comuta com $\sigma_1,\sigma_2,\sigma_3$.
+\add{Como as matrizes de Pauli, junto com $\id$, geram toda a álgebra
+$M_2(\C)$, comutar com todas elas obriga $U$ a comutar com \emph{qualquer}
+matriz $2\times2$; pelo Lema de Schur, $U=\lambda\id$.} De $\det U=1$ segue
+$\lambda^2=1$, isto é, $\lambda=\pm1$. Logo
+\begin{equation}\label{eq:kernel}
+  \ker R=\{+\id,\,-\id\}\cong\Z_2 .
+\end{equation}
+Em particular $R(U)=R(-U)$: a aplicação é \emph{dois-para-um}.
+
+\subsection*{Sobrejetividade}
+\begin{proposicao}\label{prop:exp}
+Para $\vn\in\R^3$ unitário e $\theta\in\R$,
+\begin{equation}\label{eq:expU}
+  U(\theta,\vn)=\exp\!\Bigl(-\tfrac{i\theta}{2}\,\vn\cdot\vsig\Bigr)
+  =\cos\tfrac{\theta}{2}\,\id-i\,\sin\tfrac{\theta}{2}\,\vn\cdot\vsig
+  \ \in SU(2),
+\end{equation}
+e $R\bigl(U(\theta,\vn)\bigr)$ é a rotação de ângulo $\theta$ em torno do
+eixo $\vn$.
+\end{proposicao}
+\begin{nota}
+A expansão em \eqref{eq:expU} usa $(\vn\cdot\vsig)^2=\id$, consequência de
+\eqref{eq:pauliprod} com $|\vn|=1$. Como $\theta$ e $\vn$ são arbitrários e
+toda rotação de $SO(3)$ é uma rotação por um ângulo em torno de um eixo
+(teorema de Euler), a Proposição~\ref{prop:exp} mostra que $R$ é
+sobrejetora. A identificação explícita de $R(U)$ com uma rotação é feita no
+exemplo da Seção~\ref{sec:exemplo}.
+\end{nota}
+
+\subsection*{O isomorfismo}
+Com $R$ homomorfismo sobrejetor e $\ker R\cong\Z_2$, o teorema fundamental
+do isomorfismo fornece
+\begin{equation}\label{eq:iso}
+  \boxed{\,SU(2)/\Z_2\;\cong\;SO(3).\,}
+\end{equation}
+
+% =====================================================================
+\section{Exemplo: rotação em torno de $z$}\label{sec:exemplo}
+% =====================================================================
+
+Tomando $\vn=\hat z=(0,0,1)$ em \eqref{eq:expU},
+\[
+  U=\cos\tfrac{\theta}{2}\,\id-i\sin\tfrac{\theta}{2}\,\sigma_3
+   =\begin{pmatrix} e^{-i\theta/2} & 0\\ 0 & e^{i\theta/2}\end{pmatrix}.
+\]
+Conjugando $X=\vx\cdot\vsig$,
+\[
+  X'=UXU^{\dg}
+    =\begin{pmatrix} x_3 & e^{-i\theta}(x_1-ix_2)\\
+                     e^{i\theta}(x_1+ix_2) & -x_3\end{pmatrix},
+\]
+de onde se lê, comparando com \eqref{eq:X},
+\[
+  \begin{aligned}
+    x_1'&=x_1\cos\theta-x_2\sin\theta,\\
+    x_2'&=x_1\sin\theta+x_2\cos\theta,\\
+    x_3'&=x_3,
+  \end{aligned}
+  \qquad\Longleftrightarrow\qquad
+  R(U)=\begin{pmatrix}
+    \cos\theta & -\sin\theta & 0\\
+    \sin\theta & \phantom{-}\cos\theta & 0\\
+    0 & 0 & 1
+  \end{pmatrix},
+\]
+exatamente a rotação de ângulo $\theta$ em torno de $\hat z$.
+
+% =====================================================================
+\section{Recobrimento duplo e álgebra de Lie}
+% =====================================================================
+
+\subsection*{Recobrimento duplo}
+Substituindo $\theta\to\theta+2\pi$ em \eqref{eq:expU},
+\[
+  U(\theta+2\pi,\vn)
+  =\cos\!\Bigl(\tfrac{\theta}{2}+\pi\Bigr)\id
+   -i\sin\!\Bigl(\tfrac{\theta}{2}+\pi\Bigr)\vn\cdot\vsig
+  =-\,U(\theta,\vn),
+\]
+enquanto a rotação não muda: $R\bigl(U(\theta+2\pi)\bigr)=R(-U)=R(U)$.
+É preciso variar $\theta$ de $0$ a $4\pi$ para que $U$ retorne ao valor
+inicial, ao passo que $R$ já se repete em $2\pi$. Esse é o sentido preciso
+de $SU(2)$ ser o \emph{recobrimento duplo} de $SO(3)$.
+
+\begin{nota}
+Topologicamente, $SU(2)\cong S^3$ é simplesmente conexo, enquanto
+$SO(3)\cong \R P^3$ tem grupo fundamental $\pi_1(SO(3))\cong\Z_2$. A
+projeção $S^3\to\R P^3$ que identifica pontos antípodas ($U\sim -U$) é
+precisamente a aplicação $R$.
+\end{nota}
+
+\subsection*{Isomorfismo das álgebras de Lie}
+Os geradores anti-hermitianos de $\su(2)$,
+\[
+  J_a=-\,\frac{i}{2}\,\sigma_a,
+  \qquad
+  \comm{J_a}{J_b}=\varepsilon_{abc}\,J_c,
+\]
+têm as \emph{mesmas} constantes de estrutura que os geradores de $\so(3)$,
+$(T_a)_{bc}=-\varepsilon_{abc}$, os quais satisfazem
+$\comm{T_a}{T_b}=\varepsilon_{abc}T_c$. A aplicação linear
+$\varphi:\su(2)\to\so(3)$, $\varphi(J_a)=T_a$, preserva o colchete,
+\[
+  \varphi\bigl(\comm{J_a}{J_b}\bigr)=\comm{\varphi(J_a)}{\varphi(J_b)},
+\]
+e é bijetora; portanto
+\begin{equation}\label{eq:isoalg}
+  \su(2)\cong\so(3).
+\end{equation}
+\add{As álgebras são isomorfas (os grupos são localmente idênticos), mas os
+\emph{grupos} não o são: a diferença é inteiramente global, capturada por
+$\ker R\cong\Z_2$ em \eqref{eq:kernel}.}
+
+% =====================================================================
+\section{Consequências físicas}
+% =====================================================================
+\begin{itemize}[leftmargin=1.6em,itemsep=2pt]
+  \item As representações irredutíveis de $SU(2)$ são rotuladas por
+        $j=0,\tfrac12,1,\tfrac32,\dots$. As de spin semi-inteiro
+        \emph{não} são representações (uni-valentes) de $SO(3)$: sob elas,
+        $U$ e $-U$ agem distintamente, embora correspondam à mesma rotação.
+  \item Um estado de spin $\tfrac12$ adquire fase $-1$ sob rotação de
+        $2\pi$ e só retorna a si mesmo após $4\pi$ — manifestação direta de
+        $U(2\pi,\vn)=-\id$.
+\end{itemize}
+
+% =====================================================================
+\begin{nota}
+\section*{Referências}
+\addcontentsline{toc}{section}{Referências}
+As referências abaixo, todas padrão para o tema, foram acrescentadas nesta
+edição.
+\begin{itemize}[leftmargin=1.6em,itemsep=2pt]
+  \item HALL, B. C. \emph{Lie Groups, Lie Algebras, and Representations}.
+        2.~ed. Springer, 2015.
+  \item GEORGI, H. \emph{Lie Algebras in Particle Physics}.
+        2.~ed. Westview Press, 1999.
+  \item SAKURAI, J. J.; NAPOLITANO, J. \emph{Modern Quantum Mechanics}.
+        2.~ed. Cambridge University Press, 2017.
+  \item TUNG, W.-K. \emph{Group Theory in Physics}. World Scientific, 1985.
+\end{itemize}
+\end{nota}
+
+\end{document}

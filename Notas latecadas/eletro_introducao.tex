@@ -1,0 +1,676 @@
+%==============================================================================
+%  Eletromagnetismo — Uma breve introdução
+%  Notas transcritas e reorganizadas a partir de manuscrito.
+%  Base bibliográfica: A. Zangwill, "Modern Electrodynamics".
+%
+%  >>> COMO ALTERAR A FORMATAÇÃO <<<
+%  Todos os parâmetros de formatação (fonte, margens, espaçamento, cor das
+%  marcações) estão reunidos e comentados no bloco "PARÂMETROS" logo abaixo.
+%  Basta editar ali; o corpo do texto não precisa ser tocado.
+%
+%  Convenção de revisão:
+%  - Tudo em PRETO é transcrição fiel do manuscrito.
+%  - Tudo em VERMELHO foi ADICIONADO ou CORRIGIDO por quem digitou.
+%    Trechos curtos:  \add{...}
+%    Trechos longos:  ambiente  \begin{nota} ... \end{nota}
+%    (ambos começam com o adereço vermelho  >  e terminam em vermelho)
+%==============================================================================
+\documentclass[12pt,a4paper]{article}
+
+%------------------------------------------------------------------ codificação
+\usepackage[T1]{fontenc}          % fontes Computer Modern com acentuação (EC/T1)
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\babelprovide[import, main]{brazilian}   % português do Brasil (hifenização/rótulos)
+
+%------------------------------------------------------------------ matemática
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}                   % negrito matemático para vetores
+
+%==============================================================================
+%  PARÂMETROS  (edite aqui para reformatar tudo)
+%==============================================================================
+% -- Fonte -------------------------------------------------------------------
+%    Padrão: Computer Modern (fonte nativa do LaTeX), conforme solicitado.
+%    Para trocar por Latin Modern, descomente a linha abaixo (se instalado):
+% \usepackage{lmodern}
+%    Para Times/ABNT estrito: \usepackage{mathptmx}
+
+% -- Margens (ABNT NBR 14724: esq./sup. 3 cm, dir./inf. 2 cm) -----------------
+\usepackage[a4paper,left=3cm,top=3cm,right=2cm,bottom=2cm]{geometry}
+
+% -- Espaçamento entre linhas (ABNT: 1,5) ------------------------------------
+\usepackage{setspace}
+\onehalfspacing
+
+% -- Recuo de primeira linha (ABNT: parágrafo indentado, inclusive o 1.o) -----
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+
+% -- Cores e marcação de revisão ---------------------------------------------
+\usepackage{xcolor}
+\definecolor{coradd}{RGB}{200,0,0}       % vermelho das adições/correções
+\newcommand{\adereco}{\textcolor{coradd}{\ensuremath{\blacktriangleright}}} % adereço
+% adição/correção curta (em linha): abre com adereço, texto vermelho
+\newcommand{\add}[1]{\adereco\,\textcolor{coradd}{#1}}
+% adição/correção longa (bloco): começa com adereço e termina em vermelho
+\newenvironment{nota}
+  {\par\nobreak\vspace{2pt}\noindent\adereco\ \bgroup\color{coradd}}
+  {\ \textcolor{coradd}{$\blacktriangleleft$}\egroup\par\vspace{2pt}}
+
+% -- Tolerância de justificação (evita texto invadindo a margem) --------------
+\setlength{\emergencystretch}{3em}
+
+% -- Links e utilidades -------------------------------------------------------
+\usepackage{amsthm}
+\usepackage[hidelinks]{hyperref}
+
+% -- Ambientes de destaque ----------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{exemplo}{Exemplo}[section]
+\theoremstyle{remark}
+\newtheorem*{obs}{Observação}
+
+%------------------------------------------------------------------ atalhos math
+\renewcommand{\vec}[1]{\bm{#1}}          % vetores em negrito
+\newcommand{\uvec}[1]{\hat{\bm{#1}}}     % versores
+\newcommand{\grad}{\vec{\nabla}}
+\newcommand{\dpar}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\rsep}{\bm{\mathcal{R}}}     % vetor separação (script-r de Zangwill)
+\newcommand{\usep}{\hat{\bm{\mathcal{R}}}}
+\newcommand{\Rsep}{\mathcal{R}}          % módulo do vetor separação
+\newcommand{\eps}{\varepsilon_{0}}
+
+%==============================================================================
+\begin{document}
+
+%------------------------------------------------------------------ título ABNT
+\begin{center}
+  {\Large\bfseries Eletromagnetismo — Uma breve introdução}\\[4pt]
+  {\large Preliminares Matemáticos e Eletrostática}\\[10pt]
+  {\normalsize Notas de estudo}\\[2pt]
+  \add{Baseado em A.~Zangwill, \textit{Modern Electrodynamics} (unidades SI).}\\[6pt]
+  \rule{\textwidth}{0.4pt}
+\end{center}
+
+\begin{nota}
+Legenda desta revisão: o texto em preto reproduz o manuscrito; o texto em
+vermelho, iniciado pelo adereço $\blacktriangleright$, indica passagens
+adicionadas ou corrigidas na digitação (fechamento das lacunas de notação,
+resultados finais de contas apenas esboçadas e acertos de sinais/índices).
+\end{nota}
+
+\tableofcontents
+\bigskip
+\hrule
+\bigskip
+
+%##############################################################################
+\section{Preliminares matemáticos}
+%##############################################################################
+
+\subsection{Álgebra vetorial e a convenção de Einstein}
+
+Seja $\{\vec{e}_i\}$, $i=1,2,3$, um conjunto ortonormal no espaço
+$(\mathbb{R}^3,\langle\,\cdot\,,\cdot\,\rangle)$, onde $\langle\,\cdot\,,\cdot\,\rangle$
+denota um produto interno. Um vetor $\vec{V}$, suposto expresso nessa base, é dado
+pela combinação linear
+\begin{equation}
+  \vec{V}=\sum_{i=1}^{3} V_i\,\vec{e}_i .
+\end{equation}
+Usando a \textbf{convenção de soma de Einstein} (índices repetidos, um em cima e
+outro embaixo, são somados), escrevemos simplesmente $\vec{V}=V^{i}\vec{e}_i$.
+
+Considere $\{\vec{e}\,'_j\}$ outro conjunto ortonormal. Ele se relaciona ao
+primeiro por
+\begin{equation}
+  \vec{e}\,'_j=\sum_i A^{\,i}{}_{j}\,\vec{e}_i=A^{\,i}{}_{j}\,\vec{e}_i,
+  \qquad\text{onde}\qquad
+  A^{\,i}{}_{j}=\langle \vec{e}_i,\vec{e}\,'_j\rangle .
+\end{equation}
+\begin{nota}
+A matriz $A^{\,i}{}_{j}$ é a matriz de mudança de base; como ambas as bases são
+ortonormais, $A$ é ortogonal ($A^{\mathsf{T}}A=\mathbb{1}$), de modo que
+preserva comprimentos e ângulos.
+\end{nota}
+
+Definimos que, em um \textbf{sistema cartesiano} $\{\vec{e}_i\}$,
+\begin{equation}
+  \langle \vec{e}_i,\vec{e}_j\rangle=\delta_{ij}
+  \qquad\text{e}\qquad
+  \dpar{\vec{e}_j}{x^i}=\vec{0}.
+  \label{eq:cartesiano}
+\end{equation}
+Isto é, os versores cartesianos são ortonormais e constantes (não variam de ponto
+a ponto). O \textbf{vetor posição} é
+\begin{equation}
+  \vec{r}=x\,\vec{e}_1+y\,\vec{e}_2+z\,\vec{e}_3=x^{i}\vec{e}_i .
+\end{equation}
+Numa segunda base, $\vec{r}=x^{i}\vec{e}_i=x^{i}A^{\,j}{}_{i}\vec{e}\,'_j
+=\tilde{x}^{\,j}\vec{e}\,'_j$, com $\tilde{x}^{\,j}=A^{\,j}{}_{i}x^{i}$; as
+componentes transformam-se de modo contravariante às da base.
+
+\subsection{As quatro operações vetoriais}
+
+Grandezas vetoriais possuem \emph{módulo} e \emph{direção}; grandezas escalares,
+apenas módulo. Denotamos vetores por $\vec{A}$ e seu módulo por $|\vec{A}|=A$.
+Sobre $\mathbb{R}^3$ definem-se quatro operações.
+
+\paragraph{(i) Adição.} Comutativa e associativa,
+\(
+  \vec{A}+\vec{B}=\vec{B}+\vec{A}.
+\)
+
+\paragraph{(ii) Multiplicação por escalar.} Distributiva,
+\(
+  a(\vec{A}+\vec{B})=a\vec{A}+a\vec{B}.
+\)
+
+\paragraph{(iii) Produto escalar.}
+\begin{equation}
+  \vec{A}\cdot\vec{B}=AB\cos\theta,
+\end{equation}
+sendo $\theta$ o ângulo entre os vetores. É comutativo e distributivo:
+\(
+  \vec{A}\cdot\vec{B}=\vec{B}\cdot\vec{A}
+\)
+e
+\(
+  \vec{A}\cdot(\vec{B}+\vec{C})=\vec{A}\cdot\vec{B}+\vec{A}\cdot\vec{C}.
+\)
+Vetores perpendiculares têm $\vec{A}\cdot\vec{B}=0$; e $\vec{A}\cdot\vec{A}=A^2$.
+
+\paragraph{(iv) Produto vetorial.}
+\begin{equation}
+  \vec{A}\times\vec{B}=AB\sin\theta\,\uvec{n},
+\end{equation}
+com $\uvec{n}$ o versor perpendicular ao plano de $\vec{A}$ e $\vec{B}$, orientado
+pela regra da mão direita. É \add{anticomutativo} e distributivo:
+\begin{equation}
+  \vec{A}\times\vec{B}=-\,\vec{B}\times\vec{A},
+  \qquad
+  \vec{A}\times(\vec{B}+\vec{C})=\vec{A}\times\vec{B}+\vec{A}\times\vec{C},
+  \qquad
+  \vec{A}\times\vec{A}=\vec{0}.
+\end{equation}
+
+\subsection{Componentes cartesianas}
+
+Na base ortonormal $\{\uvec{x},\uvec{y},\uvec{z}\}$, escrevemos
+$\vec{A}=A_x\uvec{x}+A_y\uvec{y}+A_z\uvec{z}$. Como
+$\uvec{x}\cdot\uvec{x}=\uvec{y}\cdot\uvec{y}=\uvec{z}\cdot\uvec{z}=1$ e os produtos
+cruzados são nulos,
+\begin{align}
+  \vec{A}\cdot\vec{B}&=A_xB_x+A_yB_y+A_zB_z,\\
+  \vec{A}\times\vec{B}&=
+  \begin{vmatrix}
+    \uvec{x} & \uvec{y} & \uvec{z}\\
+    A_x & A_y & A_z\\
+    B_x & B_y & B_z
+  \end{vmatrix}.
+\end{align}
+\begin{nota}
+Em notação de índices, com o símbolo de Levi-Civita $\epsilon_{ijk}$,
+\(
+  (\vec{A}\times\vec{B})_i=\epsilon_{ijk}A_jB_k,
+\)
+o que reproduz as duas identidades acima.
+\end{nota}
+
+\subsection{Produtos triplos}
+
+\paragraph{Produto triplo escalar.} Vale a permutação cíclica
+\begin{equation}
+  \vec{A}\cdot(\vec{B}\times\vec{C})
+  =\vec{B}\cdot(\vec{C}\times\vec{A})
+  =\vec{C}\cdot(\vec{A}\times\vec{B})
+  =\begin{vmatrix}
+    A_x & A_y & A_z\\ B_x & B_y & B_z\\ C_x & C_y & C_z
+  \end{vmatrix},
+\end{equation}
+\add{numericamente igual ao volume do paralelepípedo gerado por
+$\vec{A},\vec{B},\vec{C}$.}
+
+\paragraph{Produto triplo vetorial.} Regra ``BAC-CAB'':
+\begin{equation}
+  \vec{A}\times(\vec{B}\times\vec{C})
+  =\vec{B}\,(\vec{A}\cdot\vec{C})-\vec{C}\,(\vec{A}\cdot\vec{B}).
+\end{equation}
+
+\subsection{Vetores posição, deslocamento e separação}
+
+O vetor posição é $\vec{r}=x\uvec{x}+y\uvec{y}+z\uvec{z}$, com
+$r=\sqrt{x^2+y^2+z^2}$ e $\uvec{r}=\vec{r}/r$. O deslocamento infinitesimal é
+\begin{equation}
+  \mathrm{d}\vec{l}=\mathrm{d}x\,\uvec{x}+\mathrm{d}y\,\uvec{y}+\mathrm{d}z\,\uvec{z}.
+\end{equation}
+Em problemas de fontes, distingue-se o ponto de campo $\vec{r}$ do ponto de fonte
+$\vec{r}\,'$. O \textbf{vetor separação} (o \emph{script-r} de Zangwill) é
+\begin{equation}
+  \rsep=\vec{r}-\vec{r}\,',\qquad
+  \Rsep=|\vec{r}-\vec{r}\,'|,\qquad
+  \usep=\frac{\vec{r}-\vec{r}\,'}{|\vec{r}-\vec{r}\,'|}.
+\end{equation}
+
+\subsection{Cálculo diferencial: gradiente e o operador \texorpdfstring{$\grad$}{nabla}}
+
+Para $f(x)$, a derivada mede a taxa de variação: $\mathrm{d}f=f'(x)\,\mathrm{d}x$.
+Para um campo escalar $f(x,y,z)$,
+\begin{equation}
+  \mathrm{d}f=\dpar{f}{x}\mathrm{d}x+\dpar{f}{y}\mathrm{d}y+\dpar{f}{z}\mathrm{d}z
+           =\grad f\cdot\mathrm{d}\vec{l},
+\end{equation}
+o que \emph{define} o \textbf{gradiente}
+\begin{equation}
+  \grad f=\dpar{f}{x}\uvec{x}+\dpar{f}{y}\uvec{y}+\dpar{f}{z}\uvec{z}.
+\end{equation}
+\begin{nota}
+Interpretação: $\mathrm{d}f=|\grad f|\,|\mathrm{d}\vec{l}|\cos\theta$ é máximo
+quando $\mathrm{d}\vec{l}\parallel\grad f$. Logo $\grad f$ aponta na direção de
+crescimento mais rápido de $f$, e $|\grad f|$ é essa taxa máxima. Onde
+$\grad f=\vec{0}$, o ponto é estacionário.
+\end{nota}
+O operador \textbf{del} é o objeto vetorial
+\begin{equation}
+  \grad=\uvec{x}\,\dpar{}{x}+\uvec{y}\,\dpar{}{y}+\uvec{z}\,\dpar{}{z},
+\end{equation}
+que atua de três formas: como gradiente ($\grad f$), como divergente
+($\grad\cdot\vec{v}$) e como rotacional ($\grad\times\vec{v}$).
+
+\paragraph{Divergente.}
+\begin{equation}
+  \grad\cdot\vec{v}=\dpar{v_x}{x}+\dpar{v_y}{y}+\dpar{v_z}{z}
+\end{equation}
+é um escalar que mede o quanto o campo ``diverge'' de um ponto (fluxo por unidade
+de volume).
+
+\paragraph{Rotacional.}
+\begin{equation}
+  \grad\times\vec{v}=
+  \begin{vmatrix}
+    \uvec{x} & \uvec{y} & \uvec{z}\\[2pt]
+    \dpar{}{x} & \dpar{}{y} & \dpar{}{z}\\[4pt]
+    v_x & v_y & v_z
+  \end{vmatrix}
+\end{equation}
+é um vetor que mede a circulação local (rotação) do campo.
+
+\subsection{Regras de produto e segundas derivadas}
+
+\add{As regras de produto úteis são:}
+\begin{align}
+  \grad(fg)&=f\,\grad g+g\,\grad f,\\
+  \grad\cdot(f\vec{A})&=f\,(\grad\cdot\vec{A})+\vec{A}\cdot\grad f,\\
+  \grad\times(f\vec{A})&=f\,(\grad\times\vec{A})+(\grad f)\times\vec{A},\\
+  \grad\cdot(\vec{A}\times\vec{B})&=\vec{B}\cdot(\grad\times\vec{A})-\vec{A}\cdot(\grad\times\vec{B}).
+\end{align}
+As \textbf{segundas derivadas} relevantes:
+\begin{align}
+  \grad\cdot(\grad f)&=\nabla^2 f
+     =\dpar{^2 f}{x^2}+\dpar{^2 f}{y^2}+\dpar{^2 f}{z^2}
+     &&\text{(laplaciano)},\\
+  \grad\times(\grad f)&=\vec{0} &&\text{(rotacional do gradiente)},\\
+  \grad\cdot(\grad\times\vec{v})&=0 &&\text{(divergente do rotacional)},\\
+  \grad\times(\grad\times\vec{v})&=\grad(\grad\cdot\vec{v})-\nabla^2\vec{v}.
+\end{align}
+
+\subsection{Operadores em coordenadas curvilíneas}
+
+Este é o ponto em que o formalismo de índices rende fruto. Em um sistema de
+coordenadas $\{x^i\}$ com base coordenada $\vec{e}_i=\partial\vec{r}/\partial x^i$
+(em geral \emph{não} normalizada), define-se o \textbf{tensor métrico} e sua
+inversa por
+\begin{equation}
+  g_{ij}=\langle\vec{e}_i,\vec{e}_j\rangle,\qquad
+  g^{ik}g_{kj}=\delta^{i}{}_{j}.
+\end{equation}
+Como $\mathrm{d}f=(\partial_i f)\,\mathrm{d}x^i=\grad f\cdot\mathrm{d}\vec{l}$, e
+elevando o índice com a métrica, o \textbf{gradiente} tem componentes
+contravariantes
+\begin{equation}
+  (\grad f)^{\,j}=g^{ij}\,\partial_i f
+  \qquad\Longrightarrow\qquad
+  \grad f=\sum_{i,j} g^{ij}\,(\partial_i f)\,\vec{e}_j .
+  \label{eq:gradcurv}
+\end{equation}
+A variação da base introduz os \textbf{símbolos de Christoffel}
+\begin{equation}
+  \dpar{\vec{e}_j}{x^k}=\Gamma^{\,i}{}_{jk}\,\vec{e}_i,
+  \qquad
+  \Gamma^{\,i}{}_{jk}=\left(\dpar{\vec{e}_j}{x^k}\right)^{i}.
+\end{equation}
+Com a \textbf{derivada covariante} $\nabla_i F^{j}=\partial_i F^{j}
++\Gamma^{\,j}{}_{ik}F^{k}$, o \textbf{divergente} e o \textbf{rotacional} ficam
+\begin{align}
+  \grad\cdot\vec{F}
+    &=\nabla_i F^{i}=\partial_i F^{i}+\Gamma^{\,i}{}_{ik}F^{k},
+    \label{eq:divcurv}\\
+  (\grad\times\vec{F})^{i}
+    &=\epsilon^{ijk}\,\nabla_j F_k
+     =\epsilon^{ijk}\big(\partial_j F_k-\Gamma^{\,l}{}_{jk}F_l\big).
+    \label{eq:rotcurv}
+\end{align}
+\begin{nota}
+No rotacional, o termo com $\Gamma^{\,l}{}_{jk}$ \emph{se cancela}: os símbolos de
+Christoffel são simétricos em $(j,k)$ e $\epsilon^{ijk}$ é antissimétrico, logo
+$\epsilon^{ijk}\Gamma^{\,l}{}_{jk}=0$ e sobra $(\grad\times\vec{F})^{i}
+=\epsilon^{ijk}\partial_j F_k$.
+Além disso, vale a forma compacta do divergente (identidade de Voss--Weyl), com
+$g=\det(g_{ij})$:
+\begin{equation}
+  \grad\cdot\vec{F}=\frac{1}{\sqrt{g}}\,\partial_i\!\big(\sqrt{g}\,F^{i}\big).
+\end{equation}
+\end{nota}
+
+\paragraph{Caso ortogonal (fatores de escala).}
+Quando a base é ortogonal, $g_{ij}=\operatorname{diag}(h_1^2,h_2^2,h_3^2)$ e os
+versores normalizados são $\uvec{e}_i=\vec{e}_i/h_i$. Então
+\begin{align}
+  \grad f&=\sum_i \frac{1}{h_i}\dpar{f}{x^i}\,\uvec{e}_i,\\
+  \grad\cdot\vec{F}&=\frac{1}{h_1h_2h_3}
+     \left[\partial_1(h_2h_3F_1)+\partial_2(h_3h_1F_2)+\partial_3(h_1h_2F_3)\right],\\
+  \nabla^2 f&=\frac{1}{h_1h_2h_3}
+     \left[\partial_1\!\Big(\tfrac{h_2h_3}{h_1}\partial_1 f\Big)
+          +\partial_2\!\Big(\tfrac{h_3h_1}{h_2}\partial_2 f\Big)
+          +\partial_3\!\Big(\tfrac{h_1h_2}{h_3}\partial_3 f\Big)\right].
+\end{align}
+
+\paragraph{Exemplo (coordenadas polares/planas).}
+Para $x=\rho\cos\varphi$, $y=\rho\sin\varphi$, obtém-se
+$\vec{e}_\rho$ com $|\vec{e}_\rho|=1$ e $\vec{e}_\varphi$ com
+$|\vec{e}_\varphi|=\rho$, isto é
+\begin{equation}
+  (g_{ij})=\begin{pmatrix}1&0\\0&\rho^2\end{pmatrix}
+  \ \Longrightarrow\
+  (g^{ij})=\begin{pmatrix}1&0\\0&\rho^{-2}\end{pmatrix},
+  \qquad h_\rho=1,\ h_\varphi=\rho.
+\end{equation}
+Por \eqref{eq:gradcurv},
+\(
+  \grad f=\dpar{f}{\rho}\,\uvec{e}_\rho+\dfrac{1}{\rho}\dpar{f}{\varphi}\,\uvec{e}_\varphi .
+\)
+\add{Os únicos Christoffel não nulos são
+$\Gamma^{\rho}{}_{\varphi\varphi}=-\rho$ e
+$\Gamma^{\varphi}{}_{\rho\varphi}=\Gamma^{\varphi}{}_{\varphi\rho}=1/\rho$,}
+consistentes com $\partial_\varphi\vec{e}_\varphi=-\rho\,\vec{e}_\rho$ etc.
+
+\paragraph{Coordenadas esféricas.}
+Para $\vec{r}=r\,\uvec{r}$, com $h_r=1$, $h_\theta=r$, $h_\varphi=r\sin\theta$,
+\begin{equation}
+  \grad=\uvec{r}\,\dpar{}{r}
+       +\frac{\uvec{\theta}}{r}\,\dpar{}{\theta}
+       +\frac{\uvec{\varphi}}{r\sin\theta}\,\dpar{}{\varphi},
+\end{equation}
+\add{e o laplaciano}
+\begin{equation}
+  \nabla^2 f=\frac{1}{r^2}\dpar{}{r}\!\Big(r^2\dpar{f}{r}\Big)
+    +\frac{1}{r^2\sin\theta}\dpar{}{\theta}\!\Big(\sin\theta\,\dpar{f}{\theta}\Big)
+    +\frac{1}{r^2\sin^2\theta}\dpar{^2 f}{\varphi^2}.
+\end{equation}
+
+\paragraph{Coordenadas cilíndricas.}
+\add{Para $x=\rho\cos\varphi$, $y=\rho\sin\varphi$, $z=z$, tem-se
+$h_\rho=1$, $h_\varphi=\rho$, $h_z=1$, donde
+\(
+  \nabla^2 f=\dfrac{1}{\rho}\partial_\rho(\rho\,\partial_\rho f)
+  +\dfrac{1}{\rho^2}\partial_\varphi^2 f+\partial_z^2 f
+\)
+e o elemento de volume $\mathrm{d}\tau=\rho\,\mathrm{d}\rho\,\mathrm{d}\varphi\,\mathrm{d}z$.}
+
+\subsection{Cálculo integral e teoremas fundamentais}
+
+Definem-se a \textbf{integral de linha} $\int_{\mathcal{C}}\vec{v}\cdot\mathrm{d}\vec{l}$,
+a \textbf{integral de superfície} (fluxo) $\int_{S}\vec{v}\cdot\mathrm{d}\vec{a}$
+e a \textbf{integral de volume} $\int_{V}T\,\mathrm{d}\tau$. Valem os teoremas
+fundamentais:
+\begin{align}
+  \int_{a}^{b}\!\Big(\dpar{f}{x}\Big)\mathrm{d}x&=f(b)-f(a)
+     &&\text{(cálculo)},\\
+  \int_{a}^{b}(\grad T)\cdot\mathrm{d}\vec{l}&=T(b)-T(a)
+     &&\text{(gradiente)},\\
+  \int_{V}(\grad\cdot\vec{F})\,\mathrm{d}\tau&=\oint_{\partial V}\vec{F}\cdot\mathrm{d}\vec{a}
+     &&\text{(Gauss/divergência)},\\
+  \int_{S}(\grad\times\vec{v})\cdot\mathrm{d}\vec{a}&=\oint_{\partial S}\vec{v}\cdot\mathrm{d}\vec{l}
+     &&\text{(Stokes)}.
+\end{align}
+\add{Do teorema do gradiente seguem $\displaystyle\oint(\grad T)\cdot\mathrm{d}\vec{l}=0$
+e a independência do caminho.}
+\begin{nota}
+Escrevendo o teorema de Gauss para $\vec{F}$, e as \emph{identidades de Green}
+como consequência ($\phi\to$ escalar, $\chi\to$ escalar):
+\begin{equation}
+  \int_V\!\big[\phi\,\nabla^2\chi+\grad\phi\cdot\grad\chi\big]\mathrm{d}\tau
+    =\oint_{S}\phi\,(\grad\chi)\cdot\mathrm{d}\vec{a}
+    =\oint_S \phi\,\dpar{\chi}{n}\,\mathrm{d}a .
+\end{equation}
+\end{nota}
+
+\subsection{A função delta de Dirac}
+
+Em uma dimensão, $\delta(x)=0$ para $x\neq0$, com $\int\delta(x)\,\mathrm{d}x=1$;
+rigorosamente, é uma \emph{distribuição} definida por
+\begin{equation}
+  \int f(x)\,\delta(x-a)\,\mathrm{d}x=f(a).
+\end{equation}
+Propriedades:
+\begin{equation}
+  \delta(ax)=\frac{1}{|a|}\,\delta(x),\qquad
+  \delta\big(g(x)\big)=\sum_{n}\frac{\delta(x-x_n)}{|g'(x_n)|}
+  \ \ \big(g(x_n)=0,\ g'(x_n)\neq0\big),
+\end{equation}
+\add{e a identidade de derivada $\displaystyle\int f(x)\,\delta'(x-x')\,\mathrm{d}x=-f'(x')$.}
+Uma representação integral útil (Fourier):
+\begin{equation}
+  \delta(x-x')=\frac{1}{2\pi}\int_{-\infty}^{\infty}\mathrm{e}^{\,ik(x-x')}\,\mathrm{d}k
+             =\int \mathrm{d}k\;\chi_k^{*}(x')\,\chi_k(x),
+\end{equation}
+\add{com $\chi_k(x)=\mathrm{e}^{ikx}/\sqrt{2\pi}$ (relação de completeza).}
+
+Em três dimensões, $\delta^{3}(\rsep)=\delta(x-x')\,\delta(y-y')\,\delta(z-z')$,
+com $\int f(\vec{r})\,\delta^{3}(\vec{r}-\vec{a})\,\mathrm{d}\tau=f(\vec{a})$.
+O resultado central que resolve o ``paradoxo'' de $\grad\cdot(\usep/\Rsep^2)$ é
+\begin{equation}
+  \grad\cdot\!\left(\frac{\usep}{\Rsep^{2}}\right)=4\pi\,\delta^{3}(\rsep),
+  \qquad
+  \nabla^{2}\!\left(\frac{1}{\Rsep}\right)=-\,4\pi\,\delta^{3}(\rsep),
+  \label{eq:delta3}
+\end{equation}
+\add{pois $\grad(1/\Rsep)=-\,\usep/\Rsep^{2}$.}
+
+\subsection{Teoria dos campos vetoriais e potenciais}
+
+\paragraph{Teorema de Helmholtz.} Um campo $\vec{C}$ que decai suficientemente
+rápido no infinito decompõe-se em uma parte irrotacional e uma solenoidal,
+\begin{equation}
+  \vec{C}=\vec{C}_\perp+\vec{C}_\parallel,\qquad
+  \grad\cdot\vec{C}_\perp=0,\qquad
+  \grad\times\vec{C}_\parallel=\vec{0},
+\end{equation}
+e fica \emph{univocamente} determinado por seu divergente e seu rotacional. Uma
+construção explícita é $\vec{C}(\vec{r})=\grad\times\vec{F}(\vec{r})-\grad\Omega(\vec{r})$
+com
+\begin{equation}
+  \Omega(\vec{r})=\frac{1}{4\pi}\!\int \mathrm{d}^3r'\,
+     \frac{\grad'\!\cdot\vec{C}(\vec{r}\,')}{|\vec{r}-\vec{r}\,'|},
+  \qquad
+  \vec{F}(\vec{r})=\frac{1}{4\pi}\!\int \mathrm{d}^3r'\,
+     \frac{\grad'\!\times\vec{C}(\vec{r}\,')}{|\vec{r}-\vec{r}\,'|}.
+\end{equation}
+\begin{nota}
+Esboço da prova: parte-se de
+$\vec{C}(\vec{r})=\int \mathrm{d}^3r'\,\vec{C}(\vec{r}\,')\,\delta^3(\vec{r}-\vec{r}\,')$
+e usa-se \eqref{eq:delta3} para trocar $\delta^3$ por
+$-\tfrac{1}{4\pi}\nabla^2(1/|\vec{r}-\vec{r}\,'|)$. Aplicando
+$\grad\times(\grad\times\vec{A})=\grad(\grad\cdot\vec{A})-\nabla^2\vec{A}$ e
+integrando por partes (com $\grad(1/|\vec{r}-\vec{r}\,'|)=-\grad'(1/|\vec{r}-\vec{r}\,'|)$),
+os termos de superfície vão a zero quando $\vec{C}$ decai no infinito.
+\end{nota}
+
+\paragraph{Potenciais.} Como consequência das segundas derivadas:
+\begin{align}
+  \grad\times\vec{F}=\vec{0}&\ \Rightarrow\ \vec{F}=-\grad V
+  &&\text{(potencial escalar)},\\
+  \grad\cdot\vec{F}=0&\ \Rightarrow\ \vec{F}=\grad\times\vec{A}
+  &&\text{(potencial vetor)}.
+\end{align}
+
+%##############################################################################
+\section{Eletrostática}
+%##############################################################################
+
+\subsection{Lei de Coulomb}
+
+A força sobre uma carga $q$ devida a $N$ cargas $q_n$ em $\vec{r}_n$ é
+\begin{equation}
+  \vec{F}=\frac{q}{4\pi\eps}\sum_{n=1}^{N} q_n\,
+          \frac{\vec{r}-\vec{r}_n}{|\vec{r}-\vec{r}_n|^{3}},
+\end{equation}
+\add{onde $\eps=8{,}85\times10^{-12}\ \mathrm{C^2/(N\,m^2)}$ é a permissividade do
+vácuo.}
+
+\subsection{Campo elétrico e distribuições contínuas}
+
+Definindo $\vec{F}=q\,\vec{E}$, o \textbf{campo elétrico} de uma distribuição
+contínua com densidade $\rho$ é
+\begin{equation}
+  \vec{E}(\vec{r})=\frac{1}{4\pi\eps}\!\int \mathrm{d}^3r'\,\rho(\vec{r}\,')\,
+     \frac{\vec{r}-\vec{r}\,'}{|\vec{r}-\vec{r}\,'|^{3}}.
+  \label{eq:Efield}
+\end{equation}
+\begin{nota}
+Consistência com a força entre distribuições:
+\begin{equation}
+  \vec{F}=\frac{1}{4\pi\eps}\!\int\!\mathrm{d}^3r\!\int\!\mathrm{d}^3r'\,
+    \rho(\vec{r})\,\rho(\vec{r}\,')\,
+    \frac{\vec{r}-\vec{r}\,'}{|\vec{r}-\vec{r}\,'|^{3}}
+  =\int \mathrm{d}^3r\,\rho(\vec{r})\,\vec{E}(\vec{r}).
+\end{equation}
+\end{nota}
+
+\begin{obs}
+\textbf{Comportamento sob escala.} Se $\rho_B(\lambda\vec{r})=\rho_A(\vec{r})$,
+então de \eqref{eq:Efield} segue $\vec{E}_B(\lambda\vec{r})=\lambda\,\vec{E}(\vec{r})$
+e o potencial escala como $\varphi_A(\vec{r})=\lambda^{-2}\varphi_B(\lambda\vec{r})$,
+um teste dimensional útil.
+\end{obs}
+
+\subsection{Fluxo elétrico e lei de Gauss}
+
+O carregamento total é $Q=\int_{S}\sigma\,\mathrm{d}S$ (superfície) ou
+$Q=\int_{V}\rho\,\mathrm{d}V$ (volume). A \textbf{lei de Gauss} na forma integral,
+\begin{equation}
+  \Phi_E=\oint_{S}\vec{E}\cdot\mathrm{d}\vec{a}=\frac{Q_{\text{env}}}{\eps},
+\end{equation}
+combinada com o teorema da divergência,
+$\oint_S\vec{E}\cdot\mathrm{d}\vec{a}=\int_V(\grad\cdot\vec{E})\,\mathrm{d}\tau$, e
+com $Q_{\text{env}}=\int_V\rho\,\mathrm{d}\tau$, fornece a forma diferencial
+\begin{equation}
+  \boxed{\ \grad\cdot\vec{E}=\frac{\rho}{\eps}\ }
+\end{equation}
+— a primeira equação de Maxwell.
+\add{A conservação da carga aparece já aqui: de $\vec{j}=\rho\,\vec{v}$ e
+$\dot{Q}=\int \mathrm{d}^3x\,\partial_t\rho=\oint \mathrm{d}S\,\uvec{n}\cdot\vec{j}$
+segue a equação de continuidade $\grad\cdot\vec{j}=-\,\partial_t\rho$
+(no regime estático, $\partial_t\rho=0$).}
+
+\subsection{Rotacional de \texorpdfstring{$\vec{E}$}{E} e potencial escalar}
+
+A força de Coulomb é conservativa. Como
+$\vec{E}=-\grad\varphi$ para o campo de uma carga pontual,
+\begin{equation}
+  q\!\int_{r_1}^{r_2}\!\mathrm{d}\vec{l}\cdot\vec{E}
+  =-\,q\!\int\!\mathrm{d}\vec{l}\cdot\grad\varphi
+  =-\,q\,[\varphi(r_2)-\varphi(r_1)],
+\end{equation}
+de modo que $W=q\oint\mathrm{d}\vec{l}\cdot\vec{E}=0$ e, por Stokes,
+\begin{equation}
+  \boxed{\ \grad\times\vec{E}=\vec{0}\ }.
+\end{equation}
+Por superposição, isto vale para qualquer distribuição. O \textbf{potencial
+escalar eletrostático} é
+\begin{equation}
+  \varphi(\vec{r})=\frac{1}{4\pi\eps}\!\int \mathrm{d}^3r'\,
+     \frac{\rho(\vec{r}\,')}{|\vec{r}-\vec{r}\,'|},
+  \qquad \vec{E}=-\grad\varphi.
+\end{equation}
+
+\subsection{Equações de Poisson e Laplace}
+
+Substituindo $\vec{E}=-\grad\varphi$ em $\grad\cdot\vec{E}=\rho/\eps$,
+\begin{equation}
+  \boxed{\ \nabla^{2}\varphi(\vec{r})=-\,\frac{\rho(\vec{r})}{\eps}\ }
+  \qquad(\text{Poisson});\qquad
+  \nabla^{2}\varphi=0\ \ (\text{Laplace, em regi\~oes sem carga}).
+\end{equation}
+\add{A solução $\varphi=\tfrac{1}{4\pi\eps}\int \rho/|\vec{r}-\vec{r}\,'|\,\mathrm{d}^3r'$
+verifica Poisson por \eqref{eq:delta3}.}
+
+\paragraph{Teorema de Earnshaw.} \add{Em uma região sem carga
+($\nabla^2\varphi=0$), $\varphi$ não possui máximo nem mínimo locais no interior:
+os extremos ocorrem necessariamente na fronteira. Consequência: não há
+configuração de equilíbrio \emph{estável} puramente eletrostática para uma carga
+de teste.}
+
+\subsection{Condições de contorno}
+
+Numa interface com densidade superficial $\sigma$, a componente normal de
+$\vec{E}$ salta e a tangencial é contínua:
+\begin{equation}
+  \uvec{n}_2\cdot(\vec{E}_1-\vec{E}_2)=\frac{\sigma}{\eps},
+\end{equation}
+o que, em termos do potencial, dá a descontinuidade da derivada normal
+\begin{equation}
+  \left(\dpar{\varphi_2}{n_2}-\dpar{\varphi_1}{n_2}\right)\!\Bigg|_{S}
+  =\textcolor{coradd}{-}\,\frac{\sigma}{\eps},
+\end{equation}
+\add{com $\varphi$ contínuo através de $S$. (O sinal segue de
+$\vec{E}=-\grad\varphi$.)}
+
+\begin{exemplo}[Potencial de uma linha carregada]
+Considere um segmento sobre o eixo $z$, de $-L$ a $L$, com densidade linear
+$\lambda$. Em um ponto $(x,y,z)$,
+\begin{equation}
+  \varphi(x,y,z)=\frac{1}{4\pi\eps}\!\int_{-L}^{L}
+     \frac{\lambda\,\mathrm{d}z'}{\sqrt{x^2+y^2+(z-z')^2}}.
+\end{equation}
+Com $x^2+y^2=\rho^2$ e a troca $u=z'-z$ ($\mathrm{d}u=\mathrm{d}z'$),
+\begin{equation}
+  \varphi=\frac{\lambda}{4\pi\eps}\!\int_{-L-z}^{\,L-z}
+     \frac{\mathrm{d}u}{\sqrt{\rho^2+u^2}}.
+\end{equation}
+Pondo $u=\rho\tan\theta$, $\mathrm{d}u=\rho\sec^2\theta\,\mathrm{d}\theta$ e
+$\sqrt{\rho^2+u^2}=\rho\sec\theta$:
+\begin{equation}
+  \varphi=\frac{\lambda}{4\pi\eps}\!\int_{B}^{A}
+     \frac{\rho\sec^2\theta}{\rho\sec\theta}\,\mathrm{d}\theta
+  =\frac{\lambda}{4\pi\eps}\!\int_{B}^{A}\sec\theta\,\mathrm{d}\theta
+  =\frac{\lambda}{4\pi\eps}\!\int_{B}^{A}\frac{\mathrm{d}\theta}{\cos\theta}.
+\end{equation}
+\begin{nota}
+Como $\int\sec\theta\,\mathrm{d}\theta=\ln|\sec\theta+\tan\theta|$ e
+$\sec\theta+\tan\theta=(\sqrt{\rho^2+u^2}+u)/\rho$, o resultado fechado é
+\begin{equation}
+  \varphi(\rho,z)=\frac{\lambda}{4\pi\eps}\,
+    \ln\!\left[\frac{\sqrt{\rho^2+(L-z)^2}+(L-z)}
+                    {\sqrt{\rho^2+(L+z)^2}-(L+z)}\right].
+\end{equation}
+No limite $L\to\infty$ recupera-se, a menos de constante,
+$\varphi=-\tfrac{\lambda}{2\pi\eps}\ln\rho$, o fio infinito.
+\end{nota}
+\end{exemplo}
+
+\begin{nota}
+\textbf{Continuação pendente.} As páginas 19--22 do manuscrito não puderam ser
+lidas nesta sessão (falha temporária na renderização das imagens). O documento
+está estruturado para receber essas seções (provavelmente: energia eletrostática,
+condutores e capacitância) sem alterar o que já foi digitado.
+\end{nota}
+
+%------------------------------------------------------------------ referências
+\begin{thebibliography}{9}
+\bibitem{zangwill}
+  ZANGWILL, A. \textbf{Modern Electrodynamics}. Cambridge: Cambridge University
+  Press, 2013.
+\end{thebibliography}
+
+\end{document}

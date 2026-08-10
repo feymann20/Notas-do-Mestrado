@@ -1,0 +1,344 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options false
+\begin_modules
+eqs-within-sections
+enumitem
+theorems-ams
+\end_modules
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 2
+\use_package esint 2
+\use_package mathdots 2
+\use_package mathtools 2
+\use_package mhchem 2
+\use_package stackrel 2
+\use_package stmaryrd 2
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Noções sobre teoria da medida
+\end_layout
+
+\begin_layout Author
+Natã Hora da Silva
+\end_layout
+
+\begin_layout Section*
+Espaços mensuráveis e a reta estendida
+\end_layout
+
+\begin_layout Definition
+Uma 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+álgebra no conjunto 
+\begin_inset Formula $X$
+\end_inset
+
+ é uma fámilia 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ de subconjuntos de 
+\begin_inset Formula $X$
+\end_inset
+
+ que satisfaz as seguintes propriedades:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\emptyset,X\in\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Se 
+\begin_inset Formula $A\in\Sigma$
+\end_inset
+
+ então 
+\begin_inset Formula $A^{C}:=A-X\in\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Se 
+\begin_inset Formula $\forall n\in\mathbb{N}\ \ A_{n}\in\Sigma$
+\end_inset
+
+ então 
+\begin_inset Formula $\bigcup_{n=1}^{\infty}A_{n}\in\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste caso o par 
+\begin_inset Formula $(X,\Sigma)$
+\end_inset
+
+ é dito espaço mensurável.
+ Cada elemento da 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-álgebra é dito um conjunto mensurável.
+\end_layout
+
+\begin_layout Standard
+Dada uma coleção 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ de subconjuntos de 
+\begin_inset Formula $X$
+\end_inset
+
+ a intersecção de todas as 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebras que contem a coleção é ainda uma 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra,
+ chamada 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra gerada por 
+\begin_inset Formula ${\cal F}$
+\end_inset
+
+ e é denotada por 
+\begin_inset Formula $\Sigma({\cal F})$
+\end_inset
+
+.
+ Note que 
+\begin_inset Formula $\Sigma({\cal F})$
+\end_inset
+
+ é a menor 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra em 
+\begin_inset Formula $X$
+\end_inset
+
+ em contém 
+\begin_inset Formula ${\cal F}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando 
+\begin_inset Formula $\left(X,\tau\right)$
+\end_inset
+
+ é um espaço topológico a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra 
+\begin_inset Formula $\Sigma(\tau)$
+\end_inset
+
+ é chamada de 
+\begin_inset Formula $\sigma-algebra$
+\end_inset
+
+ de BOrel de 
+\begin_inset Formula $X$
+\end_inset
+
+ e denotada por 
+\begin_inset Formula ${\cal B}={\cal B}(X)$
+\end_inset
+
+.
+ Os elementos de 
+\begin_inset Formula ${\cal B}$
+\end_inset
+
+ são chamados de conjuntos de Borel ou borelianos.
+\end_layout
+
+\begin_layout Standard
+A reta estentida é o conjunto 
+\begin_inset Formula 
+\[
+\mathbb{\overline{R}}=\mathbb{R}\cup\left\{ \infty\right\} \cup\left\{ -\infty\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Em que os símbolos possuem as propriedades que esperamos.
+\end_layout
+
+\begin_layout Standard
+A topologia usual 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ induz uma topologia da reta estendida considerando como abertos os seguintes conjuntos 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\subseteq\mathbb{R}$
+\end_inset
+
+ é aberto em 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ ou
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A=[-\infty,a)$
+\end_inset
+
+ para algum 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+ ou
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A=(a,\infty]$
+\end_inset
+
+ para algum 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+ ou
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A$
+\end_inset
+
+ é uma união de conjuntos como os acima
+\end_layout
+
+\begin_layout Standard
+Consideraremos a reta estentidade como espaço mensurável com a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra de Borel 
+\begin_inset Formula ${\cal B}(\overline{\mathbb{R}}$
+\end_inset
+
+) relativa a esta topologia.
+ 
+\begin_inset Formula $\left(\mathbb{\overline{R}},\mathbb{{\cal B}}(\mathbb{\overline{R}})\right)$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

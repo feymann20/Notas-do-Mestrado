@@ -1,0 +1,358 @@
+% =====================================================================
+%  CAMPOS CLÁSSICOS — Notas de estudo (início de mestrado em Física Teórica)
+%  Transcrição organizada e revisada a partir das notas manuscritas.
+%
+%  Compilar com:  pdflatex campos_classicos.tex   (rodar 2x)
+%  Fonte: Computer Modern (padrão do LaTeX, embutida no PDF).
+% =====================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% ---------------------------------------------------------------------
+%  CODIFICAÇÃO E FONTE
+%  Computer Modern em T1 (fontes EC) — acentos do português corretos.
+%  (Sem babel-português nesta máquina; a hifenização usa o padrão.
+%   Para hifenização em pt-BR, instale 'babel-portuguese' e descomente
+%   a linha \usepackage[brazil]{babel} mais abaixo.)
+% ---------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% \usepackage[brazil]{babel}   % <- habilite se tiver o pacote instalado
+
+% ---------------------------------------------------------------------
+%  MATEMÁTICA
+% ---------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+% =====================================================================
+%  BLOCO DE FORMATAÇÃO  ------  (altere aqui tudo o que for de layout)
+%  Ajustado às regras da ABNT (NBR 14724): A4, margens 3/3/2/2 cm,
+%  corpo 12 pt, espaçamento 1,5, recuo de parágrafo 1,25 cm, texto
+%  justificado, seções numeradas.
+% =====================================================================
+\usepackage[a4paper,left=3cm,top=3cm,right=2cm,bottom=2cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing                        % espaçamento entre linhas: 1,5
+\setlength{\parindent}{1.25cm}         % recuo da 1a linha do parágrafo
+\usepackage{indentfirst}               % recua também o 1o parágrafo (ABNT)
+\usepackage{titlesec}                  % controle simples dos títulos
+\titleformat*{\section}{\bfseries\large}       % seção primária: negrito
+\titleformat*{\subsection}{\bfseries\normalsize}
+\emergencystretch=2em                  % evita "overfull" na justificação
+
+% ---------------------------------------------------------------------
+%  MARCAÇÃO DE REVISÃO (em vermelho)
+%  \rev{...}   -> trecho ADICIONADO ou CORRIGIDO, em linha.
+%               Abre com o adereço  >  e fecha com  <  (ambos vermelhos).
+%  ambiente revbox -> observação/parágrafo inteiro em vermelho.
+%  Para "aceitar" uma revisão (torná-la texto normal preto), basta
+%  trocar \rev{...} pelo conteúdo, ou redefinir \rev para não colorir.
+% ---------------------------------------------------------------------
+\usepackage{xcolor}
+\definecolor{revred}{RGB}{200,0,0}
+\newcommand{\rev}[1]{{\color{revred}\ensuremath{\blacktriangleright}\,#1\,\ensuremath{\blacktriangleleft}}}
+\newenvironment{revbox}%
+  {\par\medskip\noindent\color{revred}\ensuremath{\blacktriangleright}\ \itshape}%
+  {\ \upshape\ensuremath{\blacktriangleleft}\par\medskip}
+
+% ---------------------------------------------------------------------
+%  ATALHOS DE NOTAÇÃO
+% ---------------------------------------------------------------------
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pt}[1]{\partial_{#1}}
+\newcommand{\Lag}{\mathcal{L}}
+\newcommand{\Ham}{\mathcal{H}}
+\renewcommand{\d}{\partial}
+\renewcommand{\refname}{Referências}   % título da bibliografia em pt (sem babel)
+
+\title{\textbf{Campos Clássicos}\\[2pt]\large Notas de estudo}
+\author{Notas de estudo --- revisadas}
+\date{Julho de 2026}
+
+\begin{document}
+\maketitle
+
+\begin{revbox}
+Nota de revisão. Os trechos em vermelho, entre os adereços
+$\blacktriangleright$ e $\blacktriangleleft$, foram \emph{adicionados}
+ou \emph{corrigidos} nesta revisão (convenções explicitadas, passagens
+completadas, formalismo hamiltoniano, forma geral da corrente de Noether
+e referências). O conteúdo em preto reproduz as notas originais,
+apenas reorganizado.
+\end{revbox}
+
+% =====================================================================
+\section{Introdução: o conceito de campo}
+% =====================================================================
+
+Vamos começar a analisar \textbf{campos clássicos}, objetos de importância
+central para a segunda quantização e para a teoria quântica de campos.
+
+Um \textbf{campo} é um objeto matemático que associa, a cada ponto do
+espaço-tempo $x^{\mu}$, uma quantidade --- que pode ser um escalar, um
+vetor, um tensor, um espinor, etc. Para um campo escalar,
+\begin{equation}
+  \phi:\ \mathbb{R}^{1,3}\longrightarrow \mathbb{R}\ (\text{ou } \mathbb{C}),
+  \qquad x^{\mu}\longmapsto \phi(x^{\mu}).
+\end{equation}
+
+\begin{revbox}
+Convenção. Adotamos a métrica de Minkowski
+$\eta_{\mu\nu}=\mathrm{diag}(+1,-1,-1,-1)$, $\pt{\mu}\equiv \d/\d x^{\mu}$ e
+o operador de d'Alembert $\Box\equiv \pt{\mu}\d^{\mu}=\d_t^{2}-\nabla^{2}$.
+Índices repetidos são somados (convenção de Einstein). Fixar a assinatura
+é necessário para que os sinais das seções seguintes fiquem consistentes.
+\end{revbox}
+
+% =====================================================================
+\section{Formalismo lagrangiano}
+% =====================================================================
+
+\subsection{Densidade de lagrangiana e ação}
+
+A dinâmica de um campo é descrita pela \textbf{densidade de lagrangiana}
+$\Lag(\phi,\pt{\mu}\phi)$, função do campo e de suas derivadas. A
+\textbf{ação} é o funcional
+\begin{equation}
+  S[\phi]=\int_{\Omega}\dd^{4}x\ \Lag(\phi,\pt{\mu}\phi),
+  \qquad \dd^{4}x=\dd x^{0}\,\dd x^{1}\,\dd x^{2}\,\dd x^{3}
+        =\dd t\,\dd^{3}x .
+\end{equation}
+
+\subsection{Equações de Euler--Lagrange}
+
+O \textbf{princípio da mínima ação} exige que a ação seja estacionária,
+$\delta S=0$, para variações $\delta\phi$ do campo. Variando,
+\begin{equation}
+  \delta S=\int_{\Omega}\dd^{4}x
+  \left[
+    \frac{\d\Lag}{\d\phi}\,\delta\phi
+    +\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\delta(\pt{\mu}\phi)
+  \right].
+\end{equation}
+Como $\delta(\pt{\mu}\phi)=\pt{\mu}(\delta\phi)$, integramos por partes o
+segundo termo:
+\begin{equation}
+  \int_{\Omega}\dd^{4}x\,\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\pt{\mu}(\delta\phi)
+  =\int_{\Omega}\dd^{4}x\,\pt{\mu}\!\!\left[\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\delta\phi\right]
+  -\int_{\Omega}\dd^{4}x\,\pt{\mu}\!\!\left(\frac{\d\Lag}{\d(\pt{\mu}\phi)}\right)\delta\phi .
+\end{equation}
+O primeiro termo é uma divergência total; pelo teorema de Gauss ele vira
+uma integral de superfície na fronteira $\d\Omega$, que se anula
+\rev{pois exige-se $\delta\phi\big|_{\d\Omega}=0$ (a variação se anula na
+fronteira da região de integração).}
+Restando apenas o segundo termo,
+\begin{equation}
+  \delta S=\int_{\Omega}\dd^{4}x
+  \left[\frac{\d\Lag}{\d\phi}
+        -\pt{\mu}\!\left(\frac{\d\Lag}{\d(\pt{\mu}\phi)}\right)\right]\delta\phi=0 .
+\end{equation}
+Como $\delta\phi$ é arbitrário no interior de $\Omega$, o integrando deve
+se anular, o que fornece as \textbf{equações de Euler--Lagrange}:
+\begin{equation}\boxed{
+  \frac{\d\Lag}{\d\phi}
+  -\pt{\mu}\!\left(\frac{\d\Lag}{\d(\pt{\mu}\phi)}\right)=0 .}
+\end{equation}
+
+% =====================================================================
+\section{O campo escalar real: equação de Klein--Gordon}
+% =====================================================================
+
+\subsection{Equações de movimento}
+
+Como primeiro exemplo, considere o campo escalar real com densidade de
+lagrangiana
+\begin{equation}
+  \Lag=\tfrac12\,\pt{\mu}\phi\,\d^{\mu}\phi-\tfrac12\,m^{2}\phi^{2}
+     =\tfrac12\!\left(\pt{\mu}\phi\,\d^{\mu}\phi-m^{2}\phi^{2}\right).
+\end{equation}
+O primeiro termo derivado dá
+\begin{equation}
+  \frac{\d\Lag}{\d\phi}=-m^{2}\phi .
+\end{equation}
+Para o segundo, escrevemos $\pt{\mu}\phi\,\d^{\mu}\phi
+=\eta^{\alpha\beta}\pt{\alpha}\phi\,\pt{\beta}\phi$ e derivamos em relação a
+$\pt{\nu}\phi$:
+\begin{equation}
+  \frac{\d\Lag}{\d(\pt{\nu}\phi)}
+  =\tfrac12\,\eta^{\alpha\beta}
+   \bigl(\delta^{\nu}_{\alpha}\pt{\beta}\phi+\pt{\alpha}\phi\,\delta^{\nu}_{\beta}\bigr)
+  =\tfrac12\bigl(\d^{\nu}\phi+\d^{\nu}\phi\bigr)=\d^{\nu}\phi .
+\end{equation}
+Substituindo na equação de Euler--Lagrange,
+\begin{equation}
+  -m^{2}\phi-\pt{\mu}\d^{\mu}\phi=0
+  \quad\Longrightarrow\quad
+  \boxed{\ (\Box+m^{2})\,\phi=0\ }
+\end{equation}
+que é a \textbf{equação de Klein--Gordon}.
+
+\subsection{Formalismo hamiltoniano}
+
+Definimos o \textbf{momento canonicamente conjugado} ao campo $\phi$ como
+\begin{equation}
+  \pi(x)\equiv\frac{\d\Lag}{\d\dot\phi},
+  \qquad \dot\phi\equiv\pt{0}\phi,
+\end{equation}
+e a \textbf{densidade de hamiltoniana} pela transformada de Legendre
+\begin{equation}
+  \Ham=\pi\,\dot\phi-\Lag .
+\end{equation}
+Para o campo escalar real, $\pi=\d^{0}\phi=\dot\phi$, e
+\begin{revbox}
+explicitando a densidade de energia obtemos
+\upshape
+\begin{equation}
+  \color{revred}
+  \Ham=\tfrac12\,\pi^{2}+\tfrac12\,(\nabla\phi)^{2}+\tfrac12\,m^{2}\phi^{2},
+\end{equation}
+\itshape
+soma dos termos cinético, de gradiente e de massa --- manifestamente
+positiva, como esperado para a energia.
+\end{revbox}
+
+% =====================================================================
+\section{Teorema de Noether}
+% =====================================================================
+
+\subsection{Simetrias e correntes conservadas}
+
+\textbf{Teorema de Noether:} a cada simetria contínua da ação corresponde
+uma quantidade conservada. Considere uma transformação infinitesimal do
+campo,
+\begin{equation}
+  \phi(x)\longrightarrow \phi'(x)=\phi(x)+\delta\phi(x),
+\end{equation}
+que deixa a ação invariante. Variando a lagrangiana e usando as equações
+de Euler--Lagrange,
+\begin{equation}
+  \delta\Lag
+  =\frac{\d\Lag}{\d\phi}\,\delta\phi
+   +\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\pt{\mu}(\delta\phi)
+  =\pt{\mu}\!\left[\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\delta\phi\right].
+\end{equation}
+Se a transformação é uma simetria estrita, $\delta\Lag=0$, e a
+\textbf{corrente de Noether}
+\begin{equation}
+  j^{\mu}=\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\delta\phi
+\end{equation}
+é conservada, $\pt{\mu}j^{\mu}=0$.
+\begin{revbox}
+Caso geral. Se a lagrangiana varia por uma divergência total,
+$\delta\Lag=\pt{\mu}K^{\mu}$ (quase-simetria), a ação ainda é invariante e
+a corrente conservada passa a ser
+\upshape
+\begin{equation}
+  \color{revred}
+  j^{\mu}=\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\delta\phi-K^{\mu},
+  \qquad \pt{\mu}j^{\mu}=0 .
+\end{equation}
+\itshape
+A simetria estrita é o caso particular $K^{\mu}=0$.
+\end{revbox}
+A cada corrente conservada associa-se uma \textbf{carga conservada}
+\begin{equation}
+  Q=\int \dd^{3}x\ j^{0},\qquad \frac{\dd Q}{\dd t}=0 .
+\end{equation}
+
+\subsection{Tensor de energia--momento}
+
+A invariância sob \textbf{translações no espaço-tempo}
+$x^{\mu}\to x^{\mu}+a^{\mu}$ leva à conservação do \textbf{tensor de
+energia--momento canônico}
+\begin{equation}
+  T^{\mu}{}_{\nu}
+  =\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\pt{\nu}\phi-\delta^{\mu}_{\nu}\,\Lag,
+  \qquad \pt{\mu}T^{\mu}{}_{\nu}=0 .
+\end{equation}
+As cargas conservadas correspondentes formam o \textbf{quadrimomento}
+\begin{equation}
+  P_{\nu}=\int \dd^{3}x\ T^{0}{}_{\nu}.
+\end{equation}
+Em particular, a componente temporal é a energia total, que reproduz a
+hamiltoniana:
+\begin{equation}
+  H=P^{0}=\int\dd^{3}x\ T^{0}{}_{0}
+   =\int\dd^{3}x\ (\pi\dot\phi-\Lag)
+   =\int\dd^{3}x\ \Ham .
+\end{equation}
+
+% =====================================================================
+\section{Simetria \(U(1)\) e o campo escalar complexo}
+% =====================================================================
+
+\subsection{Lagrangiana e transformação de fase}
+
+Para um \textbf{campo escalar complexo} $\phi$, tratamos $\phi$ e
+$\phi^{*}$ como campos independentes, com densidade de lagrangiana
+\begin{equation}
+  \Lag=\pt{\mu}\phi^{*}\,\d^{\mu}\phi-m^{2}\phi^{*}\phi .
+\end{equation}
+\rev{Aqui \emph{não} há o fator $\tfrac12$ presente no caso real: como
+$\phi$ e $\phi^{*}$ são graus de liberdade independentes, o fator $\tfrac12$
+duplicaria indevidamente os termos. As equações de Euler--Lagrange para
+$\phi^{*}$ dão $(\Box+m^{2})\phi=0$ (e a conjugada para $\phi$).}
+
+A lagrangiana é invariante sob a transformação global de fase (grupo
+$U(1)$)
+\begin{equation}
+  \phi\longrightarrow e^{i\alpha}\phi,\qquad
+  \phi^{*}\longrightarrow e^{-i\alpha}\phi^{*},
+\end{equation}
+cuja versão infinitesimal ($\alpha\ll1$) é
+\begin{equation}
+  \delta\phi=i\alpha\,\phi,\qquad \delta\phi^{*}=-i\alpha\,\phi^{*}.
+\end{equation}
+
+\subsection{Corrente conservada e carga}
+
+\rev{Aplicando a corrente de Noether aos dois campos independentes,}
+\begin{equation}
+  j^{\mu}
+  =\frac{\d\Lag}{\d(\pt{\mu}\phi)}\,\delta\phi
+   +\frac{\d\Lag}{\d(\pt{\mu}\phi^{*})}\,\delta\phi^{*}
+  =(\d^{\mu}\phi^{*})(i\alpha\phi)+(\d^{\mu}\phi)(-i\alpha\phi^{*}).
+\end{equation}
+Retirando o parâmetro $\alpha$, a corrente conservada é
+\begin{equation}
+  \boxed{\,j^{\mu}=i\!\left(\phi\,\d^{\mu}\phi^{*}-\phi^{*}\,\d^{\mu}\phi\right),
+  \qquad \pt{\mu}j^{\mu}=0.\,}
+\end{equation}
+\rev{O sinal global é convencional (fixa o sinal da carga); é comum
+escrever, de modo equivalente, $j^{\mu}=i(\phi^{*}\d^{\mu}\phi-\phi\,\d^{\mu}\phi^{*})$.}
+A carga conservada associada,
+\begin{equation}
+  Q=\int\dd^{3}x\ j^{0},
+\end{equation}
+é interpretada, ao se acoplar o campo ao eletromagnetismo, como a
+\textbf{carga elétrica}.
+
+% =====================================================================
+\begin{revbox}
+Seção de referências adicionada na revisão (formato ABNT NBR 6023).
+\end{revbox}
+\begin{thebibliography}{9}
+\bibitem{peskin}
+  PESKIN, M. E.; SCHROEDER, D. V.
+  \textbf{An introduction to quantum field theory}.
+  Reading: Addison-Wesley, 1995.
+
+\bibitem{weinberg}
+  WEINBERG, S.
+  \textbf{The quantum theory of fields}: foundations. v.~1.
+  Cambridge: Cambridge University Press, 1995.
+
+\bibitem{greiner}
+  GREINER, W.; REINHARDT, J.
+  \textbf{Field quantization}.
+  Berlin: Springer, 1996.
+
+\bibitem{goldstein}
+  GOLDSTEIN, H.; POOLE, C.; SAFKO, J.
+  \textbf{Classical mechanics}. 3.~ed.
+  San Francisco: Addison-Wesley, 2002.
+\end{thebibliography}
+
+\end{document}

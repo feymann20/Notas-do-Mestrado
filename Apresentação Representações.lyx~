@@ -1,0 +1,1777 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options false
+\begin_removed_modules
+figs-within-sections
+\end_removed_modules
+\begin_modules
+theorems-ams
+eqs-within-sections
+enumitem
+theorems-sec
+\end_modules
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 2
+\use_package esint 2
+\use_package mathdots 2
+\use_package mathtools 2
+\use_package mhchem 2
+\use_package stackrel 2
+\use_package stmaryrd 2
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Representações de Rotações e Pseudo-rotações em campos
+\end_layout
+
+\begin_layout Author
+Natã Hora
+\end_layout
+
+\begin_layout Section
+Grupos e Álgebras de lie
+\end_layout
+
+\begin_layout Standard
+A teoria de grupos tornou-se essencial para o estudo das simetrias dos sitemas físicos.
+ Nesta seção,
+ serão introduzidas as noções matemáticas entre grupos de Lie,
+ álgebras de Lie e suas representações.
+ Será apresentado a teoria em tal forma que estabeleça a linguagem necessária para o desenvolvimento do tema.
+\end_layout
+
+\begin_layout Subsection
+Grupos,
+ ações e produtos
+\end_layout
+
+\begin_layout Standard
+A definição abstrata de grupo,
+ que formaliza a composição de simetrias.
+ Em física,
+ elemento de um grupo podem representar rotações,
+ translações ou alguma transformação interna que preserva alguma estrutura do sistema.
+\end_layout
+
+\begin_layout Definition
+Seja 
+\begin_inset Formula $G$
+\end_inset
+
+ um conjunto e seja 
+\begin_inset Formula $\circ:G\times G\to G$
+\end_inset
+
+ uma operação binária.
+ O par 
+\begin_inset Formula $\left(G,\circ\right)$
+\end_inset
+
+ é dito um grupo se satisfaz:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Se 
+\begin_inset Formula $g,h,f\in G$
+\end_inset
+
+ então 
+\begin_inset Formula $(g\circ h)\circ f=g\circ\left(h\circ f\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Existe 
+\begin_inset Formula $e\in G$
+\end_inset
+
+ tal que,
+ para todo 
+\begin_inset Formula $g\in G$
+\end_inset
+
+,
+ 
+\begin_inset Formula $g\circ e=e\circ g=g$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Para todo 
+\begin_inset Formula $g\in G$
+\end_inset
+
+,
+ existe 
+\begin_inset Formula $g^{-1}\in G$
+\end_inset
+
+ tal que 
+\begin_inset Formula $g\circ g^{-1}=g^{-1}\circ g=e$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Geralmente,
+ denotaremos o par 
+\begin_inset Formula $\left(G,\circ\right)$
+\end_inset
+
+ simplesmente por 
+\begin_inset Formula $G$
+\end_inset
+
+ e escreveremos a operação por justaposição.
+ Podemos e devemos estar interessados em como grupos estão relacionados via mapas que preservam a sua estrutura álgebrica.
+ Dessa forma,
+ definimos
+\end_layout
+
+\begin_layout Definition
+Sejam 
+\begin_inset Formula $G,H$
+\end_inset
+
+ grupos.
+ Um mapa 
+\begin_inset Formula $\phi:G\to H$
+\end_inset
+
+ é dito um homomorfismo se,
+ para todos 
+\begin_inset Formula $g_{1},g_{2}\in G$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\phi(g_{1}g_{2})=\phi(g_{1})\phi(g_{2}).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Se,
+ além disso,
+ 
+\begin_inset Formula $\phi$
+\end_inset
+
+ for bijetivo,
+ então 
+\begin_inset Formula $\phi$
+\end_inset
+
+ é chamado de isomorfismo.
+ Nesse caso,
+ dizemos que 
+\begin_inset Formula $G$
+\end_inset
+
+ e 
+\begin_inset Formula $H$
+\end_inset
+
+ são isomorfos e escrevemos 
+\begin_inset Formula $G\cong H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Podemos construir um produto entre grupos dado da seguinte forma.
+\end_layout
+
+\begin_layout Definition
+Sejam 
+\begin_inset Formula $G$
+\end_inset
+
+ e 
+\begin_inset Formula $H$
+\end_inset
+
+ grupos.
+ O produto direto 
+\begin_inset Formula $G\times H$
+\end_inset
+
+ é o produto cartesiano dos conjuntos 
+\begin_inset Formula $G$
+\end_inset
+
+ e 
+\begin_inset Formula $H$
+\end_inset
+
+ ,
+ munido da operação
+\begin_inset Formula 
+\begin{equation}
+\left(g_{1},h_{1}\right)\left(g_{2},h_{2}\right)=\left(g_{1}g_{2},h_{1}h_{2}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um exemplo físico importante é o grupo de gauge do modelo padrão,
+\begin_inset Formula 
+\[
+SU(3)_{C}\times SU(2)_{L}\times U(1)_{Y},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+associado,
+ respectivamente,
+ à interação forte,
+ à simetria fraca de mão esquerda e à hipercarga.
+ No entanto,
+ nem toda toda combinação de simetrias é descrita por um produto direto.
+ Quando um atua de de modo não trivial sobre o outro,
+ a estrutura natural é o produto semidireto.
+ Entretanto,
+ será introduzido previamente a definição de ação de um grupo.
+\end_layout
+
+\begin_layout Definition
+Seja G um trupo de 
+\begin_inset Formula $M$
+\end_inset
+
+ um conjunto.
+ Uma ação à esquerda de 
+\begin_inset Formula $G$
+\end_inset
+
+ sobre 
+\begin_inset Formula $M$
+\end_inset
+
+ é um mapa 
+\begin_inset Formula $\alpha:G\times M\to M$
+\end_inset
+
+ tal que
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\alpha(e,p)=p$
+\end_inset
+
+,
+ para todo 
+\begin_inset Formula $p\in M$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\alpha(g,\alpha(h,p))=\alpha(gh,p)$
+\end_inset
+
+,
+ para todos 
+\begin_inset Formula $g,h\in G$
+\end_inset
+
+ e 
+\begin_inset Formula $p\in M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usaremos frequentemente a notação 
+\begin_inset Formula $\alpha(g,p)=g\cdot p$
+\end_inset
+
+.
+ Assim,
+ as condições de ação ficam
+\begin_inset Formula 
+\begin{align*}
+e\cdot p & =p\\
+g\cdot(h\cdot p) & =\left(gh\right)\cdot p
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Sejam 
+\begin_inset Formula $G$
+\end_inset
+
+ e 
+\begin_inset Formula $H$
+\end_inset
+
+ grupos,
+ e suponha que 
+\begin_inset Formula $G$
+\end_inset
+
+ aja sobre 
+\begin_inset Formula $H$
+\end_inset
+
+ por automorfimos.
+ Usando a notação 
+\begin_inset Formula $g\cdot h$
+\end_inset
+
+ para essa ação,
+ o produto semidireto 
+\begin_inset Formula $G\mathbb{n}H$
+\end_inset
+
+ é o conjunto 
+\begin_inset Formula $G\times H$
+\end_inset
+
+ munido da operação 
+\begin_inset Formula 
+\begin{equation}
+\left(g_{1},h_{1}\right)\left(g_{2},h_{2}\right)=\left(g_{1}g_{2},h_{1}\left(g_{1}\cdot h_{2}\right)\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Essa construção é essencial para o grupo de Poincaré.
+\end_layout
+
+\begin_layout Section
+Grupos de Lie e álgebras de Lie
+\end_layout
+
+\begin_layout Standard
+Os grupos usados em simetrias físicas geralmente não são apenas conjuntos quaisquer:
+ eles dependem continuamente de parâmetros.
+ Essa estrutura é descrita pela noção de um grupo de Lie.
+\end_layout
+
+\begin_layout Definition
+Um grupo de Lie é um grupo 
+\begin_inset Formula $G$
+\end_inset
+
+ que também é uma variedade diferenciável,
+ de modo que a multiplicação 
+\begin_inset Formula $m:G\times G\to G$
+\end_inset
+
+,
+ 
+\begin_inset Formula $m(g,h)=gh$
+\end_inset
+
+,
+ e a inversão 
+\begin_inset Formula $inv:G\to G$
+\end_inset
+
+,
+ 
+\begin_inset Formula $inv(g)=g^{-1}$
+\end_inset
+
+ ,
+ são aplicações suaves.
+\end_layout
+
+\begin_layout Standard
+Aqui estamos apenas lidando com grupos de Lie matriciais,
+ isto é,
+ subgrupos fechados relativamente ao 
+\begin_inset Formula $GL(n,\mathbb{C})$
+\end_inset
+
+ ou 
+\begin_inset Formula $GL(n,\mathbb{R})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Podemos tomar uma expansão infinitesimal de um grupo de Lie.
+ Assim obtendo uma informações locais no grupo.
+ Geometricamente,
+ essa estrutura obtida é uma álgebra e é o espaço tangente ao grupo na identidade.
+ Intuitivamente,
+ a álgebra de Lie descreve as direções infinitesimais a parti das quais podemos sair de 
+\begin_inset Formula $e$
+\end_inset
+
+ e gerar transformações contínuas do grupo.
+\end_layout
+
+\begin_layout Definition
+Seja 
+\begin_inset Formula $G$
+\end_inset
+
+ um grupo de Lie.
+ A álgebra de Lie de G é o espaço tangente à identidade,
+\begin_inset Formula 
+\begin{equation}
+\mathfrak{g}=T_{e}G,
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+munido do colhete induzido pelo colhete de campos vetoriais invariantes à esquerda.
+\end_layout
+
+\begin_layout Standard
+Para conectar essa definição com a lingaugem usada em física,
+ considere uma curva suave 
+\begin_inset Formula $g(t)$
+\end_inset
+
+ em 
+\begin_inset Formula $G$
+\end_inset
+
+ tal que 
+\begin_inset Formula $g(0)=e$
+\end_inset
+
+.
+ O vetor tangente
+\begin_inset Formula 
+\begin{equation}
+X=\left.\frac{d}{dt}g(t)\right|_{t=0},
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+pertence a 
+\begin_inset Formula $T_{e}G$
+\end_inset
+
+ e é inteprertado como um gerador infinitesimal da transformação (elemento do grupo).
+\end_layout
+
+\begin_layout Standard
+Para grupos matriciais,
+ essa ideia assume uma forma simples:
+\begin_inset Formula 
+\[
+\mathfrak{g}=\left\{ X\in M_{n}\left(\mathbb{C}\right);\exp\left(tX\right)\in G,\text{para todo \ensuremath{t} suficientemente pequeno}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ elementos da álgebra são matrizes que geram curvas no grupo por meio do mapa exponencial.
+\end_layout
+
+\begin_layout Definition
+O mapa exponencial de um grupo de Lie é o mapa 
+\begin_inset Formula 
+\[
+\exp:\mathfrak{g}\to G,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+que associa a cada 
+\begin_inset Formula $X\in\mathfrak{g}$
+\end_inset
+
+ o elemento do gruop obtido pelo subgrupo uniparamétrico gerado por 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Para grupos matriciais,
+ esse mapa é a exponencial usual de matrizes,
+\begin_inset Formula 
+\begin{equation}
+\exp X=\sum_{n=0}^{\infty}\frac{X^{n}}{n!}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Em particular,
+ se 
+\begin_inset Formula $X\in\frak{\mathfrak{g}}$
+\end_inset
+
+,
+ então
+\begin_inset Formula 
+\begin{equation}
+g(t)=\exp(tX)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+define um subgrupo uniparamétrico de 
+\begin_inset Formula $G$
+\end_inset
+
+,
+ isto é,
+ um homomorfismo do grupo a reta.
+ 
+\begin_inset Formula 
+\begin{equation}
+g(t)g(s)=g(t+s).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Em física,
+ é comum usar geradores autoadjuntos 
+\begin_inset Formula $T_{a}$
+\end_inset
+
+ e escrever transformações finitas na forma
+\begin_inset Formula 
+\begin{equation}
+U(\theta)=\exp\left(-i\theta^{a}T_{a}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A presença da unidade imaginária depende da convenção escolhida para os geradores.
+ COm essa convenção os elementos da álgebra das simetrias contínuas quânticas são operadores autoadjuntos.
+\end_layout
+
+\begin_layout Definition
+Uma álgebra de Lie é um espaço vetorial 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ munido de um colchete bilinear 
+\begin_inset Formula $\left[\cdot,\cdot\right]:\mathfrak{g\times g\to g}$
+\end_inset
+
+ tal que,
+ para todos os vetores o colchete é bilinear e satisfaz a identidade de Jacobi.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dada uma base fixa 
+\begin_inset Formula $\text{\ensuremath{\left\{ X_{a}\right\} }}$
+\end_inset
+
+ para uma álgebra de Lie de dimensão finita,
+ os colchetes podem ser escritos como
+\begin_inset Formula 
+\[
+\left\{ X_{a},X_{b}\right\} =f_{ab}^{c}X_{c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+onde os coeficientes 
+\begin_inset Formula $f_{ab}^{c}$
+\end_inset
+
+ são chamados de costantes de estrutura.
+ Eles caracterizam as relações de comutação da álgebra.
+\end_layout
+
+\begin_layout Section
+Representações de Grupos e álgebras de Lie
+\end_layout
+
+\begin_layout Standard
+Na física simetrias atuam de diversas maneiras dependendo em qual objeto estão atuando.
+ Essa atuação é descrita por uma função dita representação.
+ 
+\end_layout
+
+\begin_layout Definition
+Seja 
+\begin_inset Formula $G$
+\end_inset
+
+ um grupo e 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ um espaço vetorial complexo.
+ Uma representação de 
+\begin_inset Formula $G$
+\end_inset
+
+ em 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ é um homomorfismo
+\begin_inset Formula 
+\begin{equation}
+D:G\to GL({\cal H}).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Assim,
+ trivialmente,
+ 
+\begin_inset Formula 
+\[
+D(e)=I,D(g^{-1})=D(g)^{-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+O espaço de 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ é chamado de espaço de representação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando 
+\begin_inset Formula $G$
+\end_inset
+
+ é um grupo de Lie,
+ uma representação suficientemente regular de 
+\begin_inset Formula $G$
+\end_inset
+
+ induz uma representação de sua álgebra de Lie.
+\end_layout
+
+\begin_layout Definition
+Seja 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ uma álgebra de Lie.
+ Uma representação de 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ em um espaço vetorial 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ é um mapa linear
+\begin_inset Formula 
+\begin{equation}
+dD:\mathfrak{g}\to End({\cal H})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que 
+\begin_inset Formula $End({\cal H})$
+\end_inset
+
+ denota o espaço dos operadores lineares 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ em 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+.
+ O mapa deve satisfazer,
+ para todos 
+\begin_inset Formula $X,Y\in\mathfrak{\mathfrak{g}}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+dD(\left[X,Y\right])=\left[ndD(X),dD(Y)\right].
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A relação entre uma representação do grupo e uma representação da álgebra é expressa por
+\begin_inset Formula 
+\[
+D(\exp(tX))=\exp(dD(X)),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+sempre que a representação do grupo é diferenciável.
+ Em diversas situações,
+ essa relação justifica a prática de estudar os geradores da álgebra em vez de trabalhar com todos os elementos finitos do grupo.
+\end_layout
+
+\begin_layout Standard
+Uma representaão do grupo é dita unitaŕia se os operadores 
+\begin_inset Formula $D(g)$
+\end_inset
+
+ são unitários em um espaço com produto interno.
+ Em teoria de campos relativística,
+ é importante distinguir as representações unitárias que atuam no espaço de estados das representaões finito-dimensionais,
+ em geral não unitaŕias,
+ que atuam sobre as componentes de campos relativísticos.
+\end_layout
+
+\begin_layout Standard
+Um exemplo estrutural importante é a representação adjunta.
+ Seja 
+\begin_inset Formula $G$
+\end_inset
+
+ um grupo de Lie e,
+ para cada 
+\begin_inset Formula $g\in G$
+\end_inset
+
+,
+ considere o automorfismo interno
+\begin_inset Formula 
+\begin{equation}
+C_{g}:G\to G,\ C_{g}(h)=ghg^{-1}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O diferencial desse mapa na identidade define
+\begin_inset Formula 
+\begin{equation}
+Ad_{g}:=(dC_{g})_{e}:\mathfrak{g}\to\mathrel{\mathfrak{g}.}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O mapa 
+\begin_inset Formula 
+\begin{equation}
+Ad:=G\to GL(\mathfrak{g}),\ \ g\mapsto Ad_{g}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+é chamado de representação adjunta do grupo.
+ Ao diferenciar essa representação obtemos a representação adjunta da álgebra,
+\begin_inset Formula 
+\begin{equation}
+ad_{X}(Y)=[X,Y]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+é chamado de representação adjunta do grupo.
+ Ao diferenciar essa representação obtemos a representão adjunta da álgebra.
+\end_layout
+
+\begin_layout Example*
+Considere 
+\begin_inset Formula $G=SO(2)$
+\end_inset
+
+.
+ Um elemento desse grupo pode ser escrito como
+\begin_inset Formula 
+\[
+R(\theta)=\begin{pmatrix}\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sua álgebra de Lie é unidimensional e é gerada por 
+\begin_inset Formula 
+\[
+J=\begin{pmatrix}0 & -1\\
+1 & 0
+\end{pmatrix}\ R(\theta)=\exp(\theta J).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $SO(2)$
+\end_inset
+
+ é abeliano,
+ temos 
+\begin_inset Formula 
+\[
+R(\theta)R\left(\phi\right)R(\theta)^{-1}=R\left(\phi\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+para quaisquer 
+\begin_inset Formula $\theta$
+\end_inset
+
+ e 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ Portanto,
+ o automorfismo interno não altera os elemtentos do grupo.
+ Ao diferenciar essa relação na identidade,
+ obtemos
+\begin_inset Formula 
+\[
+Ad_{R(\theta)}(J)=J.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ a representação adjunta do 
+\begin_inset Formula $SO(2)$
+\end_inset
+
+ é trivial:
+ cada rotação atua como a identidade sobre sua álgebra.
+ Equivalentemente,
+ no nival da álgebra
+\begin_inset Formula 
+\[
+ad_{J}(J)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Redutibilidade e produtos de representações
+\end_layout
+
+\begin_layout Standard
+A classificação de representações passa pela análise de seus subespaços invariantes.
+\end_layout
+
+\begin_layout Definition
+Seja 
+\begin_inset Formula $D:G\to GL({\cal H})$
+\end_inset
+
+ uma representação.
+ Um subespaço 
+\begin_inset Formula $W\subset{\cal H}$
+\end_inset
+
+ é dito invariante se,
+ para todo 
+\begin_inset Formula $g\in G$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+D(g)W\subset W.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um subespaço próprio é um subespaço estritamento menor que o espaço total,
+ isto é,
+ 
+\begin_inset Formula $W\neq{\cal H}$
+\end_inset
+
+.
+ A representação é dita redutível se possui um subespaço invariante próprio e não nulo.
+ Caso contrário,
+ é dita irredutível.
+\end_layout
+
+\begin_layout Standard
+Representações irredutíveis são os bolocs fundamentais da teoria de representações.
+ Em muitos problemas físicos,
+ objetivo é decompor o espaço de estados em setores irredutiveis,
+ pois esses setores carregam números quânticos bem definidos.
+\end_layout
+
+\begin_layout Definition
+Uma rperesentação 
+\begin_inset Formula $D$
+\end_inset
+
+ em 
+\begin_inset Formula ${\cal H}$
+\end_inset
+
+ é dita completamente redutivel se é isomorfa a uma soma direta de representaões irredutíveis.
+ Nesse caso,
+ 
+\begin_inset Formula 
+\begin{equation}
+{\cal H}=\oplus_{i=1}^{n}{\cal H}_{i}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+com cada 
+\begin_inset Formula ${\cal {\cal H}}_{i}$
+\end_inset
+
+,
+ invariante e irredutível.
+\end_layout
+
+\begin_layout Standard
+A soma direta de representações formaliza essa decomposição.
+\end_layout
+
+\begin_layout Definition
+Sejam 
+\begin_inset Formula $D_{1},\dots D_{n}$
+\end_inset
+
+ representações de um grupo 
+\begin_inset Formula $G$
+\end_inset
+
+ nos espaços 
+\begin_inset Formula ${\cal H}_{1},\dots,{\cal H}_{n}$
+\end_inset
+
+.
+ A soma direta 
+\begin_inset Formula $D_{1}\oplus\dots\oplus D_{n}$
+\end_inset
+
+ é a representação é a representação de 
+\begin_inset Formula $G$
+\end_inset
+
+ no espaço 
+\begin_inset Formula ${\cal H}_{1}\oplus\dots\oplus{\cal H}_{1}$
+\end_inset
+
+ definida por
+\begin_inset Formula 
+\begin{equation}
+\left(D_{1}\oplus\dots\oplus D_{n}\right)(g)\left(v_{1},\dots,v_{n}\right)=\left(D_{1}(g)v_{1},\dots,D_{n}(g)v_{n}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O produto tensorial entre representações de um grupo é de interesse teórico fundamental,
+ por exemplo,
+ quando combinamos sistemas quânticos.
+\end_layout
+
+\begin_layout Definition
+Sejam 
+\begin_inset Formula $D_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $D_{2}$
+\end_inset
+
+ representações dos grupos 
+\begin_inset Formula $G$
+\end_inset
+
+ e 
+\begin_inset Formula $H$
+\end_inset
+
+ nos espaços 
+\begin_inset Formula ${\cal H}_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula ${\cal H}_{2}$
+\end_inset
+
+,
+ respectivamente.
+ O produto tensorial 
+\begin_inset Formula $D_{1}\otimes D_{2}$
+\end_inset
+
+ é uma representação de 
+\begin_inset Formula $G\times H$
+\end_inset
+
+ em 
+\begin_inset Formula ${\cal H}_{1}\otimes{\cal H}_{2}$
+\end_inset
+
+ definida por 
+\begin_inset Formula 
+\begin{equation}
+\left(D_{1}\otimes D_{2}\right)(g,h)=D_{1}(g)\otimes D_{2}(h).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sobre vetores,
+ essa representaçao atua como 
+\begin_inset Formula 
+\begin{equation}
+\left(D_{1}(g)\otimes D_{2}(h)\right)(v\otimes w)=D_{1}(g)v\otimes D_{2}(h)w.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para representações de álgebras de Lie a fórmula dada pela seguinte definição
+\end_layout
+
+\begin_layout Definition
+Sejam 
+\begin_inset Formula $dD_{1}:\mathfrak{g}\to End({\cal H}_{1})$
+\end_inset
+
+ e 
+\begin_inset Formula $dD_{2}:\mathfrak{h}\to End({\cal H}_{2})$
+\end_inset
+
+ representações de álgebras de Lie.
+ O produto tensorial é a representação de 
+\begin_inset Formula $\mathfrak{g\oplus\mathfrak{h}}$
+\end_inset
+
+ em 
+\begin_inset Formula ${\cal H}_{1}\otimes{\cal H}_{2}$
+\end_inset
+
+ dada por
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left(dD_{1}\otimes dD_{2}\right)(X,Y):=dD_{1}(X)\otimes I+I\otimes dD_{2}(Y),
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+com 
+\begin_inset Formula $X\in\frak{\mathfrak{g}}$
+\end_inset
+
+ e 
+\begin_inset Formula $Y\in\mathfrak{h}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Essa construção é se baseia a teoria de Clebsh-Gordan.
+\end_layout
+
+\begin_layout Standard
+Considere duas representações distitantes de um grupo 
+\begin_inset Formula $G$
+\end_inset
+
+ em dos espaços vetoriais 
+\begin_inset Formula ${\cal H},{\cal B}$
+\end_inset
+
+.
+ Um operador linear 
+\begin_inset Formula $C:{\cal H}\to{\cal B}$
+\end_inset
+
+ é dito um operador de entrelaçamento se,
+ para todo elemento do grupo,
+\begin_inset Formula 
+\begin{equation}
+CD_{1}=D_{2}C.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O seguinte teorema é importante para a classificação de representações irredutíveis de um grupo ou uma álgebra de Lie.
+\end_layout
+
+\begin_layout Lemma
+(Lema de Schur).
+ Considere representações irredutíveis de um grupo ou de uma álgebra de Lie.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ Se 
+\begin_inset Formula $C$
+\end_inset
+
+ é um operador de entrelaçamento entre duas representações irredutíveis,
+ então 
+\begin_inset Formula $C=0$
+\end_inset
+
+ ou 
+\begin_inset Formula $C$
+\end_inset
+
+ é um isomorfismo.
+\end_layout
+
+\begin_layout Enumerate
+SE 
+\begin_inset Formula $D$
+\end_inset
+
+ é uma representação complexa irredutível de dimensão finita e 
+\begin_inset Formula $C$
+\end_inset
+
+ é um operador de entrelaçamento de 
+\begin_inset Formula $D$
+\end_inset
+
+ em si mesma,
+ então
+\begin_inset Formula 
+\begin{equation}
+C=\lambda I\ para\ algum\ \lambda\in\mathbb{C}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um operador de casimir de uma álgebra de LIe é um elemento construído a partir dos geradores da álgebra que comuta com todos eles.
+\end_layout
+
+\begin_layout Section
+Aplicações:
+ Rotações e Pseudo-rotações
+\end_layout
+
+\begin_layout Standard
+As componentes do momento angular satisfazem a seguinte relação álgebrica,
+\begin_inset Formula 
+\[
+[L_{i},L_{j}]=\text{\ensuremath{\epsilon_{ijk}L_{k}}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essas relações de comutação estão relacionadas á álgebra de Lie do grupo 
+\begin_inset Formula $SO(3):=\left\{ R\in M_{3}(\mathbb{R});R^{T}R=I_{3}\ \det R=1\right\} .$
+\end_inset
+
+ Entretanto,
+ para estudarmos as representações do grupo do 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+ via sua álgebra precisamos ir para um grupo dito cobertura universal esse grupo pode ser demonstrado ser o 
+\begin_inset Formula $SU(2)=\left[U\in M_{2}\left(\mathbb{C}\right);U^{\dagger}U=I_{2}\ \det U=1\right]$
+\end_inset
+
+ esse grupo possui a mesma álgebra do 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+.
+ Isso mostra que localmente os grupos são similares mas globalmente são distintos.
+\end_layout
+
+\begin_layout Standard
+Considere os autovetores do mapa 
+\begin_inset Formula $ad_{L_{i}}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+ad_{L_{i}}(X)=\lambda X
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sabe-se que 
+\begin_inset Formula $X=a^{k}L_{k}$
+\end_inset
+
+.
+ Portanto,
+\begin_inset Formula 
+\begin{align*}
+a^{k}\left[L_{i},L_{k}\right] & =\lambda a^{k}L_{k}\\
+a^{k}\epsilon_{ikm}L_{m} & =\lambda a^{k}L_{k}\\
+a^{k}\left(\epsilon_{ikm}L_{m}-\lambda L_{k}\right) & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se 
+\begin_inset Formula $i=3$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a^{k}\epsilon_{3km}L_{m}-a^{k}\lambda L_{k}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obtendo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a^{1}L_{2}-a^{2}L_{1}-a^{1}\lambda L_{1}-a^{2}\lambda L_{2}-a^{3}\lambda L_{3}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ infere-se que:
+\begin_inset Formula 
+\begin{align*}
+a^{1} & =\lambda a^{2}\\
+a^{2} & =-\lambda a^{1}\\
+a^{3} & \lambda=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vemos que 
+\begin_inset Formula $\lambda^{2}=-1$
+\end_inset
+
+ e 
+\begin_inset Formula $a^{3}=0$
+\end_inset
+
+.
+ Dessa forma,
+ não existe autovetores no espaço vetorial real.
+ Sendo necessário complexificar-lo.
+ Assim,
+\begin_inset Formula 
+\begin{align*}
+L_{+} & =L_{1}-iL_{2}\\
+L_{-} & =L_{1}+iL_{2}\\
+L_{3} & ,
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+São um conjunto de autovetores que gera o espaço vetorial.
+ Pode ser feito o processo para qualquer 
+\begin_inset Formula $L_{i}$
+\end_inset
+
+.
+ Essa base é dita base de Weyl-Cartan.
+ A álgebra complexificada é dada por:
+\begin_inset Formula 
+\begin{align*}
+\left[L_{3},L_{\pm}\right] & =\pm L_{\pm}\\
+\left[L_{+},L_{-}\right] & =2L_{3}.
+\end{align*}
+
+\end_inset
+
+om 
+\end_layout
+
+\begin_layout Standard
+Os pesos de uma representação são os autovalores de 
+\begin_inset Formula $L_{3}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Suponha que estamos em uma representação irredutível qualquer dimensão finita e um autovetor de 
+\begin_inset Formula $L_{3}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L_{3}\left|m\right\rangle =m\left|m\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando as relações de comutação,
+ obtemos 
+\begin_inset Formula 
+\[
+L_{3}L_{\pm}^{k}\left|m\right\rangle =\left(m\pm k\right)L_{\pm}^{k}\left|m\right\rangle .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+sempre que 
+\begin_inset Formula $L_{\pm}^{k}\left|m\right\rangle \neq0$
+\end_inset
+
+.
+ Portanto,
+ 
+\begin_inset Formula $L_{+}$
+\end_inset
+
+ aumenta o peso em uma unidade,
+ enquanto 
+\begin_inset Formula $L_{-}$
+\end_inset
+
+ diminui o peso em uma unidade.
+ 
+\end_layout
+
+\begin_layout Standard
+Como a representação é finito-dimensional,
+ a aplicação repetida de 
+\begin_inset Formula $T_{+}$
+\end_inset
+
+ ( equivalentemente 
+\begin_inset Formula $T_{-}$
+\end_inset
+
+) deve terminar.
+ Assim,
+ existe um vetor não nulo de peso máximo,
+ que denotaremos por 
+\begin_inset Formula $\left|j\right\rangle $
+\end_inset
+
+,
+ tal que
+\begin_inset Formula 
+\[
+L_{3}\left|j\right\rangle =j\left|j\right\rangle ,\ L_{+}\left|j\right\rangle =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir dele,
+ geramos a cadeia 
+\begin_inset Formula 
+\[
+\left|j\right\rangle ,\ L_{-}\left|j\right\rangle \ L_{-}^{2}\left|j\right\rangle \dots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por indução,
+ usando 
+\begin_inset Formula $\left[T_{+},T_{-}\right]=2T_{3}$
+\end_inset
+
+,
+ obtém-se
+\begin_inset Formula 
+\[
+T_{+}T_{-}^{k}\left|j\right\rangle =k(2j-k+1)T_{-}^{k-1}\left|j\right\rangle .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como a representação tem dimensão finita,
+ também existe um último vetor não nulo nessa cadeia.
+ Pode-se mostrar que existe um 
+\begin_inset Formula $k=N+1$
+\end_inset
+
+ que
+\begin_inset Formula 
+\[
+(N+1)(2j-N)T_{-}^{N}\left|j\right\rangle =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como o vetor é não nulo,
+ concluímos que 
+\begin_inset Formula $N=2j$
+\end_inset
+
+.
+ Logo,
+ os pesos são
+\begin_inset Formula 
+\[
+j,j-1,j-2,\dots,-j
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
