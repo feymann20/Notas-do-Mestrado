@@ -241,10 +241,10 @@ Considere o seguinte conjunto
 \begin_inset Formula $G=\left\{ a,b\right\} $
 \end_inset
 
- tal que a justaposição é a operação nesse conjunto definida por:
+ com a operação definida por:
 \begin_inset Formula 
 \[
-ab=ba=a\ aa=e,\ bb=b
+ab=ba=a,\ \ aa=e,\ \ bb=b
 \]
 
 \end_inset
@@ -254,7 +254,7 @@ ab=ba=a\ aa=e,\ bb=b
 
 \begin_layout Example*
 Então,
- tem-se que esse conjunto constitu-se um grupo com 
+ tem-se que esse conjunto constitui-se um grupo com 
 \begin_inset Formula $b$
 \end_inset
 
@@ -601,7 +601,7 @@ Podemos tomar uma expansão infinitesimal de um grupo de Lie.
  Geometricamente,
  essa estrutura obtida é uma álgebra e é o espaço tangente ao grupo na identidade.
  Intuitivamente,
- a álgebra de Lie descreve as direções infinitesimais a parti das quais podemos sair de 
+ a álgebra de Lie descreve as direções infinitesimais a partir das quais podemos sair de 
 \begin_inset Formula $e$
 \end_inset
 
@@ -630,7 +630,7 @@ munido do colhete induzido pelo colhete de campos vetoriais invariantes à esque
 \end_layout
 
 \begin_layout Standard
-Para conectar essa definição com a lingaugem usada em física,
+Para conectar essa definição com a linguagem usada em física,
  considere uma curva suave 
 \begin_inset Formula $g(t)$
 \end_inset
@@ -660,7 +660,7 @@ pertence a
 \begin_inset Formula $T_{e}G$
 \end_inset
 
- e é inteprertado como um gerador infinitesimal da transformação (elemento do grupo).
+ e é inteprertado como um gerador infinitesimal da transformação (elemento da álgebra).
 \end_layout
 
 \begin_layout Standard
@@ -698,7 +698,7 @@ que associa a cada
 \begin_inset Formula $X\in\mathfrak{g}$
 \end_inset
 
- o elemento do gruop obtido pelo subgrupo uniparamétrico gerado por 
+ o elemento do grupo obtido pelo subgrupo uniparamétrico gerado por 
 \begin_inset Formula $X$
 \end_inset
 
@@ -771,7 +771,7 @@ U(\theta)=\exp\left(-i\theta^{a}T_{a}\right)
 
 \begin_layout Standard
 A presença da unidade imaginária depende da convenção escolhida para os geradores.
- COm essa convenção os elementos da álgebra das simetrias contínuas quânticas são operadores autoadjuntos.
+ Com essa convenção os elementos da álgebra das simetrias contínuas quânticas são operadores autoadjuntos.
 \end_layout
 
 \begin_layout Definition
@@ -1451,8 +1451,12 @@ Representações irredutíveis são os bolocs fundamentais da teoria de represen
 \end_layout
 
 \begin_layout Definition
-Uma rperesentação 
+Uma representação 
 \begin_inset Formula $D$
+\end_inset
+
+ de um grupo 
+\begin_inset Formula $G$
 \end_inset
 
  em 
@@ -1478,7 +1482,11 @@ com cada
 \end_inset
 
 ,
- invariante e irredutível.
+ sendo um subesaço invariante de uma representação irredutível de um grupo 
+\begin_inset Formula $G$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1749,6 +1757,552 @@ C=\lambda I\ para\ algum\ \lambda\in\mathbb{C}.
 
 \begin_layout Standard
 Um operador de casimir de uma álgebra de LIe é um elemento construído a partir dos geradores da álgebra que comuta com todos eles.
+\end_layout
+
+\begin_layout Proof
+Seja 
+\begin_inset Formula $dD_{1},dD_{2}$
+\end_inset
+
+ represetações irredutíveis de uma álgebra de Lie 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+.
+ Suponha que 
+\begin_inset Formula $C$
+\end_inset
+
+ seja um operador de entrelaçamento entre essas duas representações,
+ então
+\begin_inset Formula 
+\[
+CD_{1}(g)v=D_{2}(g)Cv\ \forall g\in G\ e\ \forall v\in\mathcal{H}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Considere que 
+\begin_inset Formula $v\in\ker C$
+\end_inset
+
+,
+ isso implica que 
+\begin_inset Formula $v\in\ker D_{1}(g)$
+\end_inset
+
+,
+ para todo 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ Mas como a representação é irredutível sabemos que 
+\begin_inset Formula $v=0$
+\end_inset
+
+ ou 
+\begin_inset Formula $v$
+\end_inset
+
+ é um elemento qualquer do espaço.
+ Portanto,
+ temos que 
+\begin_inset Formula $\ker C=\left\{ 0\right\} $
+\end_inset
+
+ ou 
+\begin_inset Formula $\ker C=V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Se 
+\begin_inset Formula $D$
+\end_inset
+
+ for uma representação complexa irredutível de dimensão finita e 
+\begin_inset Formula $C$
+\end_inset
+
+ é um operador de entrelaçamento em si mesma temos que
+\begin_inset Formula 
+\[
+CD=DC
+\]
+
+\end_inset
+
+Como estamos no corpo complexo,
+ 
+\begin_inset Formula $C$
+\end_inset
+
+ possui ao menos um autovalor 
+\begin_inset Formula $\lambda$
+\end_inset
+
+,
+ então temos que existe um subespaço invariante 
+\begin_inset Formula $U_{\lambda}$
+\end_inset
+
+ associado a esse autovalor.
+ Esse subespaço é invariante pela representação pois os operadores comutam.
+ De fato,
+ seja 
+\begin_inset Formula $u\in U_{\lambda}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+CDu=DCu=\lambda D(\sum a^{i}v_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Assim temos que 
+\begin_inset Formula $C=\lambda I$
+\end_inset
+
+ com 
+\begin_inset Formula $\lambda\in\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+No estudo de composições de sistemas quânticos com momentos angulares,
+ temos que a soma do momento angular total do sistema é dada pelo estudo do espectro da 
+\begin_inset Quotes eld
+\end_inset
+
+soma dos operadores de momento angular
+\begin_inset Quotes erd
+\end_inset
+
+ do sistema.
+ As representações do 
+\begin_inset Formula $SU(2)$
+\end_inset
+
+ ou equivalemente do 
+\begin_inset Formula $SL(2,\mathbb{C})$
+\end_inset
+
+ que fazem parte do estudo da álgebra dos operadores de spin.
+ Podemos portanto,
+ construir produtos entre representações,
+ especificamente,
+ produtos tensoriais representações de álgebras de Lie,
+ irei denotar os elementos da álgebra na base usual,
+ 
+\begin_inset Formula $H,X,Y$
+\end_inset
+
+ respectivamente,
+ o elemento de Cartan,
+ o operador de levantamento e abaixamento.
+ As relações de comutação da álgebra 
+\begin_inset Formula $\mathfrak{sl}(2,\mathbb{C})$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+[H,X] & =X\\{}
+[H,Y] & =Y\\{}
+[X,Y] & =2H
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+A ação da representação tensorial,
+ 
+\begin_inset Formula $\pi_{j_{1},j_{2}}\equiv\pi_{j_{1}}\otimes\pi_{j_{2}}$
+\end_inset
+
+ é dada por:
+\begin_inset Formula 
+\[
+\pi_{j_{1},j_{2}}(X):=\pi_{j_{1}}(X)\otimes I+I\otimes\pi_{j_{2}}(X)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Essa nova representação,
+ em geral,
+ não é irredutível,
+ por isso,
+ o objetivo aqui é mostrar que é possível decompor em somas diretas de representações irredutíveis.
+ Esse método possui o nome de Teoria de Clebsh-Gordan.
+ Iremos considerar o caso em que ambos espaços representados são bidimensionais e complexos,
+ irei detonar por 
+\begin_inset Formula $\mathcal{H}_{1/2}$
+\end_inset
+
+ então a base do espaço tensorial é dada por:
+\begin_inset Formula 
+\[
+\mathcal{H}_{1/2}\otimes\mathcal{H}_{1/2}=span\left\{ \left|\frac{1}{2},\frac{1}{2}\right\rangle ,\left|\frac{1}{2},-\frac{1}{2}\right\rangle ,\left|-\frac{1}{2},\frac{1}{2}\right\rangle ,\left|-\frac{1}{2},-\frac{1}{2}\right\rangle \right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Em que,
+ os vetores foram rotulados com base na seguinte definição usual
+\begin_inset Formula 
+\[
+\pi_{\frac{1}{2}}(H)\left|\pm1/2\right\rangle =\pm1/2\left|1/2\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Evidentemente,
+ temos que o autovetor com maior peso na representação tensorial é o vetor 
+\begin_inset Formula $\left|1/2,1/2\right\rangle $
+\end_inset
+
+ com autovalor 1,
+ então 
+\begin_inset Formula $\pi_{\frac{1}{2},\frac{1}{2}}(X)$
+\end_inset
+
+ aniquila esse vetor,
+ a matriz que representa o elemento de Cartan possui a seguinte forma:
+\begin_inset Formula 
+\[
+H=\begin{pmatrix}1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Assim temos que podemos aplicar sucessivamente o operador de abaixamento
+\begin_inset Formula 
+\begin{align*}
+\pi_{\frac{1}{2},\frac{1}{2}}(Y)\left|\frac{1}{2},\frac{1}{2}\right\rangle  & =\left|-\frac{1}{2},\frac{1}{2}\right\rangle +\left|\frac{1}{2},-\frac{1}{2}\right\rangle \\
+\left[\pi_{\frac{1}{2},\frac{1}{2}}(Y)\right]^{2}\left|\frac{1}{2},\frac{1}{2}\right\rangle  & =2\left|-\frac{1}{2},-\frac{1}{2}\right\rangle 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Obtemos então três vetores não nulos,
+ esses vetores geram um espaço tridimensional,
+ pois eles são linearmente independentes e é um subespaço invariante pela álgebra,
+ podemos encontrar o seu complemento ortogonal que também será invariante pela álgebra,
+ pois eles são autoadjuntos,
+ então temos que:
+\begin_inset Formula 
+\[
+\mathcal{H}_{1/2}\otimes\mathcal{H}_{1/2}=span\left\{ \left|\frac{1}{2},\frac{1}{2}\right\rangle ,\left|-\frac{1}{2},\frac{1}{2}\right\rangle +\left|\frac{1}{2},-\frac{1}{2}\right\rangle ,\left|-\frac{1}{2},-\frac{1}{2}\right\rangle \right\} \oplus span\left\{ v\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Para encontrar esse segundo subespaço invariante,
+ podemos apelar para o seu complemento ortogonal,
+ como o espaço é de dimensão finita teremos condições em que conhecemos de antemão.
+ 
+\begin_inset Formula 
+\[
+W^{\perp}=\left\{ v;\left\langle v|w\right\rangle =0,w\in W\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Então o produto interno com todos os geradores tem que ser zero
+\begin_inset Formula 
+\[
+a=0;b+c=0;d=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Então temos que o espaço é decomposto em:
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+\begin_inset Formula 
+\[
+\mathcal{H}_{1/2}\otimes\mathcal{H}_{1/2}=span\left\{ \left|\frac{1}{2},\frac{1}{2}\right\rangle ,\left|-\frac{1}{2},\frac{1}{2}\right\rangle +\left|\frac{1}{2},-\frac{1}{2}\right\rangle ,\left|-\frac{1}{2},-\frac{1}{2}\right\rangle \right\} \oplus span\left\{ \left|\frac{1}{2},-\frac{1}{2}\right\rangle -\left|-\frac{1}{2},\frac{1}{2}\right\rangle \right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\align block
+Então mostramos que o espaço é decomposto em somas diretas de representações irredutíveis.
+ O elemento de Cartan está em diagonal em blocos:
+\begin_inset Formula 
+\[
+H=\begin{pmatrix}1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & 0
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mostrando que
+\begin_inset Formula 
+\[
+\mathcal{H}_{1/2}\otimes\mathcal{H}_{1/2}\cong\mathcal{H}_{1}\oplus\mathcal{H}_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analisar os vetores do núcleo do operador levantamento ou abaixando torna-se não trivial em um estudo de produtos quaisquer,
+ por isso iremos construir somente visando uma a estrutura de subespaços invariantes.
+ Prosseguimos enunciando o teorema:
+\end_layout
+
+\begin_layout Theorem*
+Seja 
+\begin_inset Formula $2j_{1}=m;2j_{2}=n$
+\end_inset
+
+.
+ Suponha sem perda de generalidade que 
+\begin_inset Formula $m\geq n$
+\end_inset
+
+ consideremos uma representação 
+\begin_inset Formula $\pi_{m,n}$
+\end_inset
+
+ do 
+\begin_inset Formula $\mathfrak{sl}(2,\mathbb{C})$
+\end_inset
+
+ atuando em 
+\begin_inset Formula $\mathcal{H}_{m}\otimes\mathcal{H}_{n}$
+\end_inset
+
+ então:
+\begin_inset Formula 
+\[
+\mathcal{H}_{m}\otimes\mathcal{H}_{n}\cong\mathcal{H}_{m+n}\oplus\mathcal{H}_{m+n-2}\oplus\dots\oplus\mathcal{H}_{m-n+2}\otimes\mathcal{H}_{m-n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Consideremos a base de 
+\begin_inset Formula $\mathcal{H}_{m}$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\pi_{m}(H)u_{j}=ju_{j}$
+\end_inset
+
+ e analogamente para 
+\begin_inset Formula $\mathcal{H}_{n}$
+\end_inset
+
+ assim temos que
+\begin_inset Formula 
+\[
+\pi_{m,n}(H)\left(u_{j}\otimes v_{k}\right)=(j+k)\left(u_{j}\otimes v_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+O espectro desse operador pertence a 
+\begin_inset Formula $m+n$
+\end_inset
+
+ à 
+\begin_inset Formula $-(m+n)$
+\end_inset
+
+.
+ Como conhecemos os autovetores de 
+\begin_inset Formula $H$
+\end_inset
+
+ sabemos que eles devem diferir agora por um autovalor 2,
+ então podemos começar a estudar multiplicidade geométrica de cada autovalor.
+ Considere o vetor 
+\begin_inset Formula $u_{m}\otimes v_{n}$
+\end_inset
+
+ é evidente que ele é aniquilado por 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Então 
+\begin_inset Formula $Y^{k}u_{m}\otimes v_{n}$
+\end_inset
+
+ são autovetores de 
+\begin_inset Formula $H$
+\end_inset
+
+ com autovalores 
+\begin_inset Formula $m+n-2k$
+\end_inset
+
+ até 
+\begin_inset Formula $-m-n$
+\end_inset
+
+.
+ Ao tomarmos o conjunto 
+\begin_inset Formula $W$
+\end_inset
+
+ gerado por esses vetores obtemos que ele é isomorfo à 
+\begin_inset Formula $\mathcal{\mathcal{H}}_{m+n}$
+\end_inset
+
+.
+ o complemento ortogonal é também invariante pois estamos lidando com representações irredutíveis.
+ Como 
+\begin_inset Formula $W$
+\end_inset
+
+ possui um vetor com autovalor 
+\begin_inset Formula $m+n$
+\end_inset
+
+ então seu complemento ortogonal não pode possuir esse autovalor.
+ Logo,
+ o maior autovalor é 
+\begin_inset Formula $m+n-2$
+\end_inset
+
+ e esse autovalor nesse subespaço possui multiplicidade um,
+ se 
+\begin_inset Formula $n=0$
+\end_inset
+
+ o teorema é trivial,
+ então,
+ o autovetor com esse autovalor é aniquilado nesse subespaço por 
+\begin_inset Formula $X$
+\end_inset
+
+ e portanto,
+ conseguimos gerar um subespaço invariante isomorfo à 
+\begin_inset Formula $\mathcal{H}_{m+n-2}$
+\end_inset
+
+.
+ Ao continuar esse processo obtemos uma decomposição.
+\begin_inset Formula 
+\begin{align*}
+\mathcal{H}_{m}\otimes\mathcal{H}_{n} & \cong\mathcal{H}_{m+n}\oplus\mathcal{H}_{m+n-2}\oplus\dots\oplus\mathcal{H}_{m-n+2}\otimes\mathcal{H}_{m-n}\\
+ & \cong\bigoplus^{n}_{k=0}\mathcal{H}_{|m+n-2k|}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Portanto,
+ o produto tensoriais de representações irredutíveis da álgebra de spin é completamente redutível.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2214,12 +2768,74 @@ e a representação de spin
 \begin_inset Formula $SU(2)$
 \end_inset
 
- com sua álgebra é simples.
- Mas representar o 
+ com sua álgebra é direto,
+ pois topologicamente o grupo é simplesmente conexo,
+ isso permite que consigamos representar o grupo via álgebra.
+ No caso do 
 \begin_inset Formula $SO(3)$
 \end_inset
 
- é necessário realizar um mapa 
+ ele é um grupo que não é simplesmente conexo,
+ isso implica que não podemos fazer o mesmo.
+ Por sorte,
+ existe um homomorfismo 
+\begin_inset Formula $\phi:SU(2)\to SO(3)$
+\end_inset
+
+ definido por
+\begin_inset Formula 
+\[
+\phi_{U}(X)=UXU^{-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com 
+\begin_inset Formula $X$
+\end_inset
+
+ pertence ao conjunto das matrizes 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ autoadjuntas e 
+\begin_inset Formula $\ker\phi=\left\{ I,-I\right\} $
+\end_inset
+
+ .
+ com traço zero.
+ Isso permite que consigamos construir um isomorfismo com o grupo ciclíco de ordem 2
+\begin_inset Formula 
+\[
+SU(2)/\mathbb{Z}_{2}\tilde{=}SO(3).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com isso,
+ afirmamos que as únicas representações irredutíveis do 
+\begin_inset Formula $SU(2)$
+\end_inset
+
+ que descem a representações do 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+ são aquelas de spin inteiro 
+\begin_inset Formula $0,1,2,3\dots$
+\end_inset
+
+ e as de spin semi-inteiro são representações projetivas,
+ isto é,
+ são representações que são um homorfismo a não ser por um número complexo de módulo 1.
 \end_layout
 
 \begin_layout Section
