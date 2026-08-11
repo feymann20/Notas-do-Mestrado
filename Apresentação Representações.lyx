@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -63,11 +63,19 @@ theorems-sec
 \use_indices false
 \paperorientation portrait
 \suppress_date true
-\justification true
-\use_refstyle 0
+\justification default
+\crossref_package prettyref
 \use_formatted_ref 0
 \use_minted 0
 \use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
 \index Index
 \shortcut idx
 \color #008000
@@ -93,6 +101,7 @@ theorems-sec
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
+\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -110,7 +119,7 @@ Grupos e Álgebras de lie
 \end_layout
 
 \begin_layout Standard
-A teoria de grupos tornou-se essencial para o estudo das simetrias dos sitemas físicos.
+A teoria de grupos tornou-se essencial para o estudo das simetrias dos sistemas físicos.
  Nesta seção,
  serão introduzidas as noções matemáticas entre grupos de Lie,
  álgebras de Lie e suas representações.
@@ -156,7 +165,6 @@ status collapsed
 status open
 
 \begin_layout Plain Layout
-
 label=
 \backslash
 roman*)
@@ -226,7 +234,49 @@ Geralmente,
 \end_inset
 
  e escreveremos a operação por justaposição.
- Podemos e devemos estar interessados em como grupos estão relacionados via mapas que preservam a sua estrutura álgebrica.
+\end_layout
+
+\begin_layout Example*
+Considere o seguinte conjunto 
+\begin_inset Formula $G=\left\{ a,b\right\} $
+\end_inset
+
+ tal que a justaposição é a operação nesse conjunto definida por:
+\begin_inset Formula 
+\[
+ab=ba=a\ aa=e,\ bb=b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+Então,
+ tem-se que esse conjunto constitu-se um grupo com 
+\begin_inset Formula $b$
+\end_inset
+
+ sendo a identidade,
+ que denotaremos por 
+\begin_inset Formula $e$
+\end_inset
+
+.
+ Assim vemos que esse é o menor grupo finito de dois elementos,
+ denotado por 
+\begin_inset Formula $\mathbb{Z}_{2}$
+\end_inset
+
+,
+ chamado de grupo ciclíco de ordem 2.
+ Esse grupo,
+ será importante quando estivermos estudando os grupos de simetria na física.
+\end_layout
+
+\begin_layout Standard
+Podemos e devemos estar interessados em como grupos estão relacionados via mapas que preservam a sua estrutura álgebrica.
  Dessa forma,
  definimos
 \end_layout
@@ -350,7 +400,7 @@ associado,
 \end_layout
 
 \begin_layout Definition
-Seja G um trupo de 
+Seja G um grupo de 
 \begin_inset Formula $M$
 \end_inset
 
@@ -372,14 +422,13 @@ Seja G um trupo de
 
 \begin_layout Enumerate
 \begin_inset Argument 1
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
 label=
 \backslash
 roman*)
@@ -658,7 +707,7 @@ que associa a cada
  esse mapa é a exponencial usual de matrizes,
 \begin_inset Formula 
 \begin{equation}
-\exp X=\sum_{n=0}^{\infty}\frac{X^{n}}{n!}
+\exp X=\sum^{\infty}_{n=0}\frac{X^{n}}{n!}
 \end{equation}
 
 \end_inset
@@ -754,7 +803,7 @@ Dada uma base fixa
  os colchetes podem ser escritos como
 \begin_inset Formula 
 \[
-\left\{ X_{a},X_{b}\right\} =f_{ab}^{c}X_{c}
+\left\{ X_{a},X_{b}\right\} =f^{c}_{ab}X_{c}
 \]
 
 \end_inset
@@ -764,7 +813,7 @@ Dada uma base fixa
 
 \begin_layout Standard
 onde os coeficientes 
-\begin_inset Formula $f_{ab}^{c}$
+\begin_inset Formula $f^{c}_{ab}$
 \end_inset
 
  são chamados de costantes de estrutura.
@@ -787,7 +836,7 @@ Seja
 \end_inset
 
  um grupo e 
-\begin_inset Formula ${\cal H}$
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
  um espaço vetorial complexo.
@@ -796,13 +845,13 @@ Seja
 \end_inset
 
  em 
-\begin_inset Formula ${\cal H}$
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
  é um homomorfismo
 \begin_inset Formula 
 \begin{equation}
-D:G\to GL({\cal H}).
+D:G\to GL(\mathcal{H}).
 \end{equation}
 
 \end_inset
@@ -826,7 +875,7 @@ D(e)=I,D(g^{-1})=D(g)^{-1}.
 
 \begin_layout Definition
 O espaço de 
-\begin_inset Formula ${\cal H}$
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
  é chamado de espaço de representação.
@@ -863,13 +912,13 @@ Seja
 \end_inset
 
  em um espaço vetorial 
-\begin_inset Formula ${\cal H}$
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
  é um mapa linear
 \begin_inset Formula 
 \begin{equation}
-dD:\mathfrak{g}\to End({\cal H})
+dD:\mathfrak{g}\to End(\mathcal{H})
 \end{equation}
 
 \end_inset
@@ -879,15 +928,15 @@ dD:\mathfrak{g}\to End({\cal H})
 
 \begin_layout Standard
 em que 
-\begin_inset Formula $End({\cal H})$
+\begin_inset Formula $End(\mathcal{H})$
 \end_inset
 
  denota o espaço dos operadores lineares 
-\begin_inset Formula ${\cal H}$
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
  em 
-\begin_inset Formula ${\cal H}$
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
 .
@@ -899,7 +948,7 @@ em que
 
 \begin_inset Formula 
 \begin{equation}
-dD(\left[X,Y\right])=\left[ndD(X),dD(Y)\right].
+dD(\left[X,Y\right])=\left[dD(X),dD(Y)\right].
 \end{equation}
 
 \end_inset
@@ -923,10 +972,7 @@ D(\exp(tX))=\exp(dD(X)),
 sempre que a representação do grupo é diferenciável.
  Em diversas situações,
  essa relação justifica a prática de estudar os geradores da álgebra em vez de trabalhar com todos os elementos finitos do grupo.
-\end_layout
-
-\begin_layout Standard
-Uma representaão do grupo é dita unitaŕia se os operadores 
+ Uma representaão do grupo é dita unitária se os operadores 
 \begin_inset Formula $D(g)$
 \end_inset
 
@@ -1021,6 +1067,85 @@ R(\theta)=\begin{pmatrix}\cos\theta & -\sin\theta\\
 
 \end_layout
 
+\begin_layout Example*
+De fato,
+ 
+\begin_inset Formula 
+\[
+\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}a & c\\
+b & d
+\end{pmatrix}=\begin{pmatrix}a^{2}+b^{2} & ac+bd\\
+ac+bd & c^{2}+d^{2}
+\end{pmatrix}=\begin{pmatrix}1 & 0\\
+0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+Logo,
+\begin_inset Formula 
+\[
+\begin{cases}
+a^{2}+b^{2}=1 & c^{2}+d^{2}=1\\
+ac=-bd & ad-bc=1
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suponha 
+\begin_inset Formula $ac=-bd>0$
+\end_inset
+
+,
+ então 
+\begin_inset Formula $a,c$
+\end_inset
+
+ tem o mesmo sinal e 
+\begin_inset Formula $b,d$
+\end_inset
+
+ sinais opostos.
+ Com isso,
+ 
+\begin_inset Formula 
+\begin{align*}
+a & =\cos\theta & b=\sin\theta\\
+c & =\sin\theta & d=-\cos\theta
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O vínculo do determinante é satisfeito:
+\begin_inset Formula 
+\[
+\cos\theta\sin\theta=-(\sin\theta(-)\cos\theta).
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Sua álgebra de Lie é unidimensional e é gerada por 
 \begin_inset Formula 
@@ -1063,7 +1188,7 @@ para quaisquer
 
 .
  Portanto,
- o automorfismo interno não altera os elemtentos do grupo.
+ o automorfismo interno não altera os elementos do grupo.
  Ao diferenciar essa relação na identidade,
  obtemos
 \begin_inset Formula 
@@ -1085,7 +1210,7 @@ Assim,
  é trivial:
  cada rotação atua como a identidade sobre sua álgebra.
  Equivalentemente,
- no nival da álgebra
+ no nivel da álgebra
 \begin_inset Formula 
 \[
 ad_{J}(J)=0.
@@ -1094,6 +1219,181 @@ ad_{J}(J)=0.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Podemos introduzir um produto interno no espaço vetorial da álgebra de Lie sendo dada por:
+\begin_inset Formula 
+\[
+\eta^{D}(A,B)=tr(D(A)D(B)),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que quando estamos na representação adjunta dizemos que essa é a forma de Killing:
+\begin_inset Formula 
+\[
+\kappa(A,B)=tr(ad_{A}ad_{B}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essa forma bilinear simétrica permite classificar a álgebra,
+ devido a dois teoremas.
+ Anteriormente definiremos ideal e solubilidade de uma álgebra
+\end_layout
+
+\begin_layout Standard
+Um subespaço 
+\begin_inset Formula $i\subset\mathfrak{g}$
+\end_inset
+
+ é chamado de ideal de álgebra de Lie 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ se,
+ para todo 
+\begin_inset Formula $X\in\mathfrak{g}$
+\end_inset
+
+ e todo 
+\begin_inset Formula $Y\in i$
+\end_inset
+
+,
+ vale
+\begin_inset Formula 
+\[
+\left[X,Y\right]\in i.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ um ideal é um subespaço preservado pela ação adjunta de todos os elementos da álgebra.
+ Os ideais triviais são 
+\begin_inset Formula $\left\{ 0\right\} $
+\end_inset
+
+ e a própria álgebra 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Partindo para a solubilidade.
+ Dada uma álgebra de Lie 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+,
+ define-se sua série derivada por
+\begin_inset Formula 
+\[
+\mathfrak{g}^{(0)}=\mathfrak{g},\ \ \mathfrak{g}^{(k+1)}=\left[\mathfrak{g}^{(k)},\mathfrak{g}^{(k)}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uma álgebra é dita solúvel se essa sequência chega a zero em um número finito de passos,
+ isto é,
+ se existe um 
+\begin_inset Formula $N$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+\mathfrak{g}^{(N)}=\left\{ 0\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+ um ideal solúvel de 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ é um ideal que,
+ considerado como álgebra de Lie com o colhete heradao de 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ é solúvel.
+\end_layout
+
+\begin_layout Definition
+Uma álgebra de Lie 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ é dita simples se não é abeliana e possui apenas os ideais triviais 
+\begin_inset Formula $\left\{ 0\right\} $
+\end_inset
+
+ e 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+.
+ Ela é dita semissimples se não possui ideais solúveis não triviais.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A principal consequência é que uma álgebra simples não pode ser decomposta em partes menores compatíveis com o colhete.
+ Uma álgebra semisimples pode possuir ideais não triviais,
+ mas não possui ideais solúveis não triviais.
+ Assim,
+ toda álgebra simples é semissimples,
+ mas uma álgebra semissimples pode ser soma direta de álgebras simples,
+ como 
+\begin_inset Formula $\mathfrak{su(2)\oplus su(2)}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O critério de Cartan relaciona a semissimplicidade com a forma de Killing
+\end_layout
+
+\begin_layout Theorem
+(Cartan) Uma álgebra de Lie 
+\begin_inset Formula $\mathfrak{g}$
+\end_inset
+
+ é dita semisimples se,
+ e somente se a sua forma de Killing é não degenerada.
 \end_layout
 
 \begin_layout Section
@@ -1106,12 +1406,12 @@ A classificação de representações passa pela análise de seus subespaços in
 
 \begin_layout Definition
 Seja 
-\begin_inset Formula $D:G\to GL({\cal H})$
+\begin_inset Formula $D:G\to GL(\mathcal{H})$
 \end_inset
 
  uma representação.
  Um subespaço 
-\begin_inset Formula $W\subset{\cal H}$
+\begin_inset Formula $W\subset\mathcal{H}$
 \end_inset
 
  é dito invariante se,
@@ -1134,7 +1434,7 @@ D(g)W\subset W.
 Um subespaço próprio é um subespaço estritamento menor que o espaço total,
  isto é,
  
-\begin_inset Formula $W\neq{\cal H}$
+\begin_inset Formula $W\neq\mathcal{H}$
 \end_inset
 
 .
@@ -1156,7 +1456,7 @@ Uma rperesentação
 \end_inset
 
  em 
-\begin_inset Formula ${\cal H}$
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
  é dita completamente redutivel se é isomorfa a uma soma direta de representaões irredutíveis.
@@ -1164,7 +1464,7 @@ Uma rperesentação
  
 \begin_inset Formula 
 \begin{equation}
-{\cal H}=\oplus_{i=1}^{n}{\cal H}_{i}
+\mathcal{H}=\oplus^{n}_{i=1}\mathcal{H}_{i},
 \end{equation}
 
 \end_inset
@@ -1174,7 +1474,7 @@ Uma rperesentação
 
 \begin_layout Definition
 com cada 
-\begin_inset Formula ${\cal {\cal H}}_{i}$
+\begin_inset Formula $\mathcal{H}_{i}$
 \end_inset
 
 ,
@@ -1195,7 +1495,7 @@ Sejam
 \end_inset
 
  nos espaços 
-\begin_inset Formula ${\cal H}_{1},\dots,{\cal H}_{n}$
+\begin_inset Formula $\mathcal{H}_{1},\dots,\mathcal{H}_{n}$
 \end_inset
 
 .
@@ -1208,7 +1508,7 @@ Sejam
 \end_inset
 
  no espaço 
-\begin_inset Formula ${\cal H}_{1}\oplus\dots\oplus{\cal H}_{1}$
+\begin_inset Formula $\mathcal{H}_{1}\oplus\dots\oplus\mathcal{H}_{n}$
 \end_inset
 
  definida por
@@ -1246,11 +1546,11 @@ Sejam
 \end_inset
 
  nos espaços 
-\begin_inset Formula ${\cal H}_{1}$
+\begin_inset Formula $\mathcal{H}_{1}$
 \end_inset
 
  e 
-\begin_inset Formula ${\cal H}_{2}$
+\begin_inset Formula $\mathcal{H}_{2}$
 \end_inset
 
 ,
@@ -1264,7 +1564,7 @@ Sejam
 \end_inset
 
  em 
-\begin_inset Formula ${\cal H}_{1}\otimes{\cal H}_{2}$
+\begin_inset Formula $\mathcal{H}_{1}\otimes\mathcal{H}_{2}$
 \end_inset
 
  definida por 
@@ -1292,16 +1592,16 @@ Sobre vetores,
 \end_layout
 
 \begin_layout Standard
-Para representações de álgebras de Lie a fórmula dada pela seguinte definição
+Para representações de álgebras de Lie a fórmula dada pela seguinte definição,
 \end_layout
 
 \begin_layout Definition
 Sejam 
-\begin_inset Formula $dD_{1}:\mathfrak{g}\to End({\cal H}_{1})$
+\begin_inset Formula $dD_{1}:\mathfrak{g}\to End(\mathcal{H}_{1})$
 \end_inset
 
  e 
-\begin_inset Formula $dD_{2}:\mathfrak{h}\to End({\cal H}_{2})$
+\begin_inset Formula $dD_{2}:\mathfrak{h}\to End(\mathcal{H}_{2})$
 \end_inset
 
  representações de álgebras de Lie.
@@ -1310,7 +1610,7 @@ Sejam
 \end_inset
 
  em 
-\begin_inset Formula ${\cal H}_{1}\otimes{\cal H}_{2}$
+\begin_inset Formula $\mathcal{H}_{1}\otimes\mathcal{H}_{2}$
 \end_inset
 
  dada por
@@ -1349,12 +1649,12 @@ Considere duas representações distitantes de um grupo
 \end_inset
 
  em dos espaços vetoriais 
-\begin_inset Formula ${\cal H},{\cal B}$
+\begin_inset Formula $\mathcal{H},\mathcal{B}$
 \end_inset
 
 .
  Um operador linear 
-\begin_inset Formula $C:{\cal H}\to{\cal B}$
+\begin_inset Formula $C:\mathcal{H}\to\mathcal{B}$
 \end_inset
 
  é dito um operador de entrelaçamento se,
@@ -1380,14 +1680,13 @@ O seguinte teorema é importante para a classificação de representações irre
 
 \begin_layout Enumerate
 \begin_inset Argument 1
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
-
 label=
 \backslash
 roman*)
@@ -1417,7 +1716,7 @@ roman*)
 \end_layout
 
 \begin_layout Enumerate
-SE 
+Se 
 \begin_inset Formula $D$
 \end_inset
 
@@ -1432,9 +1731,9 @@ SE
  em si mesma,
  então
 \begin_inset Formula 
-\begin{equation}
+\[
 C=\lambda I\ para\ algum\ \lambda\in\mathbb{C}.
-\end{equation}
+\]
 
 \end_inset
 
@@ -1648,7 +1947,7 @@ Usando as relações de comutação,
  obtemos 
 \begin_inset Formula 
 \[
-L_{3}L_{\pm}^{k}\left|m\right\rangle =\left(m\pm k\right)L_{\pm}^{k}\left|m\right\rangle .
+L_{3}L^{k}_{\pm}\left|m\right\rangle =\left(m\pm k\right)L^{k}_{\pm}\left|m\right\rangle .
 \]
 
 \end_inset
@@ -1658,7 +1957,7 @@ L_{3}L_{\pm}^{k}\left|m\right\rangle =\left(m\pm k\right)L_{\pm}^{k}\left|m\righ
 
 \begin_layout Standard
 sempre que 
-\begin_inset Formula $L_{\pm}^{k}\left|m\right\rangle \neq0$
+\begin_inset Formula $L^{k}_{\pm}\left|m\right\rangle \neq0$
 \end_inset
 
 .
@@ -1710,7 +2009,7 @@ A partir dele,
  geramos a cadeia 
 \begin_inset Formula 
 \[
-\left|j\right\rangle ,\ T_{-}\left|j\right\rangle \ T_{-}^{2}\left|j\right\rangle \dots
+\left|j\right\rangle ,\ T_{-}\left|j\right\rangle \ T^{2}_{-}\left|j\right\rangle \dots
 \]
 
 \end_inset
@@ -1728,7 +2027,7 @@ Por indução,
  obtém-se
 \begin_inset Formula 
 \[
-T_{+}T_{-}^{k}\left|j\right\rangle =k(2j-k+1)T_{-}^{k-1}\left|j\right\rangle .
+T_{+}T^{k}_{-}\left|j\right\rangle =k(2j-k+1)T^{k-1}_{-}\left|j\right\rangle .
 \]
 
 \end_inset
@@ -1746,7 +2045,7 @@ Como a representação tem dimensão finita,
  que
 \begin_inset Formula 
 \[
-(N+1)(2j-N)T_{-}^{N}\left|j\right\rangle =0
+(N+1)(2j-N)T^{N}_{-}\left|j\right\rangle =0
 \]
 
 \end_inset
@@ -1815,8 +2114,8 @@ Para obter a normalização da ação dos operadores de escada,
  usamos as identidades
 \begin_inset Formula 
 \begin{align*}
-T_{-}T_{+} & =C-T_{3}^{2}-T_{3}.\\
-T_{+}T_{-} & =C-T_{3}^{2}+T_{3}.
+T_{-}T_{+} & =C-T^{2}_{3}-T_{3}.\\
+T_{+}T_{-} & =C-T^{2}_{3}+T_{3}.
 \end{align*}
 
 \end_inset
@@ -1846,7 +2145,7 @@ Então
 \begin_inset Formula 
 \begin{align*}
 |c_{m}|^{2} & =\left\langle m,j\left|T_{-}T_{+}\right|j,m\right\rangle \\
- & =\left\langle m,j\left|C-T_{3}^{2}-T_{3}\right|j,m\right\rangle \\
+ & =\left\langle m,j\left|C-T^{2}_{3}-T_{3}\right|j,m\right\rangle \\
  & =j(j+1)-m^{2}-m.
 \end{align*}
 

@@ -1,5 +1,5 @@
-#LyX 2.5 created this file. For more info see https://www.lyx.org/
-\lyxformat 643
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -63,19 +63,11 @@ theorems-sec
 \use_indices false
 \paperorientation portrait
 \suppress_date true
-\justification default
-\crossref_package prettyref
+\justification true
+\use_refstyle 0
 \use_formatted_ref 0
 \use_minted 0
 \use_lineno 0
-\backgroundcolor none
-\fontcolor none
-\notefontcolor lightgray
-\boxbgcolor red
-\table_border_color default
-\table_odd_row_color default
-\table_even_row_color default
-\table_alt_row_colors_start 1
 \index Index
 \shortcut idx
 \color #008000
@@ -101,7 +93,6 @@ theorems-sec
 \html_be_strict false
 \docbook_table_output 0
 \docbook_mathml_prefix 1
-\docbook_mathml_version 0
 \end_header
 
 \begin_body
@@ -119,7 +110,7 @@ Grupos e Álgebras de lie
 \end_layout
 
 \begin_layout Standard
-A teoria de grupos tornou-se essencial para o estudo das simetrias dos sistemas físicos.
+A teoria de grupos tornou-se essencial para o estudo das simetrias dos sitemas físicos.
  Nesta seção,
  serão introduzidas as noções matemáticas entre grupos de Lie,
  álgebras de Lie e suas representações.
@@ -165,6 +156,7 @@ status collapsed
 status open
 
 \begin_layout Plain Layout
+
 label=
 \backslash
 roman*)
@@ -234,49 +226,7 @@ Geralmente,
 \end_inset
 
  e escreveremos a operação por justaposição.
-\end_layout
-
-\begin_layout Example*
-Considere o seguinte conjunto 
-\begin_inset Formula $G=\left\{ a,b\right\} $
-\end_inset
-
- tal que a justaposição é a operação nesse conjunto definida por:
-\begin_inset Formula 
-\[
-ab=ba=a\ aa=e,\ bb=b
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example*
-Então,
- tem-se que esse conjunto constitu-se um grupo com 
-\begin_inset Formula $b$
-\end_inset
-
- sendo a identidade,
- que denotaremos por 
-\begin_inset Formula $e$
-\end_inset
-
-.
- Assim vemos que esse é o menor grupo finito de dois elementos,
- denotado por 
-\begin_inset Formula $\mathbb{Z}_{2}$
-\end_inset
-
-,
- chamado de grupo ciclíco de ordem 2.
- Esse grupo,
- será importante quando estivermos estudando os grupos de simetria na física.
-\end_layout
-
-\begin_layout Standard
-Podemos e devemos estar interessados em como grupos estão relacionados via mapas que preservam a sua estrutura álgebrica.
+ Podemos e devemos estar interessados em como grupos estão relacionados via mapas que preservam a sua estrutura álgebrica.
  Dessa forma,
  definimos
 \end_layout
@@ -400,7 +350,7 @@ associado,
 \end_layout
 
 \begin_layout Definition
-Seja G um grupo de 
+Seja G um trupo de 
 \begin_inset Formula $M$
 \end_inset
 
@@ -422,13 +372,14 @@ Seja G um grupo de
 
 \begin_layout Enumerate
 \begin_inset Argument 1
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
+
 label=
 \backslash
 roman*)
@@ -707,7 +658,7 @@ que associa a cada
  esse mapa é a exponencial usual de matrizes,
 \begin_inset Formula 
 \begin{equation}
-\exp X=\sum^{\infty}_{n=0}\frac{X^{n}}{n!}
+\exp X=\sum_{n=0}^{\infty}\frac{X^{n}}{n!}
 \end{equation}
 
 \end_inset
@@ -803,7 +754,7 @@ Dada uma base fixa
  os colchetes podem ser escritos como
 \begin_inset Formula 
 \[
-\left\{ X_{a},X_{b}\right\} =f^{c}_{ab}X_{c}
+\left\{ X_{a},X_{b}\right\} =f_{ab}^{c}X_{c}
 \]
 
 \end_inset
@@ -813,7 +764,7 @@ Dada uma base fixa
 
 \begin_layout Standard
 onde os coeficientes 
-\begin_inset Formula $f^{c}_{ab}$
+\begin_inset Formula $f_{ab}^{c}$
 \end_inset
 
  são chamados de costantes de estrutura.
@@ -948,7 +899,7 @@ em que
 
 \begin_inset Formula 
 \begin{equation}
-dD(\left[X,Y\right])=\left[dD(X),dD(Y)\right].
+dD(\left[X,Y\right])=\left[ndD(X),dD(Y)\right].
 \end{equation}
 
 \end_inset
@@ -1145,30 +1096,6 @@ ad_{J}(J)=0.
 
 \end_layout
 
-\begin_layout Standard
-Podemos introduzir um produto interno no espaço vetorial da álgebra de Lie sendo dada por:
-\begin_inset Formula 
-\[
-\eta^{D}(A,B)=Tr(D(A)D(B))
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Em que quando estamos na representação adjunta
-\begin_inset Formula 
-\[
-\kappa(A,B)=Tr(ad_{A}ad_{B})
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Redutibilidade e produtos de representações
 \end_layout
@@ -1237,7 +1164,7 @@ Uma rperesentação
  
 \begin_inset Formula 
 \begin{equation}
-{\cal H}=\oplus^{n}_{i=1}{\cal H}_{i},
+{\cal H}=\oplus_{i=1}^{n}{\cal H}_{i}
 \end{equation}
 
 \end_inset
@@ -1365,7 +1292,7 @@ Sobre vetores,
 \end_layout
 
 \begin_layout Standard
-Para representações de álgebras de Lie a fórmula dada pela seguinte definição,
+Para representações de álgebras de Lie a fórmula dada pela seguinte definição
 \end_layout
 
 \begin_layout Definition
@@ -1453,13 +1380,14 @@ O seguinte teorema é importante para a classificação de representações irre
 
 \begin_layout Enumerate
 \begin_inset Argument 1
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
+
 label=
 \backslash
 roman*)
@@ -1489,7 +1417,7 @@ roman*)
 \end_layout
 
 \begin_layout Enumerate
-Se 
+SE 
 \begin_inset Formula $D$
 \end_inset
 
@@ -1504,9 +1432,9 @@ Se
  em si mesma,
  então
 \begin_inset Formula 
-\[
+\begin{equation}
 C=\lambda I\ para\ algum\ \lambda\in\mathbb{C}.
-\]
+\end{equation}
 
 \end_inset
 
@@ -1720,7 +1648,7 @@ Usando as relações de comutação,
  obtemos 
 \begin_inset Formula 
 \[
-L_{3}L^{k}_{\pm}\left|m\right\rangle =\left(m\pm k\right)L^{k}_{\pm}\left|m\right\rangle .
+L_{3}L_{\pm}^{k}\left|m\right\rangle =\left(m\pm k\right)L_{\pm}^{k}\left|m\right\rangle .
 \]
 
 \end_inset
@@ -1730,7 +1658,7 @@ L_{3}L^{k}_{\pm}\left|m\right\rangle =\left(m\pm k\right)L^{k}_{\pm}\left|m\righ
 
 \begin_layout Standard
 sempre que 
-\begin_inset Formula $L^{k}_{\pm}\left|m\right\rangle \neq0$
+\begin_inset Formula $L_{\pm}^{k}\left|m\right\rangle \neq0$
 \end_inset
 
 .
@@ -1782,7 +1710,7 @@ A partir dele,
  geramos a cadeia 
 \begin_inset Formula 
 \[
-\left|j\right\rangle ,\ T_{-}\left|j\right\rangle \ T^{2}_{-}\left|j\right\rangle \dots
+\left|j\right\rangle ,\ T_{-}\left|j\right\rangle \ T_{-}^{2}\left|j\right\rangle \dots
 \]
 
 \end_inset
@@ -1800,7 +1728,7 @@ Por indução,
  obtém-se
 \begin_inset Formula 
 \[
-T_{+}T^{k}_{-}\left|j\right\rangle =k(2j-k+1)T^{k-1}_{-}\left|j\right\rangle .
+T_{+}T_{-}^{k}\left|j\right\rangle =k(2j-k+1)T_{-}^{k-1}\left|j\right\rangle .
 \]
 
 \end_inset
@@ -1818,7 +1746,7 @@ Como a representação tem dimensão finita,
  que
 \begin_inset Formula 
 \[
-(N+1)(2j-N)T^{N}_{-}\left|j\right\rangle =0
+(N+1)(2j-N)T_{-}^{N}\left|j\right\rangle =0
 \]
 
 \end_inset
@@ -1887,8 +1815,8 @@ Para obter a normalização da ação dos operadores de escada,
  usamos as identidades
 \begin_inset Formula 
 \begin{align*}
-T_{-}T_{+} & =C-T^{2}_{3}-T_{3}.\\
-T_{+}T_{-} & =C-T^{2}_{3}+T_{3}.
+T_{-}T_{+} & =C-T_{3}^{2}-T_{3}.\\
+T_{+}T_{-} & =C-T_{3}^{2}+T_{3}.
 \end{align*}
 
 \end_inset
@@ -1918,7 +1846,7 @@ Então
 \begin_inset Formula 
 \begin{align*}
 |c_{m}|^{2} & =\left\langle m,j\left|T_{-}T_{+}\right|j,m\right\rangle \\
- & =\left\langle m,j\left|C-T^{2}_{3}-T_{3}\right|j,m\right\rangle \\
+ & =\left\langle m,j\left|C-T_{3}^{2}-T_{3}\right|j,m\right\rangle \\
  & =j(j+1)-m^{2}-m.
 \end{align*}
 
