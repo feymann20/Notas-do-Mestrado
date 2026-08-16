@@ -803,7 +803,7 @@ Dada uma base fixa
  os colchetes podem ser escritos como
 \begin_inset Formula 
 \[
-\left\{ X_{a},X_{b}\right\} =f^{c}_{ab}X_{c}
+\left[X_{a},X_{b}\right]=f^{c}_{ab}X_{c}
 \]
 
 \end_inset
@@ -1338,7 +1338,7 @@ Portanto,
 \end_inset
 
  é um ideal que,
- considerado como álgebra de Lie com o colhete heradao de 
+ considerado como álgebra de Lie com o colhete herdado de 
 \begin_inset Formula $\mathfrak{g}$
 \end_inset
 
@@ -1925,7 +1925,7 @@ soma dos operadores de momento angular
 \begin_inset Formula 
 \begin{align*}
 [H,X] & =X\\{}
-[H,Y] & =Y\\{}
+[H,Y] & =-Y\\{}
 [X,Y] & =2H
 \end{align*}
 
@@ -2296,6 +2296,10 @@ O espectro desse operador pertence a
 \begin_layout Proof
 Portanto,
  o produto tensoriais de representações irredutíveis da álgebra de spin é completamente redutível.
+ Em teoria quântica dos campos,
+ em geral,
+ estamos interessados em trabalhar sobre uma representação completamente redutível,
+ um exemplo trivial é o espinor de Dirac.
 \end_layout
 
 \begin_layout Standard
@@ -2308,6 +2312,129 @@ Portanto,
 \begin_layout Section
 Aplicações:
  Rotações
+\end_layout
+
+\begin_layout Standard
+Uma simetria é uma transformação que pode modificiar a descrição de um estado físico,
+ mas preserva grandezas físicas caraterísticas de um sistema.
+ No caso do espaço euclidiano,
+ as simetrias geométricas naturais são as isometrias.
+ 
+\end_layout
+
+\begin_layout Standard
+Denotemos por 
+\begin_inset Formula $M_{3}\left(\mathbb{R}\right)$
+\end_inset
+
+ o conjunto das matrizes reais 
+\begin_inset Formula $3\times3$
+\end_inset
+
+.
+ Considere o espaço vetorial real 
+\begin_inset Formula $V=\mathbb{R}^{3}$
+\end_inset
+
+,
+ cujos vetores serão denotados por 
+\begin_inset Formula $x,y\in V$
+\end_inset
+
+,
+ munido do produto interno euclidiano 
+\begin_inset Formula $\langle x,y\rangle=x^{T}y$
+\end_inset
+
+.
+ Uma transformação linear 
+\begin_inset Formula $A:V\to V$
+\end_inset
+
+ é uma isometria se preserva esse produto interno,
+ isto é,
+ se 
+\begin_inset Formula 
+\[
+\langle Ax,Ay\rangle=\langle x,y\rangle
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+para todos 
+\begin_inset Formula $x,y\in V$
+\end_inset
+
+.
+ A condição acima equivale a 
+\begin_inset Formula $A^{T}A=I$
+\end_inset
+
+.
+ O conjunto dessas matrizes será denotado por
+\begin_inset Formula 
+\[
+O(3):=\left\{ A\in M_{3}\left(\mathbb{R}\right);A^{T}A=I\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esse conjuntco é um grupo com a multiplicação usual de matrizes.
+ 
+\end_layout
+
+\begin_layout Standard
+Se 
+\begin_inset Formula $A\in O(3)\implies\det A=1$
+\end_inset
+
+ ou 
+\begin_inset Formula $\det A=-1$
+\end_inset
+
+.
+ Portanto,
+ as matrizes com determinante 
+\begin_inset Formula $+1$
+\end_inset
+
+ preservam a orientação do espaço e correspondem às rotações próprias;
+ as matrizes com determinante -1 revertem a orientação;
+ representam transformações impróprias,
+ não conexas à identidade.
+\end_layout
+
+\begin_layout Standard
+O grupo das rotações próprias no espaço euclidiano é o subgrupo de 
+\begin_inset Formula $O(3)$
+\end_inset
+
+ formado pelas transformações que preservam a orientação,
+\begin_inset Formula 
+\[
+SO(3):=\left\{ R\in M_{3}\left(\mathbb{R}\right);R^{T}R=I,\det R=1\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O grupo 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+ é conexo e compacto,
+ mas não simplesmente conexo.3
 \end_layout
 
 \begin_layout Standard
@@ -2352,7 +2479,7 @@ Considere os autovetores do mapa
 
 \begin_inset Formula 
 \[
-ad_{L_{i}}(X)=\lambda X
+ad_{L_{i}}(X)=[L_{i},X]=\lambda X
 \]
 
 \end_inset
@@ -2441,9 +2568,9 @@ Vemos que
  Assim,
 \begin_inset Formula 
 \begin{align*}
-L_{+} & =L_{1}-iL_{2}\\
-L_{-} & =L_{1}+iL_{2}\\
-L_{3} & ,
+T_{+} & =L_{1}-iL_{2}\\
+T_{-} & =L_{1}+iL_{2}\\
+T_{3} & =L_{3}
 \end{align*}
 
 \end_inset
@@ -2452,7 +2579,11 @@ L_{3} & ,
 \end_layout
 
 \begin_layout Standard
-São um conjunto de autovetores que gera o espaço vetorial.
+São um conjunto de autovetores que gera o espaço vetorial 
+\begin_inset Formula $\mathfrak{su(2)}_{\mathbb{C}}\equiv\mathfrak{sl}(2,\mathbb{C})$
+\end_inset
+
+.
  Pode ser feito o processo para qualquer 
 \begin_inset Formula $L_{i}$
 \end_inset
@@ -2468,7 +2599,7 @@ São um conjunto de autovetores que gera o espaço vetorial.
 
 \end_inset
 
-om 
+
 \end_layout
 
 \begin_layout Standard
@@ -2488,7 +2619,7 @@ Suponha que estamos em uma representação irredutível qualquer dimensão finit
 
 \begin_inset Formula 
 \[
-L_{3}\left|m\right\rangle =m\left|m\right\rangle 
+T_{3}\left|m\right\rangle =m\left|m\right\rangle 
 \]
 
 \end_inset
@@ -2501,7 +2632,7 @@ Usando as relações de comutação,
  obtemos 
 \begin_inset Formula 
 \[
-L_{3}L^{k}_{\pm}\left|m\right\rangle =\left(m\pm k\right)L^{k}_{\pm}\left|m\right\rangle .
+T_{3}T^{k}_{\pm}\left|m\right\rangle =\left(m\pm k\right)T^{k}_{\pm}\left|m\right\rangle .
 \]
 
 \end_inset
@@ -2525,8 +2656,12 @@ sempre que
 \begin_inset Formula $L_{-}$
 \end_inset
 
- diminui o peso em uma unidade.
- 
+ diminui o peso em uma unidade,
+ as raizes de uma álgebra de Lie são dadas pelos autovalores do mapa 
+\begin_inset Formula $ad(T_{3})$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2581,7 +2716,7 @@ Por indução,
  obtém-se
 \begin_inset Formula 
 \[
-T_{+}T^{k}_{-}\left|j\right\rangle =k(2j-k+1)T^{k-1}_{-}\left|j\right\rangle .
+T_{+}T^{k}_{-}\left|j\right\rangle =k(2j-k+1)T^{k-1}_{-}\left|j\right\rangle 
 \]
 
 \end_inset
@@ -2592,7 +2727,7 @@ T_{+}T^{k}_{-}\left|j\right\rangle =k(2j-k+1)T^{k-1}_{-}\left|j\right\rangle .
 \begin_layout Standard
 Como a representação tem dimensão finita,
  também existe um último vetor não nulo nessa cadeia.
- Pode-se mostrar que existe um 
+ Então existe um 
 \begin_inset Formula $k=N+1$
 \end_inset
 
@@ -2638,7 +2773,7 @@ totalizando
 O operador de Casimir pode ser escrito como 
 \begin_inset Formula 
 \[
-C=L_{i}L^{i}
+C=\kappa_{ij}L^{i}L^{j}=L_{i}L^{i}
 \]
 
 \end_inset
@@ -2770,7 +2905,7 @@ e a representação de spin
 
  com sua álgebra é direto,
  pois topologicamente o grupo é simplesmente conexo,
- isso permite que consigamos representar o grupo via álgebra.
+ isso permite que consigamos representar o grupo via o mapa exponencial da álgebra.
  No caso do 
 \begin_inset Formula $SO(3)$
 \end_inset
@@ -2795,14 +2930,20 @@ e a representação de spin
 
 \begin_layout Standard
 Com 
-\begin_inset Formula $\ker\phi=\left\{ I,-I\right\} $
-\end_inset
-
-e 
 \begin_inset Formula $X$
 \end_inset
 
- pertence ao conjunto das matiIsso permite que consigamos construir um isomorfismo com o grupo ciclíco de ordem 2
+ pertencente ao conjunto das matrizes 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ autoadjuntas e 
+\begin_inset Formula $\ker\phi=\left\{ I,-I\right\} $
+\end_inset
+
+ .
+ com traço zero.
+ Isso permite que consigamos construir um isomorfismo com o grupo ciclíco de ordem 2.
 \begin_inset Formula 
 \[
 SU(2)/\mathbb{Z}_{2}\tilde{=}SO(3).
@@ -2827,9 +2968,41 @@ Com isso,
 \begin_inset Formula $0,1,2,3\dots$
 \end_inset
 
- e as de spin semi-inteiro são representações projetivas,
+(dimensão impar) e as representações que descem de spin semi-inteiro são representações projetivas,
  isto é,
  são representações que são um homorfismo a não ser por um número complexo de módulo 1.
+\begin_inset Formula 
+\[
+D(T_{1})D(T_{2})=e^{i\varphi(T_{1},T_{2})}D(T_{1}T_{2}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Isso indica que os férmions se transformam conforme uma representação projetiva do 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+ e os bósons conforme uma representação ordinária.
+ Essa distinção leva a complicações.
+ Por isso,
+ postulamos que os estados físicos em teoria quântica dos campos se transformam via uma representação unitaria do grupo de cobertura de 
+\begin_inset Formula $ISO(1,3)$
+\end_inset
+
+ assim perdendo a distinção intrinsica na representação.
+ Mas impomos ad hoc,
+ o comportamento simétrico e antissimétrico,
+ tal que satisfaça o teorema de spin e estatística.
+\end_layout
+
+\begin_layout Standard
+Na próxima seção iremos abordar com o grupo de Poincaré,
+ esse grupo não é compacto,
+ essa característica irá indicar que não existe representações fiéis unitárias de dimensão finita.
 \end_layout
 
 \begin_layout Section
@@ -2847,7 +3020,1447 @@ O espaço euclidiano tridimensional
 \end_inset
 
 ,
- cujos elementos representam eventos espaço-temporais.
+ cujos elementos representam eventos espaço-temporais..
+ Considera-se,
+ então,
+ o par 
+\begin_inset Formula $\left(\mathbb{R}^{4},\eta\right)$
+\end_inset
+
+,
+ em que 
+\begin_inset Formula $\eta$
+\end_inset
+
+ é uma forma bilinear não degenerada cuja restrição às direções espaciais reproduz,
+ a menos de um sinal convencional,
+ a métrica eucilidiana.
+ Esse par,
+\begin_inset Formula 
+\[
+M\equiv\left(\mathbb{R}^{4},\eta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+é chamado de espaço-tempo de Minkowski.
+\end_layout
+
+\begin_layout Standard
+Essa forma 
+\begin_inset Formula $\eta$
+\end_inset
+
+ pode ser motivada diretamente pleo postulado da invariância da velocidade da luz,
+ para referenciais inerciais.
+ Podendo ser definida tal que tenha a seguinte representação matricial
+\begin_inset Formula 
+\[
+\eta=\begin{pmatrix}1 & 0 & 0 & 0\\
+0 & -1 & 0 & 0\\
+0 & 0 & -1 & 0\\
+0 & 0 & 0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nas expressões seguintes,
+ adotaremos unidades naturais,
+ 
+\begin_inset Formula $c=1$
+\end_inset
+
+,
+ e escreveremos 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $t=x^{0}$
+\end_inset
+
+ para simplificar a notação.
+\end_layout
+
+\begin_layout Subsection
+O grupo de Lorentz e sua álgebra
+\end_layout
+
+\begin_layout Standard
+Seja 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ uma matriz real 
+\begin_inset Formula $4\times4$
+\end_inset
+
+ que representa uma transformação linear em 
+\begin_inset Formula $M$
+\end_inset
+
+,
+ de modo que 
+\begin_inset Formula $x'=\Lambda x$
+\end_inset
+
+.
+ A invariância da métrica exige que
+\begin_inset Formula 
+\[
+\eta_{\mu\nu}\Lambda^{\mu}_{\alpha}\Lambda^{\nu}_{\beta}=\eta_{\alpha\beta}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Em notação matricial,
+ a condição anterior torna-se
+\begin_inset Formula 
+\[
+\Lambda^{T}\eta\Lambda=\eta.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A multiplicação de matrizes é fechada.
+ O elemento neutro pode ser tomado como a matriz identidade 
+\begin_inset Formula $I$
+\end_inset
+
+ em quatro dimensões.
+ Assim o grupo
+\begin_inset Formula 
+\[
+O(1,3)=\left\{ \Lambda\in GL(4,\mathbb{R}):\Lambda^{T}\eta\Lambda=\eta\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podendo ser decompostas em quatro componentes desconexas
+\begin_inset Formula 
+\[
+O(1,3)=\mathcal{L}^{\uparrow}_{+}\cup\mathcal{L}^{\uparrow}_{-}\cup\mathcal{L}^{\downarrow}_{+}\cup\mathcal{L^{\downarrow}}_{-}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Denotamos 
+\begin_inset Formula $\mathcal{L^{\uparrow}}_{+}=SO⁺(1,3)$
+\end_inset
+
+.
+ A notação 
+\begin_inset Formula $SO(1,3)$
+\end_inset
+
+,
+ sem sinal +,
+ designa apenas o setor com determinante igual a 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Essa decomposição é relevante,
+ pois a exponenciação dos elementos da álgebra de Lie produz elementos na componente conexa à identidade,
+ isto é em 
+\begin_inset Formula $SO^{+}(1,3)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Considere uma curva conectada à identidade,
+ com 
+\begin_inset Formula $\Lambda(0)=I$
+\end_inset
+
+.
+ Na convenção física sabemos que
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\omega}\Lambda(\omega)|_{\omega=0}=\frac{\partial}{\partial\omega}\exp(-i\omega\Sigma)|_{\omega=0}=-i\Sigma.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A condição de invariância da métrica pode ser derivada em relação ao parâmetro 
+\begin_inset Formula $\omega$
+\end_inset
+
+,
+ obtendo
+\begin_inset Formula 
+\[
+\Sigma^{T}\eta+\eta\Sigma=0\implies\Sigma=-\eta\Sigma^{T}\eta.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Isso indica que,
+ se tivermos dois vetores 
+\begin_inset Formula $v,w$
+\end_inset
+
+,
+ então
+\begin_inset Formula 
+\[
+\left\langle v\vert\Sigma w\right\rangle =v^{T}\eta\Sigma w=-v^{T}\Sigma^{T}\eta w=-\left\langle \Sigma v\vert w\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+ a matriz é antissimetrica com respeito à forma de Minkowski.
+ Com os índices abaixados,
+ a expressão implica
+\begin_inset Formula 
+\[
+\Sigma_{\mu\nu}=-\Sigma_{\nu\mu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como os geradores são antissimétricos,
+ podemos escrever o mapa exponencial na forma
+\begin_inset Formula 
+\[
+\Lambda(\omega)=\exp\left(-\frac{i}{2}\omega^{\alpha\beta}\Sigma_{\alpha\beta}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considere uma representação 
+\begin_inset Formula $D(\Lambda)=\exp(-\frac{i}{2}\omega^{\alpha\beta}J_{\alpha\beta}).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nessa expressão,
+ 
+\begin_inset Formula $J_{\alpha\beta}$
+\end_inset
+
+ são os geradores na representação considerada.
+ Uma transformação infinitesimal de Lorentz será
+\begin_inset Formula 
+\[
+D(\Lambda)^{\mu}_{\nu}x^{\nu}\tilde{=}x^{\mu}+\omega^{\mu}_{\nu}x^{\nu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+\begin_inset Formula 
+\[
+\omega^{\mu}_{\nu}=-\frac{i}{2}\omega^{\alpha\beta}dD(J_{\alpha\beta})^{\mu}_{\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sabe-se que 
+\begin_inset Formula $\omega^{\mu}_{\nu}=\eta_{v\alpha}\omega^{\mu\alpha}$
+\end_inset
+
+,
+ em que 
+\begin_inset Formula $\omega^{\mu\alpha}$
+\end_inset
+
+ é antissimétrico.
+ Dessa maneira,
+\begin_inset Formula 
+\[
+\frac{\eta_{\nu\alpha}}{2}\left(\omega^{\mu\alpha}-\omega^{\alpha\mu}\right)=-\frac{i}{2}\left(J_{\alpha\beta}\right)^{\mu}_{\nu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os geradores do grupo de Lorentz na representação em quadrivetores são dados por:
+\begin_inset Formula 
+\[
+\left(J_{\alpha\beta}\right)^{\mu}_{\nu}=i\left(\delta^{\mu}_{\alpha}\eta_{\nu\beta}-\delta^{\mu}_{\beta}\eta_{\nu\alpha}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ um elemento geral da álgebra real matricial do grupo de Lorentz é dado por
+\begin_inset Formula 
+\[
+\Omega=\begin{pmatrix}0 & b & c & d\\
+b & 0 & j & h\\
+c & -j & 0 & l\\
+d & -h & -l & 0
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na convenção física usada no exponencial,
+ os geradores são obtidos multiplicando esses elementos reais por 
+\begin_inset Formula $-i$
+\end_inset
+
+.
+ Agora podemos encontrar a base correspondente.
+ Ela é obtida identificando os termos linearmente independentes.
+ As matrizes abaixo realizam a representação da álgebra de Lorentz nessa convenção:
+\begin_inset Formula 
+\[
+J_{01}=\begin{pmatrix}0 & -i & 0 & 0\\
+-i & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{pmatrix}\ \ J_{02}=\begin{pmatrix}0 & 0 & -i & 0\\
+0 & 0 & 0 & 0\\
+-i & 0 & 0 & 0\\
+0 & 0 & 0 & 0
+\end{pmatrix}\ \ J_{03}=\begin{pmatrix}0 & 0 & 0 & -i\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+-i & 0 & 0 & 0
+\end{pmatrix}\ ,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{12}=\begin{pmatrix}0 & 0 & 0 & 0\\
+0 & 0 & -i & 0\\
+0 & i & 0 & 0\\
+0 & 0 & 0 & 0
+\end{pmatrix}\ \ J_{13}=\begin{pmatrix}0 & 0 & 0 & 0\\
+0 & 0 & 0 & -i\\
+0 & 0 & 0 & 0\\
+0 & i & 0 & 0
+\end{pmatrix}\ \ J_{23}=\begin{pmatrix}0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & -i\\
+0 & 0 & i & 0
+\end{pmatrix}\ 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A dimensão da álgebra é 6.
+ Assim,
+ a dimensão do grupo de Lorentz também é seis.
+ A relação de comutação da álgebra é dada por
+\begin_inset Formula 
+\[
+\left[J_{\mu\nu},J_{\rho\sigma}\right]=i\left(\eta_{\nu\rho}J_{\mu\sigma}-\eta_{\mu\rho}J_{\nu\rho}-\eta_{\sigma\mu}J_{\rho\nu}+\eta_{\sigma\nu}J_{\rho\mu}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ao definir a seguinte notação,
+ 
+\begin_inset Formula 
+\[
+K_{i}=J_{0i},\ S_{i}=\frac{1}{2}\epsilon_{ijk}J_{jk}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+os geradores infinitesimais 
+\begin_inset Formula $K_{i}$
+\end_inset
+
+ são os geradores de boosts,
+ e 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+ são os geradores de rotação.
+ Nessa notação,
+ as relações de comutação se tornam
+\begin_inset Formula 
+\begin{align*}
+\left[K_{i},K_{j}\right] & =i\epsilon^{\ \ k}_{ij}S_{k},\\
+\left[K_{i},S_{j}\right] & =i\epsilon^{\ \ k}_{ij}K_{k},\\
+\left[S_{i},S_{j}\right] & =i\epsilon^{\ \ k}_{ij}S_{k},
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vemos que os boosts são formam uma subálgebra,
+ pois o comutador de dois boosts gera uma rotação.
+ Os geradores de rotação formam um subálgebra isomorfa a 
+\begin_inset Formula $\mathfrak{so}(3)$
+\end_inset
+
+,
+ mas essa subálgebra não é uma ideal de 
+\begin_inset Formula $\mathfrak{so}(1,3)$
+\end_inset
+
+,
+ pois 
+\begin_inset Formula $[K_{i},S_{j}]$
+\end_inset
+
+ é uma combinação linear de boosts.
+ Assim,
+ a álgebra de Lorentz é denotado por 
+\begin_inset Formula 
+\[
+\grave{\mathfrak{so}(1,3)=\text{span}}\left\{ K_{1},K_{2},K_{3},S_{1},S_{2},S_{3}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para estudar as representações de dimensão finita é conveniente complexificar a álgebra.
+ Definimos então
+\begin_inset Formula 
+\[
+A^{\pm}_{i}=\frac{1}{2}\left(S_{i}\pm K_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As novas relações de comutação são dadas da seguinte forma
+\begin_inset Formula 
+\begin{align*}
+\left[A^{\pm}_{i},A^{\pm}_{j}\right] & =\frac{1}{4}\left(\left[S_{i},S_{j}\right]\pm i\left[S_{i},K_{k}\right]\pm i\left[K_{i},S_{i}\right]-\left[K_{i},K_{j}\right]\right)\\
+ & =\frac{1}{4}\left(2i\epsilon^{\ \ k}_{ij}S_{k}\mp2\epsilon^{\ \ k}_{ij}K_{k}\right)\\
+ & =i\epsilon^{k}_{ij}A^{\pm}_{k}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Por outro lado,
+\begin_inset Formula 
+\begin{align*}
+\left[A^{+}_{i},A^{-}_{j}\right] & =\frac{1}{4}\left(\left[S_{i},S_{j}\right]-i\left[S_{i},K_{j}\right]+i\left[K_{i},S_{j}\right]+\left[K_{i},K_{j}\right]\right)\\
+ & =\frac{1}{4}\left(i\epsilon^{\ \ k}_{ij}S_{k}+\epsilon^{\ \ k}_{ij}K_{k}-\epsilon^{\ \ k}_{ij}K_{k}-i\epsilon^{\ \ k}_{ij}S_{k}\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+ os geradores 
+\begin_inset Formula $A^{\pm}_{i}$
+\end_inset
+
+ fecham subálgebras independentes e comutam entre si.
+ Como 
+\begin_inset Formula 
+\[
+S_{i}=A^{+}+A^{-}_{i}\ \ K_{i}=-i\left(A^{+}_{i}-A^{-}_{i}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+essas duas famílias tambem geram toda a álgebra complexificada.
+ Assim,
+ obtém-se 
+\begin_inset Formula 
+\[
+\mathfrak{so}(1,3)_{\mathbb{C}}\tilde{=}\text{span }\left\{ A^{+}_{1},A^{+}_{2},A^{+}_{3}\right\} \oplus\text{span}\ \left\{ A^{-}_{1},A^{-}_{2},A^{-}_{3}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As relações de comutação possuem a mesma forma dos geradores físicos de 
+\begin_inset Formula $\mathfrak{su}(2)$
+\end_inset
+
+.
+ Ao complexificar,
+ essa álgebra é isomorfa a 
+\begin_inset Formula $\mathfrak{sl}(2,\mathbb{C})$
+\end_inset
+
+.
+ Também vimos que suas representações irredutíveis finito-dimensionais são classificadas por um peso máximo,
+ ou,
+ de modo equivalente,
+ por um número 
+\begin_inset Formula $j$
+\end_inset
+
+,
+ com dimensão 
+\begin_inset Formula $2j+1$
+\end_inset
+
+.
+ Aplicando esse resultado às duas subálgebras complexas geradas por 
+\begin_inset Formula $A^{+}_{i}$
+\end_inset
+
+ e por 
+\begin_inset Formula $A^{-}_{i}$
+\end_inset
+
+,
+ obtemos
+\begin_inset Formula 
+\[
+\mathfrak{so}(1,3)_{\mathbb{C}}\tilde{=}\mathfrak{sl}(2,\mathbb{C})\oplus\mathfrak{sl}(2,\mathbb{C}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A álgebra complexificada é soma direta de duas álgebras simples;
+ portanto,
+ é semissimples,
+ mas não simples.
+ Como temos duas cópias de 
+\begin_inset Formula $\mathfrak{su}(2)_{\mathbb{C}},$
+\end_inset
+
+há dois elementos de Cartan,
+ um para cada cópia.
+\end_layout
+
+\begin_layout Standard
+Como queremos construir representações de dimensão finita,
+ teremos pesos máximos e mínimos para cada uma das cópias.
+ Assim,
+ as representações irredutíveis finito-dimensionais da álgebra complexificada são calssificadas por pares 
+\begin_inset Formula $(j_{+},j_{-})$
+\end_inset
+
+.
+ Cada fator 
+\begin_inset Formula $j_{\pm}$
+\end_inset
+
+rotula uma representação irredutível de uma das cópias de 
+\begin_inset Formula $\mathfrak{su}(2)_{\mathbb{C}}.$
+\end_inset
+
+ O espaço correspondente é 
+\begin_inset Formula 
+\[
+\mathcal{H}_{j_{+}}\otimes\mathcal{H}_{j_{-}},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+com dimensão 
+\begin_inset Formula $(2j_{+}+1)((2j_{-}+1)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Essa classificação é,
+ antes de tudo,
+ uma classficação de representações da álgebra complexificada.
+ Ao passar para o grupo,
+ as representações integram-se naturalmente ao recobrimento 
+\begin_inset Formula $SL(2,\mathbb{C})$
+\end_inset
+
+ de 
+\begin_inset Formula $SO⁺(1,3)$
+\end_inset
+
+.
+ Elas descem a representações ordinárias de 
+\begin_inset Formula $SO^{+}(1,3)$
+\end_inset
+
+ apenas quando o núcleo 
+\begin_inset Formula $\left\{ I,-I\right\} $
+\end_inset
+
+ atua trivialmente,
+ isto é,
+ quando 
+\begin_inset Formula $j_{+}+j_{-}$
+\end_inset
+
+ é inteiro.
+\end_layout
+
+\begin_layout Subsection
+A álgebra 
+\begin_inset Formula $\mathfrak{sl}(2,\mathbb{C})$
+\end_inset
+
+ e o grupo 
+\begin_inset Formula $SL(2,\mathbb{C})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No capítulo anteiror,
+ vimos que a complexificação da álgebra das rotações é isomorfa a 
+\begin_inset Formula $\mathfrak{sl}(2,\mathbb{C})$
+\end_inset
+
+.
+ Na representação fundamental,
+ uma base conveinente é dada por
+\begin_inset Formula 
+\begin{align*}
+J_{3} & =\frac{1}{2}\begin{pmatrix}1 & 0\\
+0 & -1
+\end{pmatrix}\\
+J_{+}= & \begin{pmatrix}0 & 1\\
+0 & 0
+\end{pmatrix}\\
+J_{-}= & \begin{pmatrix}0 & 0\\
+1 & 0
+\end{pmatrix}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esses geradores satisfazem
+\begin_inset Formula 
+\begin{align*}
+\left[J_{3},J_{\pm}\right] & =\pm J_{\pm},\\
+\left[J_{+},J_{-}\right] & =2J_{3}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O grupo de Lie associado a essa álgebra é o grupo das matrizes complexas unimodulares.
+ De fato,
+ se 
+\begin_inset Formula $X\in\mathfrak{sl}(2,\mathbb{C})$
+\end_inset
+
+,
+ então 
+\begin_inset Formula $trX=0$
+\end_inset
+
+.
+ Tomando uma curva 
+\begin_inset Formula $\alpha(\epsilon)=exp(\epsilon X)$
+\end_inset
+
+,
+ obtemos
+\begin_inset Formula 
+\[
+\det\alpha(\epsilon)=\exp(\epsilon trX)=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+\begin_inset Formula 
+\[
+SL(2,\mathbb{C})=\left\{ \alpha\in M_{2}\left(\mathbb{C}\right):\det\alpha=1\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esse grupo não é,
+ em geral,
+ unitário.
+ Com efeito,
+\begin_inset Formula 
+\[
+\frac{d}{d\epsilon}(\alpha^{\dagger}\alpha)|_{\epsilon=0}=X^{\dagger}+X\neq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando visto como um grupo de Lie real,
+ 
+\begin_inset Formula $SL(2,\mathbb{C})$
+\end_inset
+
+,
+ possui dimensão real seis,
+ a mesma dimensão de 
+\begin_inset Formula $SO^{+}(1,3)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A decomposição complexificada em duas cópias sugere considerar,
+ no nivel complexo,
+ uma ação independente à esquerda e à direita,
+\begin_inset Formula 
+\[
+SL(2,\mathbb{C})\times SL(2,\mathbb{C})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Entretanto,
+ para obter uma ação sobre quadrivetores reais,
+ é preciso impor uma condição de realidade que reduza essa ação ao recobrimento de 
+\begin_inset Formula $SO^{+}(1,3)$
+\end_inset
+
+.
+ Associe a cada quadrivetor real 
+\begin_inset Formula $x^{\mu}$
+\end_inset
+
+ a matriz hermitiana
+\begin_inset Formula 
+\[
+X=x^{\mu}\sigma_{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+esse mapa é uma isometria.
+ Considere uma ação 
+\begin_inset Formula $X'=\alpha X\beta^{-1}$
+\end_inset
+
+ com 
+\begin_inset Formula $\alpha,\beta\in SL(2,\mathbb{C})$
+\end_inset
+
+.
+ Essa ação preserva 
+\begin_inset Formula $\det X$
+\end_inset
+
+,
+ mas não preserva,
+ em geral,
+ a hermiticidade de 
+\begin_inset Formula $X$
+\end_inset
+
+,
+ pois 
+\begin_inset Formula 
+\[
+X'^{\dagger}=\left(\beta^{-1}\right)^{\dagger}X\alpha^{\dagger}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ao impor que 
+\begin_inset Formula $X'$
+\end_inset
+
+ permaneça hermitiana para todo 
+\begin_inset Formula $X$
+\end_inset
+
+,
+ obtermos a condição 
+\begin_inset Formula $\beta^{-1}=\alpha^{\dagger}.$
+\end_inset
+
+ Desse modo,
+\begin_inset Formula 
+\[
+X'=\alpha X\alpha^{\dagger}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essa transformação preserva o determinante e mantém o 
+\begin_inset Formula $X'$
+\end_inset
+
+ hermitiana.
+ Portanto,
+ ela induz uma transformação de Lorentz sobre o quadrivetor real.
+\begin_inset Formula 
+\begin{align*}
+x^{\nu} & =\frac{1}{2}tr\left(X\sigma_{\nu}\right)\\
+x'^{\mu} & =\frac{1}{2}tr\left(X'\sigma_{\mu}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ 
+\begin_inset Formula 
+\begin{align*}
+X' & =\alpha X\alpha^{\dagger}\\
+x'^{\mu}\sigma_{\mu} & =x^{\nu}\alpha\sigma_{\nu}\alpha^{\dagger},\\
+\implies & x'^{\mu}=x^{\nu}\frac{1}{2}tr\left(\alpha\sigma_{\nu}\alpha^{\dagger}\sigma_{\mu}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ as componentes do vetor se transformam por uma matriz
+\begin_inset Formula 
+\[
+\Lambda^{\mu}_{\nu}=\frac{1}{2}tr\left(\alpha\sigma_{\nu}\alpha^{\dagger}\sigma_{\mu}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essa transformação é um elemento do grupo de Lorentz próprio ortócrono.
+ De fato,
+ como preserva 
+\begin_inset Formula $\det X$
+\end_inset
+
+,
+ ela preserva a forma quadrática de Minkowski.
+ Além disso,
+ como 
+\begin_inset Formula $SL(2,\mathbb{C})$
+\end_inset
+
+,
+ é conexo,
+ a transformação obtida pertence à componente própria.
+ Para verificar que ela é ortócrona basta observar que
+\begin_inset Formula 
+\[
+\Lambda^{0}_{0}=\frac{1}{2}tr\left(\alpha\alpha^{\dagger}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula $\alpha\in SL(2,\mathbb{C})$
+\end_inset
+
+,
+ vale 
+\begin_inset Formula $\det\left(\alpha\alpha^{\dagger}\right)=1\implies$
+\end_inset
+
+ que os autovalores são 
+\begin_inset Formula $r$
+\end_inset
+
+ e 
+\begin_inset Formula $1/r$
+\end_inset
+
+ ,
+ com 
+\begin_inset Formula $r>0$
+\end_inset
+
+.
+ Logo,
+ 
+\begin_inset Formula $\Lambda^{0}_{0}\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Portanto,
+ o homomorfismo 
+\begin_inset Formula $SL(2,\mathbb{C})\to SO⁺(1,3)$
+\end_inset
+
+ definido por 
+\begin_inset Formula $X\mapsto\alpha X\alpha^{\dagger}$
+\end_inset
+
+ é sobrejetivo e tem núcleo 
+\begin_inset Formula $\left\{ I,-I\right\} .$
+\end_inset
+
+ Assim,
+\begin_inset Formula 
+\[
+SL(2,\mathbb{C})/\mathbb{Z}_{2}\tilde{=}SO^{+}(1,3).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Conclui-se que 
+\begin_inset Formula $SL(2,\mathbb{C})$
+\end_inset
+
+ é o recobrimento duplo do grupo de Lorentz próprio ortócrono.
+\end_layout
+
+\begin_layout Section
+Representações de dimensão finita
+\end_layout
+
+\begin_layout Standard
+Agora passamos para alguns exemplos básicos.
+ 
+\end_layout
+
+\begin_layout Subsection
+A representação escalar 
+\begin_inset Formula $(0,0)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nessa representação,
+ as duas cópias da álgebra atuam trivialmente.
+ Portanto,
+ a representação correspondente é escalar e também define uma representação ordinária de 
+\begin_inset Formula $SO^{+}(1,3)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+As representações de Weyl 
+\begin_inset Formula $\left(1/2,0\right)$
+\end_inset
+
+ e 
+\begin_inset Formula $\left(0,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na representação 
+\begin_inset Formula $\left(1/2,0\right)$
+\end_inset
+
+,
+ o primeiro fator é a representação bidimensional de spin 
+\begin_inset Formula $1/2$
+\end_inset
+
+,
+ enquanto o segundo fator é a representação trivial.
+ Conforme o capítulo anterior,
+ temos
+\begin_inset Formula 
+\begin{align*}
+A^{+}_{i} & =\frac{1}{2}\sigma_{i}\\
+A^{-}_{i} & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando a definição de 
+\begin_inset Formula $A^{-}_{i}$
+\end_inset
+
+,
+ obtém-se
+\begin_inset Formula 
+\[
+S_{i}=iK_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando a definição de 
+\begin_inset Formula $A^{+}_{i}$
+\end_inset
+
+,
+ obtém-se
+\begin_inset Formula 
+\begin{align*}
+K_{i} & =-\frac{i}{2}\sigma_{i}\\
+S_{i} & =\frac{1}{2}\sigma_{i}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O espaço em que estamos atuando é gerado pela base 
+\begin_inset Formula 
+\[
+\text{span}\left\{ \left|\pm1/2\right\rangle \otimes\left|0\right\rangle \right\} \tilde{=}\text{span\left\{ \pm\left|1/2\right\rangle \right\} }.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+\begin_inset Formula 
+\[
+\chi=a\left|1/2;0\right\rangle +b\left|-1/2;0\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esses vetores possuem a seguinte notação em forma de coluna:
+\begin_inset Formula 
+\[
+\chi=\begin{pmatrix}\xi_{1}\\
+\xi_{2}
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esses vetores são chamados de espinores de Weyl.
+ Com a convenção adotada,
+ eles correspondem à representação de mão esquerda.
+ O recobrimento 
+\begin_inset Formula $SL(2,\mathbb{C})$
+\end_inset
+
+,
+ ou equivalentemente a álgebra de Lorentz,
+ atua por
+\begin_inset Formula 
+\[
+\Lambda_{L}\left(\theta,\phi\right)=\exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}+\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para a representação 
+\begin_inset Formula $\left(0,1/2\right)$
+\end_inset
+
+,
+ o caso é análogo.
+ Os vetores são ditos espinores de Weyl,
+ correspondem à representação de mão direita e o recobrimento atua por 
+\begin_inset Formula 
+\[
+\Lambda_{R}\left(\theta,\phi\right)=\exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}-\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A representação vetorial 
+\begin_inset Formula $\left(1/2,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Agora podemos tomar uma representação em um espaço dado por
+\begin_inset Formula 
+\[
+\mathcal{H}_{1/2}\otimes\mathcal{H}_{1/2}=\text{span}\left\{ \left|1/2\right\rangle \otimes\left|1/2\right\rangle ,\left|1/2\right\rangle \otimes\left|-1/2\right\rangle ,\left|-1/2\right\rangle \otimes\left|1/2\right\rangle ,\left|-1/2\right\rangle \otimes\left|-1/2\right\rangle \right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A representação 
+\begin_inset Formula $\left(1/2,1/2\right)$
+\end_inset
+
+ é equivalente à representação veotiral e,
+ como 
+\begin_inset Formula $j_{+}+j_{-}=1$
+\end_inset
+
+,
+ desce a uma representação do grupo de Lorentz ortócrono.
+ Pode-se identificar um quadrivetor pela matriz hermitiana 
+\begin_inset Formula $X=x^{\mu}\sigma_{\mu}$
+\end_inset
+
+,
+ com 
+\begin_inset Formula $\sigma_{\mu}=(I,\sigma_{i})$
+\end_inset
+
+.
+ A equivalência com a base tensorial é realizada por uma mudança de base entre quatro matrizes 
+\begin_inset Formula $\sigma_{\mu}$
+\end_inset
+
+ e uma base de 
+\begin_inset Formula $\mathcal{H}_{1/2}\otimes\mathcal{H}_{1/2}$
+\end_inset
+
+.
+ De forma alternativa,
+ podemos usar a base de quatro componentes
+\begin_inset Formula 
+\[
+v=\begin{pmatrix}a\\
+b\\
+c\\
+d
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A representação nesse espaço quadridimensional é dada pelas representações espinoriais em conjunto:
+\begin_inset Formula 
+\begin{align*}
+A^{+}_{i} & =\frac{1}{2}\sigma_{i}\otimes I\\
+A^{+}_{i}= & I\otimes\frac{1}{2}\sigma_{i}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ ao relembrar que estamos em uma notação simplificada,
+ temos na verdade que 
+\begin_inset Formula 
+\begin{align*}
+S_{i} & =\frac{1}{2}\left(\sigma_{i}\otimes I+I\otimes\sigma_{i}\right)\\
+K_{i} & =-\frac{i}{2}\left(\sigma_{i}\otimes I-I\otimes\sigma_{i}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Exponenciando
+\begin_inset Formula 
+\begin{align*}
+\Lambda & =\exp\left(-i\theta^{i}S_{i}+i\phi^{i}K_{i}\right)\\
+ & =\exp\left(\frac{1}{2}\left(\phi^{i}-i\theta^{i}\right)\sigma_{i}\otimes I-\frac{1}{2}\left(\phi^{i}+i\theta^{i}\right)I\otimes\sigma_{i}\right)\\
+ & =\left(\Lambda_{L}\otimes I\right)\left(I\otimes\Lambda_{R}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ao definir 
+\begin_inset Formula $\eta^{i}=\frac{1}{2}\left(\phi^{i}-i\theta^{i}\right)$
+\end_inset
+
+,
+ temos que
+\begin_inset Formula 
+\[
+\Lambda_{L}=\exp\left(\eta^{i}\sigma_{i}\right)\ \ \Lambda_{R}=\exp\left(-\eta^{i*}\sigma_{i}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Queremos encontrar alguma relação entre esses duas representações.
+ Primeiro,
+ considere a conjugada complexa de uma delas:
+\begin_inset Formula 
+\[
+\Lambda^{*}_{L}=\exp\left(\eta^{i*}\sigma^{*}_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As matrizes de Pauli satisfazem:
+\begin_inset Formula 
+\[
+-\epsilon\sigma^{*}\epsilon^{-1}=\sigma.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ temos que
+\begin_inset Formula 
+\[
+\Lambda_{R}=\epsilon\Lambda_{L}\epsilon^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+A representação de Dirac 
+\begin_inset Formula $\left(1/2,0\right)\oplus\left(0,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Agora suponhamos que tenhamos uma representação de Weyl de mão esquerda da álgebra e outra de maõ direita.
+ O espaço em que atua esse objeto é quadridimensional,
+ sendo que uma componente se transforma pela representação de mão esquerda e outra componente pela representação de mão direita.
+ Esse objeto é denotado por
+\begin_inset Formula 
+\[
+\Psi=\begin{pmatrix}\chi_{L}\\
+\chi_{R}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esse objeto é chamado de espinor de Dirac.
+ Ele é essencial para descrição de férmions com spin 
+\begin_inset Formula $1/2$
+\end_inset
+
+ em teoria quântica dos campos
+\end_layout
+
+\begin_layout Standard
+Ele se transforma sob o recobrimento,
+ por uma representação de soma direta de representações;
+ portanto,
+ não é irredutível,
+ mas completamente redutível por
+\begin_inset Formula 
+\[
+\Lambda=\begin{pmatrix}\Lambda_{L} & 0\\
+0 & \Lambda_{R}
+\end{pmatrix}=\begin{pmatrix}\exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}+\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right) & 0\\
+0 & \exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}-\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right)
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_body
