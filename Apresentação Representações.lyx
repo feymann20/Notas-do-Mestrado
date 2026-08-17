@@ -4170,7 +4170,7 @@ S_{i} & =\frac{1}{2}\sigma_{i}
 O espaço em que estamos atuando é gerado pela base 
 \begin_inset Formula 
 \[
-\text{span}\left\{ \left|\pm1/2\right\rangle \otimes\left|0\right\rangle \right\} \tilde{=}\text{span\left\{ \pm\left|1/2\right\rangle \right\} }.
+\text{span}\left\{ \left|\pm1/2\right\rangle \otimes\left|0\right\rangle \right\} \tilde{=}\text{span\left\{  \pm\left|1/2\right\rangle \right\}  }.
 \]
 
 \end_inset
@@ -4458,6 +4458,1338 @@ Ele se transforma sob o recobrimento,
 \end{pmatrix}.
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+O grupo de Lorentz Inomogêneo
+\end_layout
+
+\begin_layout Standard
+Uma transformação de Poincaré atua sobre um evento 
+\begin_inset Formula $x\in\mathbb{R}^{1,3}$
+\end_inset
+
+por
+\begin_inset Formula 
+\[
+x'^{\mu}=\Lambda^{\mu}_{\nu}x^{\nu}+a^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que 
+\begin_inset Formula $\Lambda\in SO^{+}(1,3)$
+\end_inset
+
+,
+ ou mais geralmente 
+\begin_inset Formula $\Lambda\in O(1,3)$
+\end_inset
+
+,
+ e 
+\begin_inset Formula $a\in\mathbb{R}^{1,3}$
+\end_inset
+
+.
+ Trabalharemos com a componente própria ortócrona.
+\end_layout
+
+\begin_layout Standard
+Sejam 
+\begin_inset Formula $\left(\Lambda_{1},a_{1}\right)$
+\end_inset
+
+ e 
+\begin_inset Formula $\left(\Lambda_{2},a_{2}\right)$
+\end_inset
+
+ duas transformações.
+ Aplicando primeiro 
+\begin_inset Formula $\left(\Lambda_{1},a_{1}\right)$
+\end_inset
+
+ e 
+\begin_inset Formula $\left(\Lambda_{2},a_{2}\right)$
+\end_inset
+
+,
+ obtemos
+\begin_inset Formula 
+\begin{align*}
+x' & =\Lambda_{1}x+a_{1}\\
+x'' & =\Lambda_{2}x+a_{2}=\Lambda_{2}\Lambda_{1}x+\Lambda_{2}a_{1}+a_{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ a regra de composição é 
+\begin_inset Formula 
+\[
+\left(\Lambda_{2},a_{2}\right)\left(\Lambda_{1},a_{1}\right)=\left(\Lambda_{2}\Lambda_{1},\Lambda_{2}a_{1}+a_{2}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essa é a exatamente a estrutura de um produto semidireto
+\begin_inset Formula 
+\[
+ISO^{+}(1,3)=SO^{+}(1,3)\mathbb{o}\mathbb{R}^{1,3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se incluirmos todas as componentes do grupo de Lorentz,
+ obtemos 
+\begin_inset Formula $ISO(1,3)=O(1,3)\mathbb{oR}^{1,3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Geradores de translação e álgebra de Poincaré
+\end_layout
+
+\begin_layout Standard
+Uma representação unitária correspondende no espaço de Hilbert é escrita como
+\begin_inset Formula 
+\[
+U(I,tv)=\exp\left(-itv_{\mu}P^{\mu}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que os 
+\begin_inset Formula $P^{\mu}$
+\end_inset
+
+ são os geradores infinitesimais das translações.
+ Nessa seção 
+\begin_inset Formula $\psi\left(x\right)$
+\end_inset
+
+ denota um campo,
+ ou uma componente de campo,
+ a ação das translaçoes deve ser entendida por conjugação,
+ e não como a ação direta sobre uma função de onda.
+ Assim,
+\begin_inset Formula 
+\[
+U(I,tv)\psi(x)U(I,tv)^{-1}=\psi(x+tv).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Derivando em 
+\begin_inset Formula $t=0$
+\end_inset
+
+,
+ obtemos
+\begin_inset Formula 
+\[
+-i\left[v_{\mu}P^{\mu},\psi(x)\right]=v^{\mu}\partial_{\mu}\psi(x).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equivalentemente,
+\begin_inset Formula 
+\[
+\left[P_{\mu},\psi(x)\right]=i\partial_{\mu}\psi(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esse setor é abeliano.
+\end_layout
+
+\begin_layout Subsection
+Relações de comutação
+\end_layout
+
+\begin_layout Standard
+Uma transformação infinitesimal de Poincaré será escrita da seguinte forma
+\begin_inset Formula 
+\[
+U(\omega,\epsilon)=1-\frac{i}{2}\omega_{\mu\nu}J^{\mu\nu}-i\epsilon_{\mu}P^{\mu},\ \ \omega_{\mu\nu}=-\omega_{\nu\mu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consideremos
+\begin_inset Formula 
+\begin{align*}
+U(\Lambda,a)U(\omega,\epsilon)U^{-1}\left(\Lambda,a\right) & =U\left(\Lambda\omega,\Lambda\epsilon+a\right)U\left(\Lambda^{-1},-\Lambda^{-1}a\right)\\
+ & =U\left(\Lambda\omega\Lambda^{-1},-\Lambda\omega\Lambda^{-1}a+\Lambda\epsilon+a\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tome 
+\begin_inset Formula $\omega=0$
+\end_inset
+
+.
+ Dessa maneira,
+ 
+\begin_inset Formula 
+\begin{align*}
+U(\Lambda,a)U(0,\epsilon)U^{-1}\left(\Lambda,a\right) & =U\left(0,+\Lambda\epsilon+a\right)\\
+-U(\Lambda,a)i\epsilon_{\mu}P^{\mu}U^{-1}\left(\Lambda,a\right) & =-i\Lambda^{\ \mu}_{\nu}\epsilon_{\mu}P^{\nu}\\
+U(\Lambda,a)P^{\mu}U^{-1}\left(\Lambda,a\right) & =\left(\Lambda^{-1}\right)^{\mu}_{\ \nu}P^{\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vemos que os geradores de translação se transforam como quadrivetores.
+\end_layout
+
+\begin_layout Standard
+Para os geradores de Lorentz,
+\begin_inset Formula 
+\begin{align*}
+U\left(\Lambda,a\right)U(\omega,1)U(\Lambda,a)^{-1} & =U\left(\Lambda\omega\Lambda^{-1},-\Lambda\omega\Lambda^{-1}a+a\right)\\
+U\left(\Lambda,a\right)-\frac{i}{2}\omega_{\rho\sigma}J^{\rho\sigma}U(\Lambda,a)^{-1} & =-\frac{i}{2}\Lambda^{\rho}_{\mu}\omega_{\rho\sigma}\left(\Lambda^{-1}\right)^{\sigma}_{\nu}J^{\mu\nu}+(-)^{2}i\Lambda^{\rho}_{\mu}\omega_{\rho\sigma}\left(\Lambda^{-1}\right)^{\sigma}_{\nu}a^{\nu}P^{\mu}\\
+-\frac{i}{2}\omega_{\rho\sigma}U\left(\Lambda,a\right)J^{\rho\sigma}U(\Lambda,a)^{-1} & =-\frac{i}{2}\Lambda^{\ \rho}_{\mu}\omega_{\rho\sigma}\left(\Lambda^{-1}\right)^{\sigma}_{\ \nu}J^{\mu\nu}+(-)^{2}i\Lambda^{\rho}_{\mu}\omega_{\rho\sigma}\left(\Lambda^{-1}\right)^{\sigma}_{\nu}a^{\nu}P^{\mu}\\
+ & =-\frac{i}{2}\omega_{\rho\sigma}\left(\Lambda^{-1}\right)^{\rho}_{\ \mu}\left(\Lambda^{-1}\right)^{\sigma}_{\ \nu}\left(J^{\mu\nu}+a^{\mu}P^{\nu}-a^{\nu}P^{\mu}\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)J^{\rho\sigma}U\left(\Lambda,a\right)^{-1}=\left(\Lambda^{-1}\right)^{\rho}_{\ \mu}\left(\Lambda^{-1}\right)^{\sigma}_{\ \nu}\left(J^{\mu\nu}+a^{\mu}P^{\nu}-a^{\nu}P^{\mu}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Agora tome 
+\begin_inset Formula $U(1,a)$
+\end_inset
+
+ na relação dos geradores de translação e expanda infinitesimalmente,
+ assim temos que
+\begin_inset Formula 
+\[
+dU\left(1,\epsilon\right)=-i\epsilon_{\mu}P^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fazendo o mesmo para os geradores de Lorentz,
+ temos
+\begin_inset Formula 
+\begin{align*}
+i\epsilon_{\mu}\left[J^{\rho\sigma},P^{\mu}\right] & =\delta^{\rho}_{\ \mu}\delta^{\sigma}_{\nu}\left(\epsilon^{\mu}P^{\nu}-\epsilon^{\nu}P^{\mu}\right)\\
+ & =\left(\epsilon^{\rho}P^{\sigma}-\epsilon^{\sigma}P^{\rho}\right)\\
+ & =\epsilon_{\mu}\left(\eta^{\rho\mu}P^{\sigma}-\eta^{\sigma\mu}P^{\rho}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ 
+\begin_inset Formula 
+\[
+\left[J^{\rho\sigma},P^{\mu}\right]=-i\left(\eta^{\rho\mu}P^{\sigma}-\eta^{\sigma\mu}P^{\rho}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tomando 
+\begin_inset Formula $U(\Lambda,0)$
+\end_inset
+
+ assim temos por mutadis mutandis
+\begin_inset Formula 
+\[
+\left[J^{\mu\nu},J^{\rho\sigma}\right]=i\left(\eta^{\nu\rho}J^{\mu\sigma}-\eta^{\mu\rho}J^{\nu\sigma}-\eta^{\sigma\mu}J^{\rho\nu}+\eta^{\sigma\nu}J^{\rho\mu}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vemos que o Hamiltoniano relativístico é 
+\begin_inset Formula $H=P^{0}$
+\end_inset
+
+.
+ Das relações acima os geradores de rotações comutam com 
+\begin_inset Formula $H$
+\end_inset
+
+,
+ enquanto os boosts 
+\emph on
+não comutam 
+\emph default
+com 
+\begin_inset Formula $H$
+\end_inset
+
+ em geral.
+ Assim,
+ os estados físicos não são classificados por autovalores de boosts,
+ mas pelos invariantes de Poincaré e por rótulos associados ao grupo pequeno.
+\end_layout
+
+\begin_layout Section
+Casimires,
+ massa e spin
+\end_layout
+
+\begin_layout Standard
+A álgebra de Poincaré possui dois invariantes de Casimir.
+ O primeiro é o quadrado do momento
+\end_layout
+
+\begin_layout Proposition
+O operador 
+\begin_inset Formula $\mathcal{C}_{1}\equiv P^{\mu}P_{\mu}$
+\end_inset
+
+ comuta com todos os geradores da álgebra de Poincaré.
+\end_layout
+
+\begin_layout Proof
+Como as translações comutam entre si,
+ 
+\begin_inset Formula $\left[\mathcal{C}_{1},P^{\lambda}\right]=0$
+\end_inset
+
+.
+ Para verificar a invariância sob Lorentz,
+ usamos as relações de comutação:
+\begin_inset Formula 
+\begin{align*}
+\left[P_{\mu}P^{\mu},J^{\rho\sigma}\right] & =P_{\mu}\left[P^{\mu},J^{\rho\sigma}\right]+\left[P_{\mu},J^{\rho\sigma}\right]P^{\mu}\\
+ & =i\left(P^{\rho}P^{\rho}-P^{\sigma}P^{\rho}\right)+i\left(P^{\sigma}P^{\rho}-P^{\rho}P^{\sigma}\right)=0
+\end{align*}
+
+\end_inset
+
+Logo,
+ 
+\begin_inset Formula $\mathcal{C}_{1}$
+\end_inset
+
+ é um invariante de Casimir.
+\end_layout
+
+\begin_layout Standard
+Em uma rep.
+ irredutível,
+ o elemento de casimir age como um múltiplo da identidade.
+ Portanto,
+ em um autoestado de momento.
+\begin_inset Formula 
+\[
+\mathcal{C}_{1}\Psi_{p,\sigma}=p^{\mu}p_{\mu}\Psi_{p,\sigma}=m^{2}\Psi_{p,\sigma}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esse casimir fixa a massa da representação.
+ Com a assinatura 
+\emph on
+mostly minus,
+
+\emph default
+ os setores massivos têm 
+\begin_inset Formula $p^{2}=m^{2}>0$
+\end_inset
+
+,
+ os setores sem massa têm 
+\begin_inset Formula $p^{2}=0$
+\end_inset
+
+,
+ e os setores 
+\begin_inset Formula $p^{2}<0$
+\end_inset
+
+ correspondem a representações não massiva taquiônicas,
+ normalmente descartadas na descrição de partículas físicas estáveis.
+\end_layout
+
+\begin_layout Standard
+A equação de Klein-Gordon aparece quando impomos a condição álgebrica sobre um campos e usando a representação diferencial dos geradores de translações,
+ temos
+\begin_inset Formula 
+\[
+\left(\square+m^{2}\right)\phi(x)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Representações induzidas e grupo pequeno
+\end_layout
+
+\begin_layout Standard
+Consideramos autoestados simultâneos dos operadores de momento,
+\begin_inset Formula 
+\[
+P^{\mu}\Psi_{p,\sigma}=p^{\mu}\Psi_{p,\sigma}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O rótulo 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ representa graus de liberdade internos,
+ como a projeão de spin ou helicidade.
+ Para uma translação pura,
+\begin_inset Formula 
+\[
+U(I,a)\Psi_{p,\sigma}=e^{-ia_{\mu}p^{\mu}}\Psi_{p,\sigma}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset Formula 
+\[
+U(\Lambda)P^{\mu}U(\Lambda)^{-1}=\left(\Lambda^{-1}\right)^{\mu}_{\ \nu}P^{\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Então,
+\begin_inset Formula 
+\begin{align*}
+P^{\mu}U(\Lambda)\Psi_{p,\sigma} & =U(\Lambda)\left(U\left(\Lambda\right)^{-1}P^{\mu}U\left(\Lambda\right)\right)\Psi_{p,\sigma}\\
+ & =\Lambda^{\mu}_{\rho}p^{\rho}U(\Lambda)\Psi_{p,\sigma}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ 
+\begin_inset Formula $U\left(\Lambda\right)\Psi_{p,\sigma}$
+\end_inset
+
+ pertence ao autoespaço de momento 
+\begin_inset Formula $\Lambda p$
+\end_inset
+
+,
+ e podemos escrever
+\begin_inset Formula 
+\[
+U\left(\Lambda\right)\Psi_{p,\sigma}=\sum_{\sigma'}C_{\sigma'\sigma}\left(\Lambda,p\right)\Psi_{\Lambda p,\sigma'}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O primeiro Casimir fixa a órbita de massa no espaço dos momentos.
+ As transformações de Lorentz preservam o valor de 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+,
+ mas em geral levam um quadrimomento 
+\begin_inset Formula $p$
+\end_inset
+
+ em outro quadrimomento da mesma órbita.
+ Para classificar os graus de liberdade interno,
+ escolhemos um quadrimomento padrão 
+\begin_inset Formula $k$
+\end_inset
+
+ nessa órbita e estudamos o subgrupo de Lorentz que deixa 
+\begin_inset Formula $k$
+\end_inset
+
+ fixo.
+ Esse subgrupo é o grupo pequeno.
+ Assim,
+ no caso massivo,
+ em que 
+\begin_inset Formula $k=\left(m,0,0,0\right)$
+\end_inset
+
+,
+ o grupo pequeno é 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+,
+ e seus rótulos irredutíveis são justamente os spins.
+\end_layout
+
+\begin_layout Standard
+Escolhemos uma transformação de Lorentz 
+\begin_inset Formula $L\left(p\right)$
+\end_inset
+
+ tal que
+\begin_inset Formula 
+\[
+p^{\mu}=L\left(p\right)^{\mu}_{\nu}k^{\nu}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os estados de momento arbitrário podem então ser definidos por
+\begin_inset Formula 
+\[
+\Psi_{p,\sigma}\equiv N\left(p\right)U\left(L(p)\right)\Psi_{k,\sigma}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que 
+\begin_inset Formula $N\left(p\right)$
+\end_inset
+
+ é um fator de normalização.
+ Para uma transformação de Lorentz qualquer,
+ definimos
+\begin_inset Formula 
+\[
+W\left(\Lambda,p\right)=L\left(\Lambda p\right)^{-1}\Lambda L\left(p\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como
+\begin_inset Formula 
+\[
+W\left(\Lambda,p\right)k=k
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+essa transformação pertence ao grupo pequeno de 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Se 
+\begin_inset Formula $D\left(W\right)$
+\end_inset
+
+ é uma representação do grupo pequeno,
+ então
+\begin_inset Formula 
+\[
+U\left(W\right)\Psi_{k,\sigma}=\sum_{\sigma'}D_{\sigma',\sigma}\left(W\right)\Psi_{k,\sigma'}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando as relações acima
+\begin_inset Formula 
+\begin{align*}
+U\left(\Lambda\right)\Psi_{p,\sigma} & =N(p)U\left(L(p)\right)U\left(W(\Lambda,p\right))\Psi_{k,\sigma}\\
+ & =\frac{N(p)}{N(\Lambda p)}\sum_{\sigma'}D_{\sigma',\sigma}\left(W\left(\Lambda,p\right)\right)\Psi_{\Lambda p,\sigma'}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+ as representações unitárias irredutíveis do grupo de Poincaré são obtidas a partir das representações unitaŕias irredutíveis dos grupos pequenos.
+ Esse é o método das representações induzidas de Wigner
+\end_layout
+
+\begin_layout Subsection
+O vetor de Pauli-Lubanski
+\end_layout
+
+\begin_layout Standard
+O vetor de Pauli-Lubanski é introduzido para escrever de forma covariante os graus de liberdade internos associados ao grupo pequeno.
+ Enquanto,
+ 
+\begin_inset Formula $P^{2}$
+\end_inset
+
+ fixa a massa da representação,
+ 
+\begin_inset Formula $W^{2}$
+\end_inset
+
+ fixa o contéudo de spin.
+ No caso massivo,
+ essa afirmação torna-se explicíta no referencial de repouso,
+ onde o grupo pequeno é o grupo de rotações.
+\end_layout
+
+\begin_layout Definition
+O vetor de Pauli Lubanski é
+\begin_inset Formula 
+\[
+W_{\mu}\equiv-\frac{1}{2}\epsilon_{\mu\nu\rho\sigma}J^{\nu\rho}P^{\sigma}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+em que 
+\begin_inset Formula $\epsilon_{\mu\nu\rho\sigma}$
+\end_inset
+
+ é o simbolo de Levi-Civita totalmente antissimétrico.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As seguintes propriedades mostram por que 
+\begin_inset Formula $W_{\mu}$
+\end_inset
+
+ é o objeto adequeado para descrever o spin relatívistico.
+\end_layout
+
+\begin_layout Proposition
+(W é ortogonal a P).
+ Vale 
+\begin_inset Formula $W_{\mu}P^{\mu}=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Pela definição,
+\begin_inset Formula 
+\[
+W_{\mu}P^{\mu}=-\frac{1}{2}\epsilon_{\mu\nu\rho\sigma}J^{\nu\rho}P^{\sigma}P^{\mu}
+\]
+
+\end_inset
+
+O produto dos geradores dos momentos é simétrico em 
+\begin_inset Formula $\left(\mu,\sigma\right)$
+\end_inset
+
+,
+ enquanto o Levi-Civita é antissimétrico nesses índices.
+ Portanto,
+ a contração é nula.
+\end_layout
+
+\begin_layout Proposition
+(W comuta com as translações).
+ Vale 
+\begin_inset Formula $\left[W_{\mu},P^{\lambda}\right]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[W_{\mu},P^{\lambda}\right]=-\frac{1}{2}\epsilon_{\mu\nu\rho\sigma}\left[J^{\nu\rho},P^{\lambda}\right]P^{\sigma}.$
+\end_inset
+
+ Como
+\begin_inset Formula 
+\[
+\left[J^{\nu\rho},P^{\lambda}\right]=-i\left(\eta^{\lambda\nu}P^{\rho}-\eta^{\lambda\rho}P^{\nu}\right).
+\]
+
+\end_inset
+
+cada termo contém um produto simétrico de dois operadores de momento contráido com o tensor antissimétrico Levi-civita.
+ Logo,
+ ambos os termos se anulam.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+(W é quadrivetor).
+ O vetor de Pauli-Lubanski transforma-se como quadrivetor:
+\begin_inset Formula 
+\[
+\left[J^{\rho\sigma},W^{\mu}\right]=-i\left(\eta^{\nu\rho}W^{\sigma}-\eta^{\mu\sigma}W^{\rho}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+O símbolo 
+\begin_inset Formula $\epsilon_{\mu\nu\rho\sigma}$
+\end_inset
+
+ é invariante de Lorentz,
+ e tanto 
+\begin_inset Formula $J^{\nu\rho}$
+\end_inset
+
+ quanto 
+\begin_inset Formula $P^{\sigma}$
+\end_inset
+
+ transformam tensorialemnte sob a ação adjunta dos geradores de Lorentz.
+ Portanto,
+ a contração transforma-se como um quadrivetor covariante.
+\end_layout
+
+\begin_layout Standard
+Além disso,
+ as componentes de 
+\begin_inset Formula $W_{\mu}$
+\end_inset
+
+,
+ satisfazem
+\begin_inset Formula 
+\[
+\left[W_{\mu},W_{\nu}\right]=i\epsilon_{\mu\nu\rho\sigma}W^{\rho}P^{\sigma}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+O operador 
+\begin_inset Formula $\mathcal{C}_{2}\equiv W^{\mu}W_{\mu}$
+\end_inset
+
+ comuta com todos os geradores da álgebra de Poincaré.
+\end_layout
+
+\begin_layout Proof
+Como Pauli-Lubanski é um quadrivetor,
+ portanto,
+ 
+\begin_inset Formula $W_{\mu}W^{\mu}$
+\end_inset
+
+ é um escalar de Lorentz e comuta com 
+\begin_inset Formula $J^{\rho\sigma}$
+\end_inset
+
+.
+ Além disso,
+ como 
+\begin_inset Formula $W$
+\end_inset
+
+ comuta com as translações,
+ temos
+\begin_inset Formula 
+\[
+\left[W_{\mu}W^{\mu},P^{\lambda}\right]=W^{\mu}\left[W_{\mu},P^{\lambda}\right]+\left[W^{\mu},P^{\lambda}\right]W_{\mu}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Spin no referencial de repouso
+\end_layout
+
+\begin_layout Standard
+O vetor de Pauli-Lubanski pode ser escrito como 
+\begin_inset Formula 
+\[
+W^{0}=J\cdot P,\ \vec{W}=P^{0}\vec{J}-\vec{P}\times\vec{K}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No setor massimo,
+ podemos escolher o referencial de repouso
+\begin_inset Formula 
+\[
+p^{\mu}=\left(m,0,0,0\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nesse referencial,
+\begin_inset Formula 
+\[
+W^{0}=0,\ \vec{W}=m\vec{J}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+\begin_inset Formula 
+\[
+W^{\mu}W_{\mu}=-\left(\vec{W}\right)^{2}=-m^{2}\vec{J}^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como o grupo pequeno de uma partícula massiva é 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+,
+ seus estados internos pertencem a uma representação irredutível de spin 
+\begin_inset Formula $s$
+\end_inset
+
+,
+ para a qual
+\begin_inset Formula 
+\[
+\vec{J}^{2}=s\left(s+1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim,
+\begin_inset Formula 
+\[
+\mathcal{C}_{1}=m^{2},\ \ \mathcal{C}_{2}=-m^{2}s(s+1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e as representações irredutíveis unitárias massivas são rotuladas por 
+\begin_inset Formula $\left(m,s\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Representações dos campos
+\end_layout
+
+\begin_layout Standard
+A classificação de Wigner descreve os estados de uma partícula como vetores de uma representação unitária,
+ em geral de dimensão infinita,
+ do grupo de POincaré.
+ Porém é conveniente introduzir campos 
+\begin_inset Formula $\psi_{\ell}(x)$
+\end_inset
+
+ definidos sobre o espaço de Minkowski.
+ As componentes desses campos se misturam por repressentações finito-dimensionais do grupo de LOrentz próprio ortócrono ou,
+ no caso espinoral,
+ de seu recobrimento.
+ Essas representações são em geral não unitaŕias,
+ pois o grupo de LOrentz é não compacto.
+ Assim é importanto separar:
+\end_layout
+
+\begin_layout Enumerate
+O espaço de Hilbert dos estados carrega uma representaãço unitária do grupo de Poincaré,
+ rotulada pelos Casimires 
+\begin_inset Formula $(m,s)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Os campos carregam representações finito-dimensionais de LOreentz,
+ que indicam como suas componentes se transformam.
+\end_layout
+
+\begin_layout Standard
+As equações de campo fazem a ponte entre esses dois papéis:
+ elas impõem os valores dos Casimires 
+\begin_inset Formula $P^{2}$
+\end_inset
+
+ e 
+\begin_inset Formula $W^{2}$
+\end_inset
+
+ e 
+\end_layout
+
+\begin_layout Definition
+Seja 
+\begin_inset Formula $D\left(\Lambda\right)$
+\end_inset
+
+ uma representação finitoo-dimensional de LOrentz,
+ oudo recobrimento quando houver espinores,
+ autoando nos índices 
+\begin_inset Formula $\ell$
+\end_inset
+
+.
+ Um campo 
+\begin_inset Formula $\psi_{\ell}\left(x\right)$
+\end_inset
+
+ transforma-se sob uma transformação de Poincaré por
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)\psi_{\ell}\left(x\right)U\left(\Lambda,a\right)^{-1}=\sum_{\ell'}D_{\ell\ell'}\left(\Lambda^{-1}\right)\psi_{\ell'}\left(\Lambda x+a\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Campo escalar :
+ 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na representação trivial,
+ 
+\begin_inset Formula $D\left(\Lambda\right)=1$
+\end_inset
+
+,
+ portanto temos
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)\psi\left(x\right)U\left(\Lambda,a\right)^{-1}=\psi\left(\Lambda x+a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como a representação 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+ não possui índices internos,
+ não há geradores spin atuando sobre as componentes do campo.
+ Assim,
+ o conteúdo de spin 
+\begin_inset Formula $s=0$
+\end_inset
+
+ e,
+ sobre
+\end_layout
+
+\begin_layout Standard
+os modos de uma partícula associados ao campo escalar,
+ 
+\begin_inset Formula $W^{2}=0$
+\end_inset
+
+.
+ A dinâmica livre é obtida impondo o valor do primeiro Casimir,
+\begin_inset Formula 
+\[
+\left(P^{\mu}P_{\mu}-m^{2}\right)\phi\left(x\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando que os geradores 
+\begin_inset Formula $P_{\mu}=-i\partial_{\mu}$
+\end_inset
+
+,
+ essa equação torna-se
+\begin_inset Formula 
+\[
+\left(\square+m^{2}\right)\phi(x)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+ a equação de Klein-Gordon é a realização,
+ no campo escalar,
+ da condição álgebra de massa fixa.
+\end_layout
+
+\begin_layout Subsection
+Campos de Weyl:
+ 
+\begin_inset Formula $\left(1/2,0\right)$
+\end_inset
+
+ e 
+\begin_inset Formula $\left(0,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os espinores de Weyl correspondem às duas representações bidimensionais fundamentais do recobrimento.
+ Sabe-se que o campo de mão esquerda 
+\begin_inset Formula $\chi_{L}\left(x\right),$
+\end_inset
+
+ na representação 
+\begin_inset Formula $\left(1/2,0\right)$
+\end_inset
+
+ transforma-se
+\begin_inset Formula 
+\[
+\Lambda_{L}=\exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}+\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ao passo que o campo de mão direita 
+\begin_inset Formula $\chi_{R}\left(x\right)$
+\end_inset
+
+,
+ na representação 
+\begin_inset Formula $\left(0,1/2\right)$
+\end_inset
+
+,
+ transforma-se com
+\begin_inset Formula 
+\[
+\Lambda_{R}=\exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}-\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os parâmetros 
+\begin_inset Formula $\vec{\theta}$
+\end_inset
+
+ e 
+\begin_inset Formula $\vec{\phi}$
+\end_inset
+
+ são,
+ respectivamente,
+ os ângulos de rotação e as rapidezes dos boosts.
+\end_layout
+
+\begin_layout Subsection
+Campo de Dirac:
+ 
+\begin_inset Formula $\left(1/2,0\right)\oplus\left(0,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A representação de dirac é obtida realizando a soma direta das duas representações irredutíveis
+\begin_inset Formula 
+\[
+\Psi(x)=\begin{pmatrix}\chi_{L}\left(x\right)\\
+\chi_{R}\left(x\right)
+\end{pmatrix},\ \ D\left(\Lambda\right)=\begin{pmatrix}\Lambda_{L} & 0\\
+0 & \Lambda_{R}
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para escrever uma equação covariante de primeira ordem,
+ introduzimos matrizes 
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+ satisfazendo a álgebra de Clifford
+\begin_inset Formula 
+\[
+\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2\eta^{\mu\nu}I
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na base quiral,
+ podemos tomar
+\begin_inset Formula 
+\[
+\gamma^{\mu}=\begin{pmatrix}0 & \sigma^{\mu}\\
+\bar{\sigma}^{\mu} & 0
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os geradores espinorais de Lorentz são
+\begin_inset Formula 
+\[
+S^{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A massa acopla algebricamente as duas representaçãos de Weyl,
+ as equações acopladas são
+\begin_inset Formula 
+\begin{align*}
+p_{\mu}\sigma^{\mu}\chi_{R} & =m\chi_{L}\\
+p_{\mu}\bar{\sigma^{\mu}}\chi_{R} & =m\chi_{L}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As equações de Weyl acopladas se reúnem na equação de Dirac
+\begin_inset Formula 
+\[
+\left(i\gamma^{\mu}\partial_{\mu}-m\right)\Psi(x)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Campo vetorial:
+ 
+\begin_inset Formula $\left(1/2,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A representação 
+\begin_inset Formula $\left(1/2,1/2\right)$
+\end_inset
+
+ tem dimensão é 4 e equivalente a representação vetorial.
+ O campo 
+\begin_inset Formula $V^{\mu}\left(x\right)$
+\end_inset
+
+ transforma-se como um quadrivetor
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)V^{\mu}\left(x\right)U\left(\Lambda,a\right)^{-1}=\left(\Lambda^{-1}\right)^{\mu}_{\ \nu}V^{\nu}\left(\Lambda x+a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No referencial de repouso a representação vetorial se decompõe,
+ sob o grupo pequeno 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+,
+ em uma parte escalar e uma parte vetorial.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
