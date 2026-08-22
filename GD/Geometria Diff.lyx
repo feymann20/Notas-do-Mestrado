@@ -1,0 +1,1450 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{newtxtext}
+\usepackage{newtxmath}   % carregar DEPOIS de amsmath/amssymb
+\usepackage{mathrsfs}    % \mathscr (o script do artigo)
+\usepackage{dsfont}      % \mathds
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+theorems-ams-chap-bytype
+theorems-ams-extended-chap-bytype
+enumitem
+\end_modules
+\maintain_unincluded_children no
+\language brazilian
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package refstyle
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Index
+\shortcut idx
+\color #008080
+\end_index
+\leftmargin 2.2cm
+\topmargin 2.5cm
+\rightmargin 2.2cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Geometria Diferencial,
+ uma introdução.
+\end_layout
+
+\begin_layout Author
+Natã Hora
+\end_layout
+
+\begin_layout Section
+Curvas
+\end_layout
+
+\begin_layout Standard
+Uma curva em uma variedade 
+\begin_inset Formula $M$
+\end_inset
+
+ é dito ser uma curva parametrizada,
+ i.e,
+ um mapa suave de um intervalo à variedade.
+ Pode-se distinguir a sua parametrização do objeto geométrico.
+ Nesse texto,
+ quando dissermos curva está implicito que estamos falando sobre 
+\begin_inset Formula $c:\left[a,b\right]\to M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Curvas regulares
+\end_layout
+
+\begin_layout Definition
+Uma curva parametrizada é dita regular se sua derivada 
+\begin_inset Formula $c'\left(t\right)$
+\end_inset
+
+ é diferente de 
+\begin_inset Formula $0$
+\end_inset
+
+ para todo 
+\begin_inset Formula $t$
+\end_inset
+
+ no domínio.
+ Em outras palavras,
+ uma curva regular é uma imersão 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos ter reparametrizações da curva por meio de difeomorfismos entre intervalos fechado.
+ A mais interessante é a parametrização por comprimento de arco.
+\end_layout
+
+\begin_layout Subsection
+Parametrização por comprimento de arco
+\end_layout
+
+\begin_layout Standard
+Definimos o comprimento de arco de uma curva como sendo
+\begin_inset Formula 
+\[
+\ell=\int^{b}_{a}\vert\vert c'\left(u\right)\vert\vert du
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para cada 
+\begin_inset Formula $t\in\left[a,b\right]$
+\end_inset
+
+,
+ considere
+\begin_inset Formula 
+\[
+s\left(t\right)=\int^{t}_{a}\vert\vert c'\left(u\right)\vert\vert du
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essa função é dito função comprimento de arco da curva 
+\begin_inset Formula $c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+A função 
+\begin_inset Formula $s:\left[a,b\right]\to\left[0,\ell\right]$
+\end_inset
+
+ de uma curva regular 
+\begin_inset Formula $c$
+\end_inset
+
+ possui uma inversa 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Com essa proposição podemos definir
+\begin_inset Formula 
+\[
+\gamma\left(s\right)=c\left(t\left(s\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Uma curva parametrizada está parametrizada por comprimento de arco se,
+ e somente se,
+ possui velocidade unitária e seu paramêtro se inicia em 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Curvatura sinalada de uma curva plana
+\end_layout
+
+\begin_layout Standard
+Considere uma curva parametrizada por comprimento de arco 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ no plano.
+ então seu vetor velocidade 
+\begin_inset Formula $T$
+\end_inset
+
+ é unitário e é tangente a curva no ponto 
+\begin_inset Formula $p=\gamma\left(s\right)$
+\end_inset
+
+.
+ Uma medida razoável de curvatura é a magnitude da derivada do vetor tangente,
+ mas podemos estar interessados na direção em que está curvando,
+ para isso considere um vetor 
+\begin_inset Formula $n$
+\end_inset
+
+ tal que o par 
+\begin_inset Formula $T,n$
+\end_inset
+
+ seja orientado positivamente no plano.
+ 
+\end_layout
+
+\begin_layout Standard
+Sabe-se que 
+\begin_inset Formula 
+\[
+\left\langle T'\vert T\right\rangle =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Isso implica que 
+\begin_inset Formula $T'=\kappa n$
+\end_inset
+
+.
+ Esse escalar é dito curvatura sinalada da curva plana no ponto 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Podendo se reescrita como
+\begin_inset Formula 
+\[
+\kappa=\left\langle T'\vert n\right\rangle =\left\langle \gamma''\vert n\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Orientação e Curvatura
+\end_layout
+
+\begin_layout Standard
+Podemos ter duas formas de parametrizações por arco que altera a orientação da curva que estão relacionadas por:
+\begin_inset Formula 
+\[
+\tilde{\gamma}(s)=\gamma\left(\ell-s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Problemas
+\end_layout
+
+\begin_layout Exercise
+Let T (s) be the unit tangent vector field on a plane curve γ (s) parametrized by arc length.
+ Write
+\begin_inset Formula 
+\[
+T\left(s\right)=\begin{pmatrix}\cos\theta\\
+\sin\theta
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+where 
+\begin_inset Formula $θ(s)$
+\end_inset
+
+ is the angle of 
+\begin_inset Formula $T(s)$
+\end_inset
+
+ with respect to the positive horizontal axis.
+ Show that the
+\end_layout
+
+\begin_layout Exercise
+signed curvature 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ is the derivative 
+\begin_inset Formula $dθ/ds$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution*
+Considere a matriz de rotação usual em 
+\begin_inset Formula $\pi/2$
+\end_inset
+
+ assim
+\begin_inset Formula 
+\[
+n\left(s\right)=\begin{pmatrix}-\sin\theta\\
+\cos\theta
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+o determinante 
+\begin_inset Formula 
+\[
+\det[T,n]=|\begin{pmatrix}cos & -sin\\
+sin & cos
+\end{pmatrix}|=1>0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim temos que,
+ 
+\begin_inset Formula $T'=\begin{pmatrix}-\theta'\sin\theta\\
+\theta'\cos\theta
+\end{pmatrix}=\theta'n$
+\end_inset
+
+.
+ Logo,
+ 
+\begin_inset Formula $\kappa=\theta'$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Suppose 
+\begin_inset Formula $γ(s)=(x(s),y(s))$
+\end_inset
+
+ is a unit-speed curve in the plane.
+ Write 
+\begin_inset Formula $x'=x'(s)=dx/ds$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Exercise
+\begin_inset Formula $y'=y'(s)=dy/ds$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Exercise
+(a) Show that the signed curvature 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ of 
+\begin_inset Formula $γ(s)$
+\end_inset
+
+ is 
+\begin_inset Formula $−x''/y'$
+\end_inset
+
+ when 
+\begin_inset Formula $y'\neq0$
+\end_inset
+
+ and 
+\begin_inset Formula $y''/x'$
+\end_inset
+
+ when 
+\begin_inset Formula $x'\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Exercise
+(b) For a unit-speed curve,
+\begin_inset Formula $θ=tan−1(y/x)$
+\end_inset
+
+.
+ By calculating 
+\begin_inset Formula $dθ/ds$
+\end_inset
+
+,
+ show that the signed
+\end_layout
+
+\begin_layout Exercise
+curvature is 
+\begin_inset Formula $κ=xy−xy$
+\end_inset
+
+.
+ (If 
+\begin_inset Formula $x=0$
+\end_inset
+
+,
+ then because the curve is unit speed,
+ 
+\begin_inset Formula $y'\neq0$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Exercise
+\begin_inset Formula $θ=tan−1(+∞)=π/2.)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+Tomarei a notação simplificada 
+\begin_inset Formula $\gamma'=\left(x',y'\right)$
+\end_inset
+
+,
+ por hipotese esse vetor é unitário.
+ 
+\begin_inset Formula $n=\left(-y',x'\right)$
+\end_inset
+
+.
+ Portanto,
+\begin_inset Formula 
+\begin{align*}
+x'' & =-\kappa y'\\
+y'' & =\kappa x'
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+Se 
+\begin_inset Formula $y'\neq0\implies\kappa=-x''/y'$
+\end_inset
+
+,
+ se 
+\begin_inset Formula $x'\neq0\implies\kappa=y''/x'$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para uma curva de velocidade unitária,
+ 
+\begin_inset Formula 
+\[
+\theta'=\frac{\left(\frac{y''x'-y'x''}{\left(x'\right)^{2}}\right)}{\frac{x'^{2}+y'^{2}}{x'^{2}}}=\frac{y''x'-y'x''}{x'^{2}+y'^{2}}=y''x'-y'x''=\kappa
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Superfícies no espaço
+\end_layout
+
+\begin_layout Standard
+uma subvariedade regular de uma variedade 
+\begin_inset Formula $\tilde{M}$
+\end_inset
+
+ é um subconjunto de 
+\begin_inset Formula $\tilde{M}$
+\end_inset
+
+ localmente definido por funções coordenadas.
+ Por superficies em 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+indica que estamos falando de subvariedades regulares de 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ Seja 
+\begin_inset Formula $p$
+\end_inset
+
+ um ponto da superficie 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Um vetor normal a 
+\begin_inset Formula $M$
+\end_inset
+
+ em 
+\begin_inset Formula $p$
+\end_inset
+
+ é um vetor 
+\begin_inset Formula $N_{p}\in T_{p}\mathbb{R}^{3}$
+\end_inset
+
+ que é ortogoal ao plano tangente 
+\begin_inset Formula $T_{p}M$
+\end_inset
+
+.
+ Um campo vetorial normal em 
+\begin_inset Formula $M$
+\end_inset
+
+ é uma função 
+\begin_inset Formula $N$
+\end_inset
+
+ que associa a cada ponto 
+\begin_inset Formula $p\in M$
+\end_inset
+
+ um vetor normal 
+\begin_inset Formula $N_{p}$
+\end_inset
+
+ em 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Se 
+\begin_inset Formula $N$
+\end_inset
+
+ é um campo vetorial normal em 
+\begin_inset Formula $M$
+\end_inset
+
+,
+ então em cada 
+\begin_inset Formula $p\in M$
+\end_inset
+
+,
+ escrevemos
+\begin_inset Formula 
+\[
+N_{p}=\sum a^{i}\left(p\right)\partial_{i}|_{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O campo vetorial 
+\begin_inset Formula $N$
+\end_inset
+
+ em 
+\begin_inset Formula $M$
+\end_inset
+
+ é dito ser infinitamente diferenciável se os coeficientes 
+\begin_inset Formula $a^{i}$
+\end_inset
+
+ são diferenciáveis.
+\end_layout
+
+\begin_layout Standard
+Seja 
+\begin_inset Formula $N$
+\end_inset
+
+ um campo veotiral normal unitário na vizinhança de 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Sobre a identificaão canônica de vetores com pontos no 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ todo plano 
+\begin_inset Formula $P$
+\end_inset
+
+ atraves de 
+\begin_inset Formula $N_{p}$
+\end_inset
+
+ corta a superficie 
+\begin_inset Formula $M$
+\end_inset
+
+ ao longo de uma curva plana 
+\begin_inset Formula $P\cap M$
+\end_inset
+
+,
+ é suave.
+ Essa curva é dito seção normal da superficie atraves de 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Seja 
+\begin_inset Formula $\gamma(s)$
+\end_inset
+
+ uma parametrização de arco uma seção normal com ponto inicial em 
+\begin_inset Formula $p$
+\end_inset
+
+ e vetor inicial 
+\begin_inset Formula $X_{p}$
+\end_inset
+
+ 
+\begin_inset Formula $\left(unitário\right)$
+\end_inset
+
+.
+ A curvatura normal da seção normal 
+\begin_inset Formula $\gamma\left(s\right)$
+\end_inset
+
+ no ponto 
+\begin_inset Formula $p$
+\end_inset
+
+ com respeito a 
+\begin_inset Formula $N_{p}$
+\end_inset
+
+ é definida por:
+\begin_inset Formula 
+\[
+\kappa\left(X_{p}\right)=\left\langle \gamma''\left(0\right)\vert,N_{p}\right\rangle =\left\langle X'_{p}\vert,N_{p}\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim a funçao 
+\begin_inset Formula $\kappa:S^{1}\to\mathbb{R}$
+\end_inset
+
+ é par.
+\end_layout
+
+\begin_layout Standard
+Os valores máximos e minimos da função são ditos curvaturas principais.
+ A média é dita a curvatura média 
+\begin_inset Formula $H$
+\end_inset
+
+,
+ e seu produto é a curvatura gaussiana 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Uma direção unitária ao longo de uma curvatura principal é dito direção principal.
+\end_layout
+
+\begin_layout Section*
+Exercicios
+\end_layout
+
+\begin_layout Exercise
+Principal curvatures in terms of 
+\begin_inset Formula $K$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Exercise
+Compute the principal curvatures 
+\begin_inset Formula $\kappa_{1},\kappa_{2}$
+\end_inset
+
+ at a point of an oriented surface in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ in terms of its Gaussian curvature 
+\begin_inset Formula $K$
+\end_inset
+
+ and mean curvature 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula $K=\kappa_{1}\kappa_{2},H=\frac{\kappa_{1}+\kappa_{2}}{2}$
+\end_inset
+
+.
+ Se 
+\begin_inset Formula $K=0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\kappa_{1}=0\ ou\ \kappa_{2}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Portanto,
+ 
+\begin_inset Formula $H=\kappa_{i}/2$
+\end_inset
+
+.
+ Considere que 
+\begin_inset Formula $K\neq0$
+\end_inset
+
+.
+ Então,
+ assuma sem perda de generalidade 
+\begin_inset Formula $\kappa_{1}\neq0$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\kappa_{2}=K/k_{1}$
+\end_inset
+
+,
+ portanto
+\begin_inset Formula 
+\begin{align*}
+H & =\frac{\kappa^{2}_{1}+K}{2\kappa_{1}}\iff2\kappa_{1}H-K-\kappa^{2}_{1}=0\\
+\kappa^{2}_{1}-2\kappa_{1}H+K=0\implies & H\pm\sqrt{H^{2}-K}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Operador shape
+\end_layout
+
+\begin_layout Standard
+De forma usual define 
+\begin_inset Formula $M$
+\end_inset
+
+ no espaço
+\begin_inset Formula 
+\[
+L_{p}\left(X_{p}\right)=-D_{X_{p}}N.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essa definição faz sentido pois 
+\begin_inset Formula $N$
+\end_inset
+
+ é definido ao longo de alguma curva com vetor inicial 
+\begin_inset Formula $X_{p}$
+\end_inset
+
+.
+ Relembrando essa definição é dada por:
+\begin_inset Formula 
+\[
+D_{X_{p}}N=\sum\left(X_{p}b^{i}\right)\partial_{i}|_{p}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aplicando o veotr 
+\begin_inset Formula $X_{p}$
+\end_inset
+
+ no produto 
+\begin_inset Formula $\left\langle N\vert N\right\rangle $
+\end_inset
+
+ e usando a compatibilidada da métrica,
+ mostrase que 
+\begin_inset Formula $D_{X_{p}}N$
+\end_inset
+
+ é ortogonal a 
+\begin_inset Formula $N$
+\end_inset
+
+,
+ portanto pertence ao espaço tangente 
+\begin_inset Formula $T_{p}M$
+\end_inset
+
+.
+ Dessa maneira,
+\begin_inset Formula 
+\[
+L_{p}:T_{p}M\to T_{p}M
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+é chamado de operador shape,
+ ou Weingarten map.
+\end_layout
+
+\begin_layout Lemma
+Seja 
+\begin_inset Formula $M$
+\end_inset
+
+ uma superficie em 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+possuindo um campo vetorial normal unitario 
+\begin_inset Formula $N$
+\end_inset
+
+,
+ para campos 
+\begin_inset Formula $X,Y$
+\end_inset
+
+r
+\begin_inset Formula 
+\[
+\left\langle L(X)\vert Y\right\rangle =\left\langle D_{X}Y\vert N\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Como 
+\begin_inset Formula $Y$
+\end_inset
+
+ é tangente a 
+\begin_inset Formula $M$
+\end_inset
+
+ o produto interno 
+\begin_inset Formula $Y$
+\end_inset
+
+ com 
+\begin_inset Formula $N$
+\end_inset
+
+ é zero no aberto 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ aplicando 
+\begin_inset Formula $X$
+\end_inset
+
+ temos que
+\begin_inset Formula 
+\[
+\left\langle D_{X}Y\vert N\right\rangle =-\left\langle Y\vert D_{X}N\right\rangle =\left\langle Y\vert L(X)\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+O operador shape é autoadjunto:
+ para qualquer 
+\begin_inset Formula $X_{p},Y_{p}\in T_{p}M$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\langle L\left(X_{p}\right)\vert Y_{p}\right\rangle =\left\langle X_{p}\vert L\left(Y_{p}\right)\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se 
+\begin_inset Formula $T:V\to W$
+\end_inset
+
+ é um mapa linear entre espaços vetoriais,
+ e temos duas bases para cada espaço
+\begin_inset Formula 
+\[
+Tv_{j}=\sum^{m}_{i}a^{i}_{j}w_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+a matriz 
+\begin_inset Formula $\left[a^{i}_{j}\right]$
+\end_inset
+
+ é unica com respeito as bases.
+\end_layout
+
+\begin_layout Standard
+A matriz do operador shpae é simetríca.
+\end_layout
+
+\begin_layout Subsection
+Curvatura e o operador Shape
+\end_layout
+
+\begin_layout Standard
+Considere uma subvariedade regular no espaço,
+ com um campo vetorial normal 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Seja 
+\begin_inset Formula $c:\left[a,b\right]\to M$
+\end_inset
+
+ uma curva e seja 
+\begin_inset Formula $V$
+\end_inset
+
+ um campo vetorial em 
+\begin_inset Formula $M$
+\end_inset
+
+ atráves de 
+\begin_inset Formula $c$
+\end_inset
+
+.
+ Então
+\begin_inset Formula 
+\[
+\left\langle L\left(c'(t)\right),V\right\rangle =\left\langle \frac{dV}{dt}\vert N_{c(t)}\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Suponha que 
+\begin_inset Formula $\gamma\left(s\right)$
+\end_inset
+
+ é uma seção normal,
+ parametrizada por comprimento de arco,
+ determinado por um vetor tangente 
+\begin_inset Formula $X_{p}\in T_{p}M$
+\end_inset
+
+ e um vetor normal unitário 
+\begin_inset Formula $N_{p}$
+\end_inset
+
+.
+ Então,
+ a curvatura normal de 
+\begin_inset Formula $\gamma\left(s\right)$
+\end_inset
+
+ com respeito a 
+\begin_inset Formula $N_{p}$
+\end_inset
+
+ em 
+\begin_inset Formula $p$
+\end_inset
+
+ é dada pela segunda forma fundamental:
+\begin_inset Formula 
+\[
+\kappa\left(X_{o}\right)=\left\langle L\left(X_{p}\right),X_{p}\right\rangle =\Pi\left(X_{p},X_{p}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conexões afins
+\end_layout
+
+\begin_layout Standard
+Considere um campo vetorial suave em uma variedade e um vetor tangente em um ponto 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Para definir a derivada direcional desse campo na direção de um vetor tangente é necessário comparar valores do campo ao redor da vizinhança do ponto 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Se 
+\begin_inset Formula $q\in U$
+\end_inset
+
+,
+ em geral,
+ não é possivel comparar os vetores,
+ pois estão em espaços tangentes distintos.
+ Não é possivel então definir uma derivada direcional assim como foi feito para subvariedades no espaço.
+ Dessa maneira,
+ considere um mapa 
+\begin_inset Formula $D:\mathcal{X}\left(M\right)\times\mathcal{X}\left(M\right)\to\mathcal{X}\left(M\right)$
+\end_inset
+
+ com algumas das propriedades interessantes da derivada direcional no espaço,
+ e chamamos esse mapa de uma conexão afim.
+ Intuitivamente,
+ uma conexão afim em uma varidade é uma forma de diferenciar campos vetoriais na variedade.
+\end_layout
+
+\begin_layout Subsection
+Conexões Afins
+\end_layout
+
+\begin_layout Definition
+Uma conexão afim em uma variedade 
+\begin_inset Formula $M$
+\end_inset
+
+ é um mapa 
+\begin_inset Formula $\mathbb{R}-$
+\end_inset
+
+bilinear
+\begin_inset Formula 
+\[
+\nabla:\mathcal{X}\left(M\right)\to\mathcal{X}\left(M\right)\to\mathcal{X}\left(M\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+satisfazendo duas propriedades:
+ Se 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ é o anel 
+\begin_inset Formula $C^{\infty}\left(M\right)$
+\end_inset
+
+,
+ então:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\nabla_{X}Y$
+\end_inset
+
+ é linear com o anel em 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\nabla_{X}Y$
+\end_inset
+
+ satisfaz a regra de Leibniz em 
+\begin_inset Formula $Y$
+\end_inset
+
+ para uma função 
+\begin_inset Formula $f\in\mathcal{F}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Seja 
+\begin_inset Formula $X,Y,Z$
+\end_inset
+
+ campos vetorias suaves em uma variedade com conexão afim 
+\begin_inset Formula $\nabla$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+A torsão 
+\begin_inset Formula $T\left(X,Y\right)$
+\end_inset
+
+ é linear com o anel em 
+\begin_inset Formula $X$
+\end_inset
+
+ e em 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+A curvatura 
+\begin_inset Formula $R\left(X,Y\right)Z$
+\end_inset
+
+ é linear com o canel em 
+\begin_inset Formula $X,Y,Z$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+R\left(fX,Y\right)Z=\nabla_{fX}\nabla_{Y}Z-\nabla_{Y}\nabla_{fX}Z-\nabla_{\left[fX,Y\right]}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O primeiro termo é
+\begin_inset Formula 
+\[
+\nabla_{fX}\nabla_{Y}Z=f\nabla_{X}\nabla_{Y}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O segundo termo é
+\begin_inset Formula 
+\[
+\nabla_{Y}\left(f\nabla_{X}Z\right)=\left(Yf\right)\nabla_{X}Z+f\nabla_{Y}\nabla_{X}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Verifica-se que
+\begin_inset Formula 
+\begin{align*}
+\left[fX,Y\right] & =fXY-Y\left(fX\right)=fXY-Y\left(f\right)X-fYX\\
+ & =f\left[X,Y\right]-\left(Yf\right)X
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\left[fX,Y\right]}Z=\nabla_{f\left[X,Y\right]}Z-\left(Yf\right)\nabla_{X}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim
+\begin_inset Formula 
+\[
+R\left(fX,Y\right)Z=f\nabla_{X}\nabla_{Y}Z-\left(Yf\right)\nabla_{X}Z-f\nabla_{Y}\nabla_{X}Z-\nabla_{f\left[X,Y\right]}Z+\left(Yf\right)\nabla_{X}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ é linear no anel.
+ Como o tensor é antissimétrico em 
+\begin_inset Formula $X,Y$
+\end_inset
+
+ temos que ele é linear nas duas entradas.
+\end_layout
+
+\begin_layout Subsection
+A conexão Rieamanniana
+\end_layout
+
+\end_body
+\end_document
