@@ -5517,12 +5517,275 @@ Na representação trivial,
  portanto temos
 \begin_inset Formula 
 \[
-U
+U\left(\Lambda,a\right)\psi\left(x\right)U\left(\Lambda,a\right)^{-1}=\psi\left(\Lambda x+a\right)
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Como a representação 
+\begin_inset Formula $\left(0,0\right)$
+\end_inset
+
+ não possui índices internos,
+ não há geradores spin atuando sobre as componentes do campo.
+ Assim,
+ o conteúdo de spin 
+\begin_inset Formula $s=0$
+\end_inset
+
+ e,
+ sobre
+\end_layout
+
+\begin_layout Standard
+os modos de uma partícula associados ao campo escalar,
+ 
+\begin_inset Formula $W^{2}=0$
+\end_inset
+
+.
+ A dinâmica livre é obtida impondo o valor do primeiro Casimir,
+\begin_inset Formula 
+\[
+\left(P^{\mu}P_{\mu}-m^{2}\right)\phi\left(x\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usando que os geradores 
+\begin_inset Formula $P_{\mu}=-i\partial_{\mu}$
+\end_inset
+
+,
+ essa equação torna-se
+\begin_inset Formula 
+\[
+\left(\square+m^{2}\right)\phi(x)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+ a equação de Klein-Gordon é a realização,
+ no campo escalar,
+ da condição álgebra de massa fixa.
+\end_layout
+
+\begin_layout Subsection
+Campos de Weyl:
+ 
+\begin_inset Formula $\left(1/2,0\right)$
+\end_inset
+
+ e 
+\begin_inset Formula $\left(0,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os espinores de Weyl correspondem às duas representações bidimensionais fundamentais do recobrimento.
+ Sabe-se que o campo de mão esquerda 
+\begin_inset Formula $\chi_{L}\left(x\right),$
+\end_inset
+
+ na representação 
+\begin_inset Formula $\left(1/2,0\right)$
+\end_inset
+
+ transforma-se
+\begin_inset Formula 
+\[
+\Lambda_{L}=\exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}+\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ao passo que o campo de mão direita 
+\begin_inset Formula $\chi_{R}\left(x\right)$
+\end_inset
+
+,
+ na representação 
+\begin_inset Formula $\left(0,1/2\right)$
+\end_inset
+
+,
+ transforma-se com
+\begin_inset Formula 
+\[
+\Lambda_{R}=\exp\left(-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma}-\frac{1}{2}\vec{\phi}\cdot\vec{\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os parâmetros 
+\begin_inset Formula $\vec{\theta}$
+\end_inset
+
+ e 
+\begin_inset Formula $\vec{\phi}$
+\end_inset
+
+ são,
+ respectivamente,
+ os ângulos de rotação e as rapidezes dos boosts.
+\end_layout
+
+\begin_layout Subsection
+Campo de Dirac:
+ 
+\begin_inset Formula $\left(1/2,0\right)\oplus\left(0,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A representação de dirac é obtida realizando a soma direta das duas representações irredutíveis
+\begin_inset Formula 
+\[
+\Psi(x)=\begin{pmatrix}\chi_{L}\left(x\right)\\
+\chi_{R}\left(x\right)
+\end{pmatrix},\ \ D\left(\Lambda\right)=\begin{pmatrix}\Lambda_{L} & 0\\
+0 & \Lambda_{R}
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para escrever uma equação covariante de primeira ordem,
+ introduzimos matrizes 
+\begin_inset Formula $\gamma^{\mu}$
+\end_inset
+
+ satisfazendo a álgebra de Clifford
+\begin_inset Formula 
+\[
+\left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2\eta^{\mu\nu}I
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na base quiral,
+ podemos tomar
+\begin_inset Formula 
+\[
+\gamma^{\mu}=\begin{pmatrix}0 & \sigma^{\mu}\\
+\bar{\sigma}^{\mu} & 0
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Os geradores espinorais de Lorentz são
+\begin_inset Formula 
+\[
+S^{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A massa acopla algebricamente as duas representaçãos de Weyl,
+ as equações acopladas são
+\begin_inset Formula 
+\begin{align*}
+p_{\mu}\sigma^{\mu}\chi_{R} & =m\chi_{L}\\
+p_{\mu}\bar{\sigma^{\mu}}\chi_{R} & =m\chi_{L}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As equações de Weyl acopladas se reúnem na equação de Dirac
+\begin_inset Formula 
+\[
+\left(i\gamma^{\mu}\partial_{\mu}-m\right)\Psi(x)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Campo vetorial:
+ 
+\begin_inset Formula $\left(1/2,1/2\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A representação 
+\begin_inset Formula $\left(1/2,1/2\right)$
+\end_inset
+
+ tem dimensão é 4 e equivalente a representação vetorial.
+ O campo 
+\begin_inset Formula $V^{\mu}\left(x\right)$
+\end_inset
+
+ transforma-se como um quadrivetor
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)V^{\mu}\left(x\right)U\left(\Lambda,a\right)^{-1}=\left(\Lambda^{-1}\right)^{\mu}_{\ \nu}V^{\nu}\left(\Lambda x+a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No referencial de repouso a representação vetorial se decompõe,
+ sob o grupo pequeno 
+\begin_inset Formula $SO(3)$
+\end_inset
+
+,
+ em uma parte escalar e uma parte vetorial.
 \end_layout
 
 \begin_layout Standard
