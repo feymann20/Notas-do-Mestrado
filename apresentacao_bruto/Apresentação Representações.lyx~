@@ -4269,7 +4269,7 @@ A representação
 \begin_inset Formula $\left(1/2,1/2\right)$
 \end_inset
 
- é equivalente à representação veotiral e,
+ é equivalente à representação vetorial e,
  como 
 \begin_inset Formula $j_{+}+j_{-}=1$
 \end_inset
@@ -5476,7 +5476,7 @@ Seja
 \begin_inset Formula $D\left(\Lambda\right)$
 \end_inset
 
- uma representação finitoo-dimensional de LOrentz,
+ uma representação finito-dimensional de LOrentz,
  oudo recobrimento quando houver espinores,
  autoando nos índices 
 \begin_inset Formula $\ell$
@@ -5489,9 +5489,9 @@ Seja
 
  transforma-se sob uma transformação de Poincaré por
 \begin_inset Formula 
-\[
-U\left(\Lambda,a\right)\psi_{\ell}\left(x\right)U\left(\Lambda,a\right)^{-1}=\sum_{\ell'}D_{\ell\ell'}\left(\Lambda^{-1}\right)\psi_{\ell'}\left(\Lambda x+a\right).
-\]
+\begin{equation}
+U\left(\Lambda,a\right)\psi_{\ell}\left(x\right)U\left(\Lambda,a\right)^{-1}=\sum_{\ell'}D_{\ell\ell'}\left(\Lambda^{-1}\right)\psi_{\ell'}\left(\Lambda x+a\right).\label{eq:campos-trans}
+\end{equation}
 
 \end_inset
 
@@ -5581,6 +5581,7 @@ Portanto,
  a equação de Klein-Gordon é a realização,
  no campo escalar,
  da condição álgebra de massa fixa.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -5653,6 +5654,276 @@ Os parâmetros
  os ângulos de rotação e as rapidezes dos boosts.
 \end_layout
 
+\begin_layout Standard
+Para obtermos as equações covariantes temos que 
+\begin_inset Formula 
+\[
+K\chi_{L}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+em que 
+\begin_inset Formula $K$
+\end_inset
+
+ é um operador diferencial de tal forma que a equação seja covariante pela representação do grupo de Lorentz,
+ e que seja linear.
+ Logo,
+\begin_inset Formula 
+\[
+K=i\Gamma^{\mu}\partial_{\mu}-M
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tome 
+\begin_inset Formula $\chi_{L}'\left(x'\right)=\Lambda_{L}\chi_{L}$
+\end_inset
+
+
+\begin_inset Formula $\left(x\right)$
+\end_inset
+
+,
+ Para que a equaçao seja covariante temos que então.
+\begin_inset Formula 
+\begin{align*}
+K\chi'_{L} & =0\\
+\left(i\Gamma^{\mu}\Lambda^{\nu}_{\mu}\partial_{\nu}-M\right) & \left(\Lambda_{L}\right)^{\alpha}_{\beta}\left(\chi_{L}\right)_{\alpha}=0\\
+\left(i\Gamma^{\mu}\left(\Lambda_{L}\right)^{\alpha}_{\beta}\left(\Lambda^{-1}\right)^{\nu}_{\mu}\partial_{\nu}-M\left(\Lambda_{L}\right)^{\alpha}_{\beta}\right) & \left(\chi_{L}\right)_{\alpha}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Queremos que 
+\begin_inset Formula 
+\begin{align*}
+K'\chi'_{L} & =0\iff\Lambda_{R}\left(K\chi_{L}\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+\begin_inset Formula 
+\[
+\Lambda_{R}K=K'\Lambda_{L}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+\begin_inset Formula 
+\begin{align*}
+\Gamma^{\mu}\left(\Lambda^{-1}\right)^{\ \nu}_{\mu}\Lambda_{L} & =\Lambda_{R}\Gamma^{\nu}\\
+\Lambda^{-1}_{R}\Gamma^{\mu}\Lambda_{L} & =\Lambda^{\nu}_{\mu}\Gamma^{\mu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tomando a diferencial de ambos os lados temos que
+\begin_inset Formula 
+\[
+\left[G,\Gamma^{\mu}\right]=\left(J_{\sigma\rho}\right)^{\mu}_{\nu}\Gamma^{\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+ Tome as transformações como rotações somente,
+ assim os geradores são iguais
+\begin_inset Formula 
+\begin{align*}
+\left[-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma},\Gamma^{\mu}\right] & =\left(R\right)^{\mu}_{\nu}\Gamma^{\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tomando 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[-\frac{i}{2}\vec{\theta}\cdot\vec{\sigma},\Gamma^{0}\right]=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Isso mostra que
+\begin_inset Formula 
+\[
+\Gamma^{0}=aI
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tomando 
+\begin_inset Formula $\mu=i$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left[\sigma_{k},\Gamma^{i}\right] & =\left(R_{k}\right)^{i}_{\nu}\Gamma^{\nu}\\
+ & =\epsilon_{kij}\Gamma^{j}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Então,
+ esse setor se transforma via um elemento do 
+\begin_inset Formula $\mathfrak{su}(2)$
+\end_inset
+
+,
+ então,
+\begin_inset Formula 
+\[
+\Gamma^{j}=\lambda^{n}\sigma_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=\left(aI,\lambda^{i}\sigma_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tome a expansão infinitesimal apenas nos boosts 
+\begin_inset Formula $\left(K_{R}\right)_{i}=-\frac{i}{2}\sigma_{i},\left(K_{L}\right)_{i}=\frac{i}{2}\sigma_{i}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Lambda^{-1}_{R}\Gamma^{\mu}\Lambda_{L} & =\Lambda^{\nu}_{\mu}\Gamma^{\mu}\\
+i\left(K^{i}_{R}\Gamma^{\mu}-\Gamma^{\mu}K^{i}_{L}\right) & =i\left(K_{i}\right)^{\mu}_{\nu}\Gamma^{\nu}\\
+i\left(-\frac{i}{2}\sigma_{i}\Gamma^{\mu}-\Gamma^{\mu}\frac{i}{2}\sigma_{i}\right) & =i\left(K_{i}\right)^{\mu}_{\nu}\Gamma^{\nu}\\
+\frac{1}{2}\left(\sigma_{i}\Gamma^{\mu}+\Gamma^{\mu}\sigma_{i}\right) & =i\left(K_{i}\right)^{\mu}_{\nu}\Gamma^{\nu}\\
+\frac{1}{2}\left\{ \sigma_{i},\Gamma^{\mu}\right\}  & =i\left(K_{i}\right)^{\mu}_{\nu}\Gamma^{\nu}\\
+\frac{1}{2}\left\{ \sigma_{i},\Gamma^{\mu}\right\}  & =i\left(K_{i}\right)^{\mu}_{\nu}\Gamma^{\nu}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tome 
+\begin_inset Formula $\mu=0$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+a\sigma_{i} & =i-i\delta_{ij}\Gamma^{j}\\
+ & =\Gamma^{i}\\
+ & =b\sigma^{i}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a=b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+\begin_inset Formula 
+\[
+\Gamma^{\mu}=a\left(I,\sigma\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Porntanto,
+ 
+\begin_inset Formula $M=0$
+\end_inset
+
+ e 
+\begin_inset Formula 
+\[
+\sigma^{\mu}p_{\mu}\chi_{L}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Campo de Dirac:
  
@@ -5679,12 +5950,39 @@ A representação de dirac é obtida realizando a soma direta das duas represent
 \end_layout
 
 \begin_layout Standard
+Temos que via a teoria de representações que foram estudadas temos que os geradores nessa representação são dados por
+\begin_inset Formula 
+\[
+S^{0i}=\begin{pmatrix}-\frac{i}{2}\sigma_{i} & 0\\
+0 & i\frac{\sigma_{i}}{2}
+\end{pmatrix},\ S^{ij}=\epsilon^{ij}_{k}\begin{pmatrix}\frac{\sigma_{i}}{2} & 0\\
+0 & \frac{\sigma_{i}}{2}
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Para escrever uma equação covariante de primeira ordem,
  introduzimos matrizes 
 \begin_inset Formula $\gamma^{\mu}$
 \end_inset
 
- satisfazendo a álgebra de Clifford
+ satisfazendo a álgebra de Clifford (condição para que seja uma 
+\begin_inset Quotes eld
+\end_inset
+
+raiz quadrada
+\begin_inset Quotes erd
+\end_inset
+
+ de KGF)
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \left\{ \gamma^{\mu},\gamma^{\nu}\right\} =2\eta^{\mu\nu}I
@@ -5696,7 +5994,11 @@ Para escrever uma equação covariante de primeira ordem,
 \end_layout
 
 \begin_layout Standard
-Na base quiral,
+Na base quiral ( 
+\begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
+\end_inset
+
+ é diagonal),
  podemos tomar
 \begin_inset Formula 
 \[
@@ -5714,7 +6016,7 @@ Na base quiral,
 Os geradores espinorais de Lorentz são
 \begin_inset Formula 
 \[
-S^{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right].
+S^{\mu\nu}=\frac{i}{4}\left[\gamma^{\mu},\gamma^{\nu}\right]
 \]
 
 \end_inset
@@ -5728,7 +6030,7 @@ A massa acopla algebricamente as duas representaçãos de Weyl,
 \begin_inset Formula 
 \begin{align*}
 p_{\mu}\sigma^{\mu}\chi_{R} & =m\chi_{L}\\
-p_{\mu}\bar{\sigma^{\mu}}\chi_{R} & =m\chi_{L}
+p_{\mu}\bar{\sigma^{\mu}}\chi_{L} & =m\chi_{R}
 \end{align*}
 
 \end_inset
@@ -5793,6 +6095,442 @@ No referencial de repouso a representação vetorial se decompõe,
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Abordagem Weinberg
+\end_layout
+
+\begin_layout Standard
+Considere os campos sendo dados por:
+\begin_inset Formula 
+\begin{align*}
+\psi^{+}_{\ell}\left(x\right) & =\sum_{\sigma n}\int d^{3}xu_{\ell}\left(x;\vec{p},\sigma,n\right)a\left(p,\sigma,n\right)\\
+\psi^{-}_{\ell}\left(x\right) & =\sum_{\sigma n}\int d^{3}xv_{\ell}\left(x;\vec{p},\sigma,n\right)a^{\dagger}\left(p,\sigma,n\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A maneira que os campos devem se transformar são impostas por 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:campos-trans"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+tuple "list"
+
+\end_inset
+
+ assim temos que 
+\begin_inset Formula 
+\begin{align*}
+U\left(\Lambda,a\right)\Phi_{\vec{p}_{1}\sigma_{1}n_{1},\vec{p}_{2}\sigma_{2}n_{2}} & =e^{-i\left(\left[\Lambda p_{1}+\Lambda p_{2}+\dots\right]\right)}\\
+\times & \sqrt{\frac{\left(\Lambda p_{1}\right)^{0}\left(\Lambda p_{2}\right)^{0}\dots}{p^{0}_{1}p^{2}_{0}\dots}}\sum_{\sigma_{1},\sigma_{2}\dots}D^{\left(j_{1}\right)}_{\bar{\sigma_{1}}\sigma_{1}}\left(W\left(\Lambda,p_{1}\right)\right)D^{\left(j_{1}\right)}_{\bar{\sigma}_{2}\sigma_{2}}\left(W\left(\Lambda,p_{2}\right)\right)\dots\\
+ & \Phi_{\vec{p_{1}}\sigma_{1}n_{1}\vec{p_{2}}\sigma_{2}n_{2}}\dots
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Em que 
+\begin_inset Formula 
+\[
+W\left(\Lambda,p\right)\equiv L^{-1}\left(\Lambda p\right)\Lambda L\left(p\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Sabe-se
+\begin_inset Quotes erd
+\end_inset
+
+ que 
+\begin_inset Formula 
+\[
+\Phi_{\vec{p_{1}}\sigma_{1}n_{1}\vec{p_{2}}\sigma_{2}n_{2}\dots}=a^{\dagger}\left(\vec{p_{1}}\sigma_{1}n_{1}\right)a^{\dagger}\left(\vec{p_{2}}\sigma_{2}n_{2}\right)\dots\Phi_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+onde 
+\begin_inset Formula $\Phi_{0}$
+\end_inset
+
+ é o estado de vácuo invariante por Lorentz
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)\Phi_{0}=\Phi_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Verifica-se por consistência que os operadores de criação devem se transformar da seguinte forma:
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)a^{\dagger}\left(\vec{p}\sigma n\right)U^{-1}\left(\Lambda,a\right)=e^{-i\left(\Lambda p\right)\cdot\alpha}\sqrt{\frac{\left(\Lambda p\right)^{0}}{p^{0}}}\sum_{\bar{\sigma}}D^{\left(j_{n}\right)*}_{\sigma\bar{\sigma}}\left(W^{-1}\left(\Lambda,p\right)\right)a^{\dagger}\left(\vec{p_{\Lambda}}\bar{\sigma}n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\left(\Lambda,a\right)a\left(\vec{p}\sigma n\right)U^{-1}\left(\Lambda,a\right)=e^{i\left(\Lambda p\right)\cdot\alpha}\sqrt{\frac{\left(\Lambda p\right)^{0}}{p^{0}}}\sum_{\bar{\sigma}}D^{\left(j_{n}\right)}_{\sigma\bar{\sigma}}\left(W^{-1}\left(\Lambda,p\right)\right)a^{\dagger}\left(\vec{p_{\Lambda}}\bar{\sigma}n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considere
+\begin_inset Formula 
+\begin{align*}
+\sum_{\bar{\ell}}D_{\ell\bar{\ell}}\left(\Lambda^{-1}\right)v_{\bar{l}}\left(\Lambda x+b;\vec{p}_{\Lambda},\sigma,n\right) & =\sqrt{\frac{p^{0}}{\left(\Lambda p\right)^{0}}}\times\\
+ & \sum_{\bar{\sigma}}D_{\sigma\bar{\sigma}}\left(W^{-1}\left(\Lambda,p\right)\right)\exp\left(-i\left(\Lambda p\right)\cdot b\right)v_{\ell}\left(x;\vec{p},\sigma,n\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos ter de forma mais conveniente
+\begin_inset Formula 
+\begin{align*}
+\sum_{\sigma}u_{\bar{\ell}}\left(\Lambda x+b;\vec{p}_{\Lambda},\bar{\sigma}\right)D^{\left(j_{n}\right)}_{\bar{\sigma}\sigma}\left(W\left(\Lambda,p\right)\right) & =\sqrt{\frac{p^{0}}{\left(\Lambda p\right)^{0}}}\\
+ & \times\sum_{\ell}D_{\bar{\ell}\ell}\left(\Lambda\right)\exp\left(i\left(\Lambda p\right)\cdot b\right)u_{\ell}\left(x;p,\sigma,n\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ee
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sum_{\sigma}v_{\bar{l}}\left(\Lambda x+b;\vec{p}_{\Lambda},\bar{\sigma}\right)D^{\left(j_{n}\right)*}_{\bar{\sigma}\sigma}\left(W\left(\Lambda,p\right)\right) & =\sqrt{\frac{p^{0}}{\left(\Lambda p\right)^{0}}}\\
+ & \times\sum_{\ell}D_{\bar{\ell}\ell}\left(\Lambda\right)\exp\left(-i\left(\Lambda p\right)\cdot b\right)v_{\ell}\left(x;p,\sigma,n\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Translações
+\end_layout
+
+\begin_layout Standard
+Considere 
+\begin_inset Formula $\Lambda=1$
+\end_inset
+
+ e 
+\begin_inset Formula $b$
+\end_inset
+
+ arbitrário.
+ Temos que os campos base possuem a seguinte forma
+\begin_inset Formula 
+\begin{align*}
+u_{\ell}\left(x,\vec{p},\sigma,n\right) & =\left(2\pi\right)^{-3/2}e^{ip\cdot x}u_{\ell}\left(\vec{p},\sigma,n\right)\\
+v_{\ell}\left(x,\vec{p},\sigma,n\right) & =\left(2\pi\right)^{-3/2}e^{-ip\cdot x}v_{\ell}\left(\vec{p},\sigma,n\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Então os campos são transformadas de Fourier
+\begin_inset Formula 
+\begin{align*}
+\psi^{+}_{\ell}\left(x\right) & =\sum_{\sigma n}\left(2\pi\right)^{-3/2}\int d^{3}p\ u_{\ell}\left(\vec{p},\sigma,n\right)e^{ip\cdot x}a\left(\vec{p},\sigma,n\right)\\
+\psi^{+}_{\ell}\left(x\right) & =\sum_{\sigma n}\left(2\pi\right)^{-3/2}\int d^{3}p\ u_{\ell}\left(\vec{p},\sigma,n\right)e^{ip\cdot x}a\left(\vec{p},\sigma,n\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim temos que
+\begin_inset Formula 
+\[
+\sum_{\bar{\sigma}}u_{\bar{\ell}}\left(\vec{p}_{\Lambda},\bar{\sigma},n\right)D^{\left(j_{n}\right)}_{\bar{\sigma}\sigma}\left(W\left(\Lambda,p\right)\right)=\sqrt{\frac{p^{0}}{\left(\Lambda p\right)^{0}}}\sum_{\ell}D_{\bar{\ell}\ell}\left(\Lambda\right)u_{\ell}\left(\vec{p},\sigma,n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e
+\begin_inset Formula 
+\[
+\sum_{\bar{\sigma}}v_{\bar{\ell}}\left(\vec{p}_{\Lambda},\bar{\sigma},n\right)D^{\left(j_{n}\right)}_{\bar{\sigma}\sigma}\left(W\left(\Lambda,p\right)\right)=\sqrt{\frac{p^{0}}{\left(\Lambda p\right)^{0}}}\sum_{\ell}D_{\bar{\ell}\ell}\left(\Lambda\right)v_{\ell}\left(\vec{p},\sigma,n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Boosts
+\end_layout
+
+\begin_layout Standard
+Tome 
+\begin_inset Formula $\vec{p}=0$
+\end_inset
+
+ e seja 
+\begin_inset Formula $\Lambda=L(q)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W=L^{-1}\left(\Lambda p\right)\Lambda L\left(p\right)=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nesse caso temos que
+\begin_inset Formula 
+\[
+u_{\bar{\ell}}\left(\vec{q},\sigma,n\right)=\left(m/q^{0}\right)^{1/2}\sum_{\ell}D_{\bar{\ell}\ell}\left(L(q)\right)u_{\ell}\left(0,\sigma,n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e
+\begin_inset Formula 
+\[
+v_{\bar{\ell}}\left(\vec{q},\sigma,n\right)=\left(m/q^{0}\right)^{1/2}\sum_{\ell}D_{\bar{\ell}\ell}\left(L(q)\right)v_{\ell}\left(0,\sigma,n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Rotações
+\end_layout
+
+\begin_layout Standard
+Tome 
+\begin_inset Formula $\vec{p}=0$
+\end_inset
+
+,
+ e seja 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ tal que 
+\begin_inset Formula $\vec{p}_{\Lambda}=0$
+\end_inset
+
+,
+ ou seja,
+ é uma rotação e o grupo de isotropia é
+\begin_inset Formula 
+\[
+\sum_{\bar{\sigma}}u_{\bar{\ell}}\left(0,\bar{\sigma},n\right)D^{\left(j_{n}\right)}_{\bar{\sigma}\sigma}\left(R\right)=\sum_{\ell}D_{\bar{\ell}\ell}\left(R\right)u_{\ell}\left(0,\sigma,n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e
+\begin_inset Formula 
+\[
+\sum_{\bar{\sigma}}v_{\bar{\ell}}\left(0,\bar{\sigma},n\right)D^{\left(j_{n}\right)*}_{\bar{\sigma}\sigma}\left(R\right)=\sum_{\ell}D_{\bar{\ell}\ell}\left(R\right)u_{\ell}\left(0,\sigma,n\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equivalentemente,
+ indo para a álgebra
+\begin_inset Formula 
+\begin{align*}
+\sum_{\bar{\sigma}}u_{\bar{\ell}}\left(0,\bar{\sigma},n\right)J^{\left(j_{n}\right)}_{\bar{\sigma}\sigma} & =\sum_{\ell}\mathcal{J_{\bar{\ell}\ell}}u_{\ell}\left(0,\sigma,n\right)\\
+\sum_{\bar{\sigma}}u_{\bar{\ell}}\left(0,\bar{\sigma},n\right)J^{\left(j_{n}\right)*}_{\bar{\sigma}\sigma}= & -\sum_{\ell}\mathcal{J_{\bar{\ell}\ell}}u_{\ell}\left(0,\sigma,n\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Campo escalar causal
+\end_layout
+
+\begin_layout Standard
+Considere o caso de que os campos criam e aniquilam apenas um tipo de partícula.
+ Temos que quando a representação do grupo de Lorentz é dada por
+\begin_inset Formula 
+\[
+D\left(\Lambda\right)=\hat{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Temos uma representação trivial dos campos 
+\begin_inset Formula $\mathcal{J}=0$
+\end_inset
+
+.
+ Assim busca-se as representações com 
+\begin_inset Formula $j$
+\end_inset
+
+ que satisfazem tal equação.
+ Vemos que isso implica que 
+\begin_inset Formula $J=0$
+\end_inset
+
+.
+ Assim temos que 
+\begin_inset Formula $j=0$
+\end_inset
+
+ e o campos escalar descreve partículas somente com spin nulo.
+ Assim temos que 
+\begin_inset Formula $u(0),v(0)$
+\end_inset
+
+ são apenas números e tomamos eles como 
+\begin_inset Formula $\left(2m\right)^{-1/2}$
+\end_inset
+
+.
+ Assim
+\begin_inset Formula 
+\begin{align*}
+u(\vec{p}) & =\left(2p^{0}\right)^{-1/2}\\
+v\left(\vec{p}\right) & =\left(2p^{0}\right)^{-1/2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim os campos são
+\begin_inset Formula 
+\begin{align*}
+\phi^{+} & \left(x\right)=\int d^{3}p\frac{1}{\left(2\pi\right)^{-1/2}}\frac{1}{\left(2p^{0}\right)^{-1/2}}a\left(\vec{p}\right)e^{ip\cdot x},\\
+\phi^{+}\left(x\right)= & \int d^{3}p\frac{1}{\left(2\pi\right)^{-1/2}}\frac{1}{\left(2p^{0}\right)^{-1/2}}a^{\dagger}\left(\vec{p}\right)e^{-ip\cdot x}=\phi^{+\dagger}\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considere
+\begin_inset Formula 
+\begin{align*}
+\left[\phi⁺\left(x\right),\phi^{-}\left(y\right)\right]_{\mp} & =\int\frac{d^{3}pd^{3}p'}{\left(2\pi\right)^{3}\left(2p^{0}\cdot2p'^{0}\right)^{1/2}}e^{ipx}e^{-ip'y}\delta\left(p-p'\right)\\
+ & =\int\frac{d^{3}pd^{3}p'}{\left(2\pi\right)^{3}\left(2p^{0}\cdot2p'^{0}\right)^{1/2}}e^{ip\left(x-y\right)x}\\
+ & =\Delta_{+}\left(x-y\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Agora tome a combinação linear,
+ quando fizermos a comutação (anticomutação) temos
+\begin_inset Formula 
+\begin{align*}
+\left[\phi(x),\phi^{\dagger}\left(y\right)\right]_{\mp} & =\left(|\kappa|^{2}\mp|\lambda|^{2}\right)\Delta_{+}\left(x-y\right)\\
+\left[\phi(x),\phi\left(y\right)\right]_{\mp} & =\kappa\lambda\left(1\mp1\right)\Delta_{+}\left(x-y\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ essas quantidades são nulas para bósons e se 
+\begin_inset Formula $\kappa,\lambda$
+\end_inset
+
+ são iguais em magnitude.
 \end_layout
 
 \end_body
