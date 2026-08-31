@@ -5955,7 +5955,7 @@ Temos que via a teoria de representações que foram estudadas temos que os gera
 \[
 S^{0i}=\begin{pmatrix}-\frac{i}{2}\sigma_{i} & 0\\
 0 & i\frac{\sigma_{i}}{2}
-\end{pmatrix},\ S^{ij}=\epsilon^{ij}_{k}\begin{pmatrix}\frac{\sigma_{i}}{2} & 0\\
+\end{pmatrix},\ \ S^{ij}=\epsilon^{ij}_{k}\begin{pmatrix}\frac{\sigma_{i}}{2} & 0\\
 0 & \frac{\sigma_{i}}{2}
 \end{pmatrix}
 \]
@@ -5994,7 +5994,7 @@ raiz quadrada
 \end_layout
 
 \begin_layout Standard
-Na base quiral ( 
+Na base quiral ( em que 
 \begin_inset Formula $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$
 \end_inset
 
@@ -6002,8 +6002,8 @@ Na base quiral (
  podemos tomar
 \begin_inset Formula 
 \[
-\gamma^{\mu}=\begin{pmatrix}0 & \sigma^{\mu}\\
-\bar{\sigma}^{\mu} & 0
+\gamma^{\mu}=\begin{pmatrix}0 & \bar{\sigma}^{\mu}\\
+\sigma^{\mu} & 0
 \end{pmatrix}
 \]
 
@@ -6433,7 +6433,7 @@ Considere o caso de que os campos criam e aniquilam apenas um tipo de partícula
  Temos que quando a representação do grupo de Lorentz é dada por
 \begin_inset Formula 
 \[
-D\left(\Lambda\right)=\hat{1}
+D\left(\Lambda\right)=dsa
 \]
 
 \end_inset

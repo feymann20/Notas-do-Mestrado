@@ -6433,7 +6433,7 @@ Considere o caso de que os campos criam e aniquilam apenas um tipo de partícula
  Temos que quando a representação do grupo de Lorentz é dada por
 \begin_inset Formula 
 \[
-D\left(\Lambda\right)=\hat{1}
+D\left(\Lambda\right)=1
 \]
 
 \end_inset
