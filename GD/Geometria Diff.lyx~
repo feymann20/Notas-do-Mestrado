@@ -8,8 +8,8 @@
 \begin_preamble
 \usepackage{newtxtext}
 \usepackage{newtxmath}   % carregar DEPOIS de amsmath/amssymb
-   % \mathscr -> 𝒜(O), ℋ, 𝒟 (o script do artigo)
-\usepackage{dsfont}      % \mathds{1} -> operador identidade 𝟙
+\usepackage{mathrsfs}    % \mathscr (o script do artigo)
+\usepackage{dsfont}      % \mathds
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -1311,6 +1311,443 @@ roman*)
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Seja 
+\begin_inset Formula $X,Y,Z$
+\end_inset
+
+ campos vetorias suaves em uma variedade com conexão afim 
+\begin_inset Formula $\nabla$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+A torsão 
+\begin_inset Formula $T\left(X,Y\right)$
+\end_inset
+
+ é linear com o anel em 
+\begin_inset Formula $X$
+\end_inset
+
+ e em 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+A curvatura 
+\begin_inset Formula $R\left(X,Y\right)Z$
+\end_inset
+
+ é linear com o canel em 
+\begin_inset Formula $X,Y,Z$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+R\left(fX,Y\right)Z=\nabla_{fX}\nabla_{Y}Z-\nabla_{Y}\nabla_{fX}Z-\nabla_{\left[fX,Y\right]}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O primeiro termo é
+\begin_inset Formula 
+\[
+\nabla_{fX}\nabla_{Y}Z=f\nabla_{X}\nabla_{Y}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O segundo termo é
+\begin_inset Formula 
+\[
+\nabla_{Y}\left(f\nabla_{X}Z\right)=\left(Yf\right)\nabla_{X}Z+f\nabla_{Y}\nabla_{X}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Verifica-se que
+\begin_inset Formula 
+\begin{align*}
+\left[fX,Y\right] & =fXY-Y\left(fX\right)=fXY-Y\left(f\right)X-fYX\\
+ & =f\left[X,Y\right]-\left(Yf\right)X
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Portanto,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\left[fX,Y\right]}Z=\nabla_{f\left[X,Y\right]}Z-\left(Yf\right)\nabla_{X}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim
+\begin_inset Formula 
+\[
+R\left(fX,Y\right)Z=f\nabla_{X}\nabla_{Y}Z-\left(Yf\right)\nabla_{X}Z-f\nabla_{Y}\nabla_{X}Z-\nabla_{f\left[X,Y\right]}Z+\left(Yf\right)\nabla_{X}Z
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Logo,
+ é linear no anel.
+ Como o tensor é antissimétrico em 
+\begin_inset Formula $X,Y$
+\end_inset
+
+ temos que ele é linear nas duas entradas.
+\end_layout
+
+\begin_layout Subsection
+A conexão Rieamanniana
+\end_layout
+
+\begin_layout Section
+Fibrados Vetoriais
+\end_layout
+
+\begin_layout Standard
+Dado um subconjunto 
+\begin_inset Formula $U\subset M$
+\end_inset
+
+ da variedade,
+ pode-se tomar 
+\begin_inset Formula $U\times\mathbb{R}^{k}$
+\end_inset
+
+ com uma fámilia de espaços vetoriais parametrizados por pontos em U.
+ Com essa noção podemos tentar construir a seguinte estrutura diferenciável.
+\end_layout
+
+\begin_layout Definition
+Seja 
+\begin_inset Formula $E,M$
+\end_inset
+
+ variedades diferencíaveis e suponha que exista um mapa sobrejetor 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ 
+\begin_inset Formula $\pi:E\to M$
+\end_inset
+
+ a tripla 
+\begin_inset Formula $\left(E,M,\pi\right)$
+\end_inset
+
+ é dito um fibrado vetorial se satisfazer:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall p\in M,\ E_{p}:=\pi^{-1}\left(p\right)$
+\end_inset
+
+ é um espaço vetorialde rank 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\forall p\in M\ ,\exists U\subset M$
+\end_inset
+
+;
+\begin_inset Formula 
+\[
+\phi_{U}:\pi^{-1}\left(U\right)\to U\times\mathbb{R}^{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+é um difeomorfismo que quando restrigindo a um elemento 
+\begin_inset Formula $p\in U$
+\end_inset
+
+ temos um isomorfismo linear.
+ 
+\end_layout
+
+\begin_layout Standard
+O espaço 
+\begin_inset Formula $E$
+\end_inset
+
+ é dito espaço total,
+ o espaço 
+\begin_inset Formula $M$
+\end_inset
+
+ é dito espaço base,
+ e 
+\begin_inset Formula $E_{p}$
+\end_inset
+
+ é dito fibra acima do ponto p do fibrado vetorial.
+ Chamamos 
+\begin_inset Formula $U$
+\end_inset
+
+ de um conjunto aberto trivializante do fibrado vetorial e o mapa 
+\begin_inset Formula $\phi_{U}$
+\end_inset
+
+ uma trivialização e 
+\begin_inset Formula $\pi^{-1}\left(U\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Uma cobertura aberta de trivalizantes é uma cobertura aberta 
+\begin_inset Formula $\left\{ U_{\alpha}\right\} _{\alpha\in\Lambda}$
+\end_inset
+
+ de 
+\begin_inset Formula $M;\forall\alpha\in\Lambda,\ U_{\alpha}$
+\end_inset
+
+ é um conjunto de abertos trivializantes,
+ juntamente com os 
+\begin_inset Formula $\Phi_{\alpha}$
+\end_inset
+
+ trivializadores.
+\end_layout
+
+\begin_layout Example*
+Se 
+\begin_inset Formula $V$
+\end_inset
+
+ é um espaço vetorial de dimensão 
+\begin_inset Formula $r$
+\end_inset
+
+ então a projeção 
+\begin_inset Formula $\pi:M\times V\to M$
+\end_inset
+
+ é um fibrado vetorial de rank 
+\begin_inset Formula $r$
+\end_inset
+
+,
+ chamado de produto fibrado.
+ Via a projeção 
+\begin_inset Formula $\pi:S^{1}\times\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ o cilindro é um fibrado vetorial.
+\end_layout
+
+\begin_layout Standard
+Assim podemos denotar um fibrado vetorial da seguinte forma
+\begin_inset Formula 
+\[
+\left(\pi,E,M,F\right)\ F\cong E_{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $F$
+\end_inset
+
+ é uma variedade diferenciável isomorfa a todas as outras fibras ao longo dos pontos.
+ Por isso,
+ é chamado de fibra típica.
+\end_layout
+
+\begin_layout Definition
+Sejam 
+\begin_inset Formula $\pi_{E}:E\to M$
+\end_inset
+
+ e 
+\begin_inset Formula $\pi_{F}:F\to N$
+\end_inset
+
+ 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ fibrados vetoriais.
+ Um 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ bundle map de 
+\begin_inset Formula $E$
+\end_inset
+
+ a 
+\begin_inset Formula $F$
+\end_inset
+
+ é um par de mapas infinitamente diferencíaveis 
+\begin_inset Formula $\varphi:E\to F,\bar{\varphi}:M\to N$
+\end_inset
+
+ tal que 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\pi_{E}\circ\bar{\varphi}^{-1}=\pi_{F}\circ\varphi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\varphi$
+\end_inset
+
+ se restrige a um mapa linear entre as fibras para todo ponto em 
+\begin_inset Formula $M$
+\end_inset
+
+ 
+\begin_inset Formula $\varphi_{p}:E_{p}\to F_{\varphi(p)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se existe um mapa 
+\begin_inset Formula $\psi\circ\varphi=id_{E}$
+\end_inset
+
+ e 
+\begin_inset Formula $\varphi\circ\psi=id_{F}$
+\end_inset
+
+ então é dito que 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ é um isomorfismo de fibrados sobre 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Um fibrado vetorial 
+\begin_inset Formula $\pi:E\to M$
+\end_inset
+
+ é dito ser trivial se é isomorfo a um fibrado produto 
+\begin_inset Formula $\left(M\times\mathbb{R}^{r},M,\pi,\mathbb{R}^{r}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+Se 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ é um mapa 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ de variedades diferenciáeveis então a diferenciação define um mapa entre fibrados 
+\begin_inset Formula $f_{*}:TM\to TN$
+\end_inset
+
+ definido por
+\begin_inset Formula 
+\[
+f_{*}(p,v)=\left(f(p),f_{*,p}\left(v\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+ou em outra notação 
+\begin_inset Formula 
+\[
+\left(df\right)\left(p,v\right)=\left(f(p),\left(df\right)_{p}\left(v\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
 
 \end_layout
 
